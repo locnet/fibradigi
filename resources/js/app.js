@@ -16,6 +16,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('app-main-menu', require('./components/layouts/MainMenu.vue'));
 
 const app = new Vue({
     el: '#app'

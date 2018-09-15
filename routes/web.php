@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('fibra/fibra_index');
 });
+
+Route::get('/fibra-digimobil', 'Fibra\MainController@index');
+
+Route::get('/home', 'HomeController@index')->name('home');
