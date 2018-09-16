@@ -17,4 +17,3 @@ Route::get('/', function () {
 
 Route::get('/fibra-digimobil', 'Fibra\MainController@index');
 
-Route::get('/home', 'HomeController@index')->name('home');

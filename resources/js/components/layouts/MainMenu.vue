@@ -19,7 +19,7 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <i class="fas fa-plane-departure"></i>
+                        <i class="fas fa-globe"></i>
                         <a v-bind:href="homeUrl" class="nav-link">FIBRA</a>
                     </li>
                     <li class="nav-item">

@@ -47577,7 +47577,7 @@ var render = function() {
             _vm._v(" "),
             _c("ul", { staticClass: "navbar-nav ml-auto" }, [
               _c("li", { staticClass: "nav-item" }, [
-                _c("i", { staticClass: "fas fa-plane-departure" }),
+                _c("i", { staticClass: "fas fa-globe" }),
                 _vm._v(" "),
                 _c(
                   "a",

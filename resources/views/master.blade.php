@@ -25,7 +25,7 @@
         <!-- Vue component MainMenu -->
         <app-main-menu
             main-url="{{ url('/') }}"
-            home-url="{{ url('/home') }}"
+            home-url="{{ url('/') }}"
             hotel-url="{{ url('/hotel') }}"
             booking-url="{{ url('/booking') }}"
             checking-url="{{ url('/checking') }}"
