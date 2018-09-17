@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel  nav-pils nav-fill">
         <div class="container">
             <a class="navbar-brand" v-bind:href="mainUrl">
-                <img src="http://www.romfly.com/images/romfly_logo.png" alt="bilete ieftine de avion">
+                FIBRA DIGI MOBIL
             </a>
             <button class="navbar-toggler align-items-center" type="button" 
             data-toggle="collapse" data-target="#navbarSupportedContent" 
@@ -15,7 +15,6 @@
                 <ul class="navbar-nav mr-auto">
 
                 </ul>
-
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -49,30 +48,12 @@ export default {
         }
     },
     methods: {
-        /* cada seccion tiene el menu superior de un color diferente, 
-        * esta funcion se encarga de cambiar el color del menu.
-        * El parametro menuColor lleva la informacion del color que deseamos.
-        * Como es dificil entender de donde viene el parametro, aqui esta la explicacion:
-        * Cada metodo de un controlador que carga una vista pasa un parametro con el color que 
-        * queremos para el menu. El parametro se recupera en master.blade.php y se pasa
-        * al componente app-menu-component.
-        */
-        setMenuBackgroundColor() {
-            return {
-                'blue-menu': this.menuColor=='blue',
-                'purple-menu': this.menuColor=='purple',
-                'green-menu': this.menuColor=='green',
-                'grey-menu': this.menuColor=='grey',
-                'red-menu': this.menuColor=='red'
-            }
-        }
+        
     },
     beforeMount() {
-        this.setMenuBackgroundColor();
+       
     },
     mounted() {
-        console.log(this.setMenuBackgroundColor());
-        console.log('active link: ' + this.menuColor);
     }
 }
 </script>

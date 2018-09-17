@@ -47503,7 +47503,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['mainUrl', 'homeUrl', 'hotelUrl', 'bookingUrl', 'checkingUrl', 'contactUrl'],
@@ -47511,32 +47510,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {};
     },
 
-    methods: {
-        /* cada seccion tiene el menu superior de un color diferente, 
-        * esta funcion se encarga de cambiar el color del menu.
-        * El parametro menuColor lleva la informacion del color que deseamos.
-        * Como es dificil entender de donde viene el parametro, aqui esta la explicacion:
-        * Cada metodo de un controlador que carga una vista pasa un parametro con el color que 
-        * queremos para el menu. El parametro se recupera en master.blade.php y se pasa
-        * al componente app-menu-component.
-        */
-        setMenuBackgroundColor: function setMenuBackgroundColor() {
-            return {
-                'blue-menu': this.menuColor == 'blue',
-                'purple-menu': this.menuColor == 'purple',
-                'green-menu': this.menuColor == 'green',
-                'grey-menu': this.menuColor == 'grey',
-                'red-menu': this.menuColor == 'red'
-            };
-        }
-    },
-    beforeMount: function beforeMount() {
-        this.setMenuBackgroundColor();
-    },
-    mounted: function mounted() {
-        console.log(this.setMenuBackgroundColor());
-        console.log('active link: ' + this.menuColor);
-    }
+    methods: {},
+    beforeMount: function beforeMount() {},
+    mounted: function mounted() {}
 });
 
 /***/ }),
@@ -47556,12 +47532,7 @@ var render = function() {
     [
       _c("div", { staticClass: "container" }, [
         _c("a", { staticClass: "navbar-brand", attrs: { href: _vm.mainUrl } }, [
-          _c("img", {
-            attrs: {
-              src: "http://www.romfly.com/images/romfly_logo.png",
-              alt: "bilete ieftine de avion"
-            }
-          })
+          _vm._v("\n            FIBRA DIGI MOBIL\n        ")
         ]),
         _vm._v(" "),
         _vm._m(0),

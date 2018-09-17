@@ -20,7 +20,7 @@ infraestructura de Movistar.')
 				 estara disponible para todo el mundo. Apuntate a nuestra lista y te llamaremos cuando 
 					esta disponible para ti.</h3>
 				<p class="text-center">
-					<a href="{{ url('/fibra-digimobil') }}">
+					<a href="#suscribe">
 						<button class="btn btn-warning btn-lg">
 							QUIERO PREINSCRIBIRME
 						</button></a>
@@ -34,8 +34,8 @@ infraestructura de Movistar.')
 		<div class="row">
 			<div class="h-50"></div>
 			<div class="col-12">
-				<h1 class="big w-600 text-center blue">
-					Nuestro lema: "LO QUE VES ES LO QUE HAY"
+				<h1 class="extra-big w-600 text-center blue">
+					"LO QUE VES ES LO QUE HAY"
 				</h1>
 				<p class="big ral w-100">No tenemos letra pequeña en nuestros productos. Si 
 					te decimos que el Digi Combo cuesta 20€/mes es realmente lo que cuesta: 
@@ -56,5 +56,71 @@ infraestructura de Movistar.')
 			<div class="h-50"></div>
 		</div>
 	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="big blue text-center w-300">
+					Formulario preinscripcion
+				</h2>
+			</div>
+			<div class="col-12">
+				<form id="suscribe">
+					<div class="form-row">
+						<div class="col-md-4 col-xs-12">
+							<label for="inlineFormInputGroup">Nombre</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fas fa-user"></i>
+									</div>
+								</div>
+								<input type="text" class="form-control" placeholder="Nombre">
+							</div>
+						</div>
+					
+						<div class="col-md-4 col-xs-12">
+							<label for="inlineFormInputGroup">Telefono</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fas fa-phone"></i>
+									</div>
+								</div>
+								<input type="text" class="form-control" placeholder="Telefono">
+							</div>
+						</div>
+
+						<div class="col-md-4 col-xs-12">
+							<label for="inlineFormInputGroup">Localidad</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fas fa-location-arrow"></i>
+									</div>
+								</div>
+								<input type="text" class="form-control" placeholder="Localidad">
+							</div>
+						</div>
+						<div class="h-30"></div>
+						<div class="col-12">
+							<p class="text-center">
+							<button type="sumbit" class="col-xs-12 btn-lg btn-primary">INSCRIBIRME</button>
+						</p>
+						</div>
+					</div>
+					
+
+				</form>
+			</div>
+		</div>
+	</div>
 </section>
+@endsection
+
+@section('custom_js')
+<script>
+	var scroll = new SmoothScroll('a[href*="#"]',{
+		speed:1000,
+	});
+</script>
 @endsection
