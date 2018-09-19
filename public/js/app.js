@@ -47806,12 +47806,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['first_name', 'phone', 'email', 'city', 'errors'],
+	props: ['first_name', 'phone', 'email', 'postal_code', 'errors'],
 	data: function data() {
 		return {
 			hasErrors: JSON.parse(this.errors),
@@ -47821,7 +47818,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		};
 	},
 	created: function created() {
-		console.log(this.hasErrors.email);
+		console.log(this.hasErrors.postal_code);
 	}
 });
 
@@ -47889,25 +47886,19 @@ var render = function() {
           _c("input", {
             class: [
               _vm.formControl,
-              { "is-invalid": _vm.hasErrors.city !== undefined }
+              { "is-invalid": _vm.hasErrors.postal_code !== undefined }
             ],
             attrs: {
               type: "number",
-              pattern: "[0-9]",
-              title: "Solo digitos",
+              pattern: "[0-9",
+              title: "Codigo postal, solo digitos",
               maxlength: "5",
-              name: "city",
+              name: "postal_code",
               placeholder: "Codigo postal",
               required: ""
             },
-            domProps: { value: _vm.city }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "invalid-feedback" }, [
-            _vm._v(
-              "\n\t\t\t        \tIntroduzca un codigo postal\n\t\t\t        "
-            )
-          ])
+            domProps: { value: _vm.postal_code }
+          })
         ])
       ])
     ]),

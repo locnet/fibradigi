@@ -18,15 +18,16 @@ class MainController extends Controller
         $validatedData = $this->validate($request,[
             'first_name' =>    'required',
             'phone' => 'required',
-            'city' => 'required',
-            'email' => 'required'
+            'postal_code' => 'required',
+            'email' => 'required',
+            'confirm_email' => 'required'
         ]);
 
         // datos para insertar en la base de datos
         $data = [
         	'first_name' => $request->first_name,
         	'phone' => $request->phone,
-        	'city' => $request->city,
+        	'postal_code' => $request->city,
         	'email' => $request->email
         ];
         return $data;

@@ -18,6 +18,7 @@ class CreateListsTable extends Migration
             $table->string('first_name');
             $table->string('email');
             $table->string('phone',13);
+            $table->string('postal_code');
             $table->timestamps();
         });
     }

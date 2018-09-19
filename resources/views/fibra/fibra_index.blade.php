@@ -39,7 +39,7 @@ infraestructura de Movistar.')
 					<app-form-lista-espera
 						first_name="{{ old('first_name') }}"
 						phone = "{{ old('phone') }}"
-						city = "{{ old('city') }}"
+						postal_code = "{{ old('postal_code') }}"
 						email = "{{ old('email') }}"
 						errors = "{{ $errors }}">
 

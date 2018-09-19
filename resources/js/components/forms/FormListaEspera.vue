@@ -45,19 +45,16 @@
 							<i class="fas fa-map-marker-alt"></i>
 						</div>
 					</div>
-					<input type="number"
-							pattern="[0-9]"
-							title="Solo digitos"
-							maxlength=5 
+				
+					<input type="number" 
+							pattern="[0-9"
+							title="Codigo postal, solo digitos"
+							maxlength=5
 							v-bind:class="[formControl,
-                        		{'is-invalid': hasErrors.city !== undefined }]"
-							name="city"
-							v-bind:value="city"
-							placeholder="Codigo postal" required>
-
-					<div class="invalid-feedback">
-			        	Introduzca un codigo postal
-			        </div>
+								{'is-invalid': hasErrors.postal_code !== undefined }]"
+							name="postal_code"
+							v-bind:value="postal_code"
+							placeholder="Codigo postal" required />
 				</div>
 			</div>
 		</div>
@@ -111,7 +108,7 @@
 
 <script>
 export default {
-	props:['first_name','phone','email','city','errors'],
+	props:['first_name','phone','email','postal_code','errors'],
 	data() {
 		return {
 			hasErrors: JSON.parse(this.errors),
@@ -121,7 +118,7 @@ export default {
 		}
 	},
 	created() {
-		console.log(this.hasErrors.email);
+		console.log(this.hasErrors.postal_code);
 	}
 };
 </script>
