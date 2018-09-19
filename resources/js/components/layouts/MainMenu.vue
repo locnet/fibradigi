@@ -18,12 +18,16 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <i class="fas fa-globe"></i>
+                        <i class="fas fa-home"></i>
                         <a v-bind:href="homeUrl" class="nav-link">FIBRA</a>
                     </li>
                     <li class="nav-item">
                         <i class="fas fa-mobile-alt"></i>
                         <a v-bind:href="hotelUrl" class="nav-link">MOVIL</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-home"></i> + <i class="fas fa-mobile-alt"></i>
+                        <a v-bind:href="hotelUrl" class="nav-link">FIBRA + MOVIL</a>
                     </li>
                     <li class="nav-item">
                         <i class="fas fa-wrench"></i>

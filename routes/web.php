@@ -15,5 +15,5 @@ Route::get('/', function () {
     return view('fibra/fibra_index');
 });
 
-Route::get('/fibra-digimobil', 'Fibra\MainController@index');
+Route::post('/fibra/lista-espera', 'Fibra\MainController@store');
 
