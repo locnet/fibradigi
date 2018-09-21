@@ -1,6 +1,10 @@
 <template>
 	<div>
-		<div class="form-row">	
+		<div class="form-row">
+			<p class="yellow">{{ confirm_email}}
+			</p>
+		</div>
+		<div class="form-row">
 			
 			<div class="col-md-4 col-xs-12">
 				<label for="phone">Nombre</label>
@@ -51,9 +55,9 @@
 							title="Codigo postal, solo digitos"
 							maxlength=5
 							v-bind:class="[formControl,
-								{'is-invalid': hasErrors.postal_code !== undefined }]"
-							name="postal_code"
-							v-bind:value="postal_code"
+								{'is-invalid': hasErrors.post_code !== undefined }]"
+							name="post_code"
+							v-bind:value="post_code"
 							placeholder="Codigo postal" required />
 				</div>
 			</div>
@@ -88,7 +92,8 @@
 							name="confirm_email"
 							v-bind:class="[formControl,
                         		{'is-invalid': hasErrors.confirm_email !== undefined }]"
-							v-bind:value="confirm_email" 
+							v-bind:value="confirm_email"
+							v-on:keyup="checkEmail"
 							placeholder="Confirma correo" required>
 				</div>
 			</div>
@@ -108,17 +113,24 @@
 
 <script>
 export default {
-	props:['first_name','phone','email','postal_code','errors'],
+	props:['first_name','phone','email','confirm_email','post_code','errors'],
 	data() {
 		return {
 			hasErrors: JSON.parse(this.errors),
 			formControl: 'form-control',
 			inputGroup: 'input-group',
-			confirm_email: ''
+			validate_errors: [],
+			validate_email: this.confirm_email
+
+		}
+	},
+	methods: {
+		checkEmail: function(e) {
+			console.log(e.confirm_email);
 		}
 	},
 	created() {
-		console.log(this.hasErrors.postal_code);
+		console.log(this.hasErrors.post_code);
 	}
 };
 </script>

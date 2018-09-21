@@ -47806,19 +47806,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['first_name', 'phone', 'email', 'postal_code', 'errors'],
+	props: ['first_name', 'phone', 'email', 'confirm_email', 'post_code', 'errors'],
 	data: function data() {
 		return {
 			hasErrors: JSON.parse(this.errors),
 			formControl: 'form-control',
 			inputGroup: 'input-group',
-			confirm_email: ''
+			validate_errors: [],
+			validate_email: this.confirm_email
+
 		};
 	},
+
+	methods: {
+		checkEmail: function checkEmail(e) {
+			console.log(e.confirm_email);
+		}
+	},
 	created: function created() {
-		console.log(this.hasErrors.postal_code);
+		console.log(this.hasErrors.post_code);
 	}
 });
 
@@ -47831,6 +47844,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("div", { staticClass: "form-row" }, [
+      _c("p", { staticClass: "yellow" }, [
+        _vm._v(_vm._s(_vm.confirm_email) + "\n\t\t\t")
+      ])
+    ]),
+    _vm._v(" "),
     _c("div", { staticClass: "form-row" }, [
       _c("div", { staticClass: "col-md-4 col-xs-12" }, [
         _c("label", { attrs: { for: "phone" } }, [_vm._v("Nombre")]),
@@ -47886,18 +47905,18 @@ var render = function() {
           _c("input", {
             class: [
               _vm.formControl,
-              { "is-invalid": _vm.hasErrors.postal_code !== undefined }
+              { "is-invalid": _vm.hasErrors.post_code !== undefined }
             ],
             attrs: {
               type: "number",
               pattern: "[0-9",
               title: "Codigo postal, solo digitos",
               maxlength: "5",
-              name: "postal_code",
+              name: "post_code",
               placeholder: "Codigo postal",
               required: ""
             },
-            domProps: { value: _vm.postal_code }
+            domProps: { value: _vm.post_code }
           })
         ])
       ])
@@ -47947,7 +47966,8 @@ var render = function() {
               placeholder: "Confirma correo",
               required: ""
             },
-            domProps: { value: _vm.confirm_email }
+            domProps: { value: _vm.confirm_email },
+            on: { keyup: _vm.checkEmail }
           })
         ])
       ])

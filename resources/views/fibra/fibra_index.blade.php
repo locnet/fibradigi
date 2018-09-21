@@ -32,15 +32,16 @@ infraestructura de Movistar.')
 			<div class="col-md-8 col-xs-12 offset-md-2">	
 				
 				<form id="suscribe" action="{{ url('/fibra/lista-espera') }}" method="POST"
-						class="needs-validation" novalidate>
+						class="needs-validation"  novalidate>
 					{{ csrf_field() }}
 									
 					<!-- vue component -->
 					<app-form-lista-espera
 						first_name="{{ old('first_name') }}"
 						phone = "{{ old('phone') }}"
-						postal_code = "{{ old('postal_code') }}"
+						post_code = "{{ old('post_code') }}"
 						email = "{{ old('email') }}"
+						cofirm_email = "{{ old('confirm_email') }}"
 						errors = "{{ $errors }}">
 
 					</app-form-lista-espera>
