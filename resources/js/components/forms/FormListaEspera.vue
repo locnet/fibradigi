@@ -76,8 +76,8 @@
 							name="email"
 							v-bind:class="[formControl,
                         		{'is-invalid': hasErrors.email !== undefined }]"
-							v-bind:value="email"
-							placeholder="Correo" required>
+							v-model="first_email"
+							placeholder="Correo" required />
 				</div>
 			</div>
 			<div class="col-md-6 col-xs-12">
@@ -92,15 +92,18 @@
 							name="confirm_email"
 							v-bind:class="[formControl,
                         		{'is-invalid': hasErrors.confirm_email !== undefined }]"
-							v-bind:value="confirm_email"
+							v-model="second_email"
 							v-on:keyup="checkEmail"
-							placeholder="Confirma correo" required>
+							placeholder="Confirma correo" required />
+
+					
 				</div>
+				<div>
+         				<p class="yellow">{{ error_message }}</p>
+        			</div>
 			</div>
 		</div>
-
 		<div class="h-30"></div> <!-- separador -->
-
 		<div class="col-12">
 			<p class="text-center">
 				<button class="btn btn-warning btn-lg" type="submit">
@@ -119,14 +122,18 @@ export default {
 			hasErrors: JSON.parse(this.errors),
 			formControl: 'form-control',
 			inputGroup: 'input-group',
-			validate_errors: [],
-			validate_email: this.confirm_email
-
+			first_email: this.email,
+			second_email: this.confirm_email,
+			error_message: ''
 		}
 	},
 	methods: {
 		checkEmail: function(e) {
-			console.log(e.confirm_email);
+			if (this.first_email != this.second_email) {
+				this.error_message = "El correo electronico nu coincide";
+			} else {
+				this.error_message = "¡Estupendo!";
+			}
 		}
 	},
 	created() {

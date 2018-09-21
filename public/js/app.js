@@ -47811,6 +47811,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['first_name', 'phone', 'email', 'confirm_email', 'post_code', 'errors'],
@@ -47819,15 +47822,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			hasErrors: JSON.parse(this.errors),
 			formControl: 'form-control',
 			inputGroup: 'input-group',
-			validate_errors: [],
-			validate_email: this.confirm_email
-
+			first_email: this.email,
+			second_email: this.confirm_email,
+			error_message: ''
 		};
 	},
 
 	methods: {
 		checkEmail: function checkEmail(e) {
-			console.log(e.confirm_email);
+			if (this.first_email != this.second_email) {
+				this.error_message = "El correo electronico nu coincide";
+			} else {
+				this.error_message = "¡Estupendo!";
+			}
 		}
 	},
 	created: function created() {
@@ -47932,6 +47939,14 @@ var render = function() {
           _vm._m(3),
           _vm._v(" "),
           _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.first_email,
+                expression: "first_email"
+              }
+            ],
             class: [
               _vm.formControl,
               { "is-invalid": _vm.hasErrors.email !== undefined }
@@ -47942,7 +47957,15 @@ var render = function() {
               placeholder: "Correo",
               required: ""
             },
-            domProps: { value: _vm.email }
+            domProps: { value: _vm.first_email },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.first_email = $event.target.value
+              }
+            }
           })
         ])
       ]),
@@ -47956,6 +47979,14 @@ var render = function() {
           _vm._m(4),
           _vm._v(" "),
           _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.second_email,
+                expression: "second_email"
+              }
+            ],
             class: [
               _vm.formControl,
               { "is-invalid": _vm.hasErrors.confirm_email !== undefined }
@@ -47966,9 +47997,23 @@ var render = function() {
               placeholder: "Confirma correo",
               required: ""
             },
-            domProps: { value: _vm.confirm_email },
-            on: { keyup: _vm.checkEmail }
+            domProps: { value: _vm.second_email },
+            on: {
+              keyup: _vm.checkEmail,
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.second_email = $event.target.value
+              }
+            }
           })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("p", { staticClass: "yellow" }, [
+            _vm._v(_vm._s(_vm.error_message))
+          ])
         ])
       ])
     ]),

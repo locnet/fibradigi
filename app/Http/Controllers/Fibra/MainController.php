@@ -33,7 +33,7 @@ class MainController extends Controller
             'phone' => 'required',
             'post_code' => 'required',
             'email' => 'required | email',
-            'confirm_email' => 'required | email | same:email'
+            'confirm_email' => 'required | email '
         ]);
 
         // datos para insertar en la base de datos
