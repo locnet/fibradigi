@@ -49,7 +49,14 @@ class MainController extends Controller
         }
 
         if ($client = $this->client->firstOrCreate(['email' => $data['email']],$data)) {
-        	return "guardat in baza de date";
+        	// preparo el mensaje para la view success_message
+        	$message = [ 'title' => '¡Gracias '.ucfirst($client->first_name).'!',
+        				'body' => 'Estas muy cerca de entrar en la maravillosa comunidad de la fibra Digi.
+        				En poco tiempo recibiras una llamada de nuestra parte donde te explicaremos 
+        				todos los detalles sobre nuestra fibra.',
+        				'footer' => 'Nos vemos online.'
+        				];
+        	return view('success_message',compact('message')); 
         } else {
         	return "error";
         }

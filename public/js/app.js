@@ -47836,9 +47836,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				this.error_message = "¡Estupendo!";
 			}
 		}
-	},
-	created: function created() {
-		console.log(this.hasErrors.post_code);
 	}
 });
 

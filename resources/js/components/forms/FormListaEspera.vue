@@ -135,9 +135,6 @@ export default {
 				this.error_message = "¡Estupendo!";
 			}
 		}
-	},
-	created() {
-		console.log(this.hasErrors.post_code);
 	}
 };
 </script>
