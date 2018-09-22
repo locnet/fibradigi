@@ -47901,7 +47901,9 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-4 col-xs-12" }, [
-        _c("label", { attrs: { for: "city" } }, [_vm._v("Codigo postal")]),
+        _c("label", { staticClass: "xs-hidden", attrs: { for: "city" } }, [
+          _vm._v("Codigo postal")
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "input-group" }, [
           _vm._m(2),

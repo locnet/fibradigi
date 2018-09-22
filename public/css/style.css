@@ -236,6 +236,11 @@ label {
     .floating-box-card:last-child {
         margin-bottom: 15px;
     }
+
+    /**************FORMS***************/
+    #suscribe {
+        background-color: #1f2f54;
+    }
 }
 
 @media (max-width: 768px) {}

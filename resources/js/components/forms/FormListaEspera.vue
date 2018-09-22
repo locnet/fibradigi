@@ -42,7 +42,7 @@
 			</div>
 
 			<div class="col-md-4 col-xs-12">
-				<label for="city">Codigo postal</label>
+				<label for="city" class="xs-hidden">Codigo postal</label>
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<div class="input-group-text">

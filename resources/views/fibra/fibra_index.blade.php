@@ -20,18 +20,18 @@ infraestructura de Movistar.')
 			<div class="col-12">
 				<div class="h-30"></div><!-- separador -->
 				<h2 class="text-center big ral w-600 white">
-					500Mb por solo <span class="yellow">30€/mes</span>
-					<span class="small">IVA incluido / permanencia 12 meses</span>
+					500Mb <span class="yellow">30€/mes</span>
+					<span class="small d-none d-sm-block">IVA incluido / permanencia 12 meses</span>
 				</h2>
 				<h2 class="text-center big ral w-600 white">
 					30Mb - <span class="yellow">25€/mes</span> 
-					<span class="small">IVA incluido / permanencia 12 meses</span>
+					<span class="small d-none d-sm-block">IVA incluido / permanencia 12 meses</span>
 				</h2>
 			</div>
 			
-			<div class="col-md-8 col-xs-12 offset-md-2">	
+			<div id="suscribe" class="col-md-8 col-xs-12 offset-md-2">	
 				
-				<form id="suscribe" action="{{ url('/fibra/lista-espera') }}" method="POST"
+				<form  action="{{ url('/fibra/lista-espera') }}" method="POST"
 						class="needs-validation"  novalidate>
 					{{ csrf_field() }}
 									
@@ -72,12 +72,17 @@ infraestructura de Movistar.')
 		</div>
 	</div>
 	<div class="container">
-		<div class="row">
+		<div class="row align-items-center">
 			<div class="col-12">
-				
+				<h2 class="big w-600 text-center blue">Caracteristicas fibra Digi</h2>
 			</div>
-			
-
+			<div class="h-30"></div><!--separador-->
+			<div class="col">
+				<h2>fibra 500</h2>
+			</div>
+			<div class="col">
+				<h2>fibra 30</h2>
+			</div>
 		</div>
 	</div>
 </section>
