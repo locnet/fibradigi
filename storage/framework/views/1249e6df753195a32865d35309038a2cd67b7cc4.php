@@ -19,11 +19,11 @@ infraestructura de Movistar.'); ?>
 				<div class="h-30"></div><!-- separador -->
 				<h2 class="text-center big ral w-600 white">
 					500Mb <span class="yellow">30€/mes</span>
-					<span class="small d-none d-sm-block">IVA incluido / permanencia 12 meses</span>
+					<span class="small">IVA incluido / permanencia 12 meses</span>
 				</h2>
 				<h2 class="text-center big ral w-600 white">
 					30Mb - <span class="yellow">25€/mes</span> 
-					<span class="small d-none d-sm-block">IVA incluido / permanencia 12 meses</span>
+					<span class="small">IVA incluido / permanencia 12 meses</span>
 				</h2>
 			</div>
 			
@@ -55,7 +55,7 @@ infraestructura de Movistar.'); ?>
 			<div class="h-50"></div>
 			<div class="col-12">
 				<h1 class="big w-600 text-center blue">
-					"LO QUE VES ES LO QUE HAY"
+					#LO QUE VES ES LO QUE HAY
 				</h1>
 				<p class="big ral w-100">No tenemos letra pequeña en nuestros productos. Si 
 					te decimos que la Fibra Digi 500Mb cuesta 30€/mes es realmente lo que cuesta: 
@@ -73,14 +73,50 @@ infraestructura de Movistar.'); ?>
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-12">
-				<h2 class="big w-600 text-center blue">Caracteristicas fibra Digi</h2>
+				<h1 class="big w-600 text-center blue">CARACTERISTICAS DE NUESTRA FIBRA</h1>
 			</div>
+
 			<div class="h-30"></div><!--separador-->
-			<div class="col">
-				<h2>fibra 500</h2>
+
+			<div class="col-md-6 col-xs-12">
+				<div class="card text-white bg-primary w-80 text-center">
+					<div class="card-header">
+						<h2 class="w-600">FIBRA 500Mb</h2>
+					</div>
+					<div class="card-body">
+						<p class="card-text"><i class="fas fa-euro-sign"></i>
+							30 euros al mes, IVA incluido.
+						<p class="card-text"><i class="fas fa-rocket"></i> 
+							500Mb de subida y bajada.</p>
+						<p class="card-text"><i class="fas fa-wifi"></i>
+							Router wi-fi incluido</p>
+						<p class="card-text"><i class="fas fa-cogs"></i>
+							Instalacion gratuita.</p>
+						<p class="card-text"><i class="fas fa-info-circle"></i>
+							Precio para siempre. Permanencia 12 meses.</p>
+					</div>
+				</div>
 			</div>
-			<div class="col">
-				<h2>fibra 30</h2>
+			<div class="h-30 d-block d-sm-none"></div> <!-- separador, solo para moviles -->
+
+			<div class="col-md-6 col-xs-12">
+				<div class="card text-white bg-primary w-80 text-center">
+					<div class="card-header">
+						<h2 class="w-600">FIBRA 30Mb</h2>
+					</div>
+					<div class="card-body">
+						<p class="card-text"><i class="fas fa-euro-sign"></i>
+							25 euros al mes, IVA incluido.
+						<p class="card-text"><i class="fas fa-rocket"></i> 
+							30Mb de subida y bajada.</p>
+						<p class="card-text"><i class="fas fa-wifi"></i>
+							Router wi-fi incluido.</p>
+						<p class="card-text"><i class="fas fa-cogs"></i>
+							Instalacion gratuita</p>
+						<p class="card-text"><i class="fas fa-info-circle"></i>
+							Precio para siempre. Permanencia 12 meses.</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

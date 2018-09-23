@@ -28,8 +28,8 @@
         <app-main-menu
             main-url="{{ url('/') }}"
             home-url="{{ url('/') }}"
-            hotel-url="{{ url('/hotel') }}"
-            booking-url="{{ url('/booking') }}"
+            digipack-url="{{ url('/paquete-fibra-mas-movil') }}"
+            movil-url="{{ url('/booking') }}"
             checking-url="{{ url('/checking') }}"
             contact-url="{{ url('/contact') }}">              
         </app-main-menu>
@@ -39,6 +39,9 @@
             @yield('content')
         </main>
     </div>
+    <footer style="background-color: #009df9; height: 300px">
+
+    </footer>
     @yield('custom_js')
     
 </body>

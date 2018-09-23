@@ -47508,9 +47508,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['mainUrl', 'homeUrl', 'hotelUrl', 'bookingUrl', 'checkingUrl', 'contactUrl'],
+    props: ['mainUrl', 'homeUrl', 'digipackUrl', 'movilUrl', 'bookingUrl', 'checkingUrl', 'contactUrl'],
     data: function data() {
         return {};
     },
@@ -47567,19 +47569,21 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "a",
-                  { staticClass: "nav-link", attrs: { href: _vm.hotelUrl } },
+                  { staticClass: "nav-link", attrs: { href: _vm.movilUrl } },
                   [_vm._v("MOVIL")]
                 )
               ]),
               _vm._v(" "),
               _c("li", { staticClass: "nav-item" }, [
                 _c("i", { staticClass: "fas fa-home" }),
-                _vm._v(" + "),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
                 _c("i", { staticClass: "fas fa-mobile-alt" }),
                 _vm._v(" "),
                 _c(
                   "a",
-                  { staticClass: "nav-link", attrs: { href: _vm.hotelUrl } },
+                  { staticClass: "nav-link", attrs: { href: _vm.digipackUrl } },
                   [_vm._v("FIBRA + MOVIL")]
                 )
               ]),
@@ -47634,6 +47638,12 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("small", [_c("i", { staticClass: "fas fa-plus" })])
   }
 ]
 render._withStripped = true

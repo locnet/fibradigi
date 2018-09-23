@@ -23,11 +23,13 @@
                     </li>
                     <li class="nav-item">
                         <i class="fas fa-mobile-alt"></i>
-                        <a v-bind:href="hotelUrl" class="nav-link">MOVIL</a>
+                        <a v-bind:href="movilUrl" class="nav-link">MOVIL</a>
                     </li>
                     <li class="nav-item">
-                        <i class="fas fa-home"></i> + <i class="fas fa-mobile-alt"></i>
-                        <a v-bind:href="hotelUrl" class="nav-link">FIBRA + MOVIL</a>
+                        <i class="fas fa-home"></i> 
+                        <small><i class="fas fa-plus"></i></small>
+                        <i class="fas fa-mobile-alt"></i>
+                        <a v-bind:href="digipackUrl" class="nav-link">FIBRA + MOVIL</a>
                     </li>
                     <li class="nav-item">
                         <i class="fas fa-wrench"></i>
@@ -45,7 +47,7 @@
 
 <script>
 export default {
-    props: ['mainUrl','homeUrl','hotelUrl','bookingUrl','checkingUrl','contactUrl'],
+    props: ['mainUrl','homeUrl','digipackUrl','movilUrl','bookingUrl','checkingUrl','contactUrl'],
     data() {
         return {            
             

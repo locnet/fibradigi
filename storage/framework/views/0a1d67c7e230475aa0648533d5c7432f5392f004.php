@@ -28,8 +28,8 @@
         <app-main-menu
             main-url="<?php echo e(url('/')); ?>"
             home-url="<?php echo e(url('/')); ?>"
-            hotel-url="<?php echo e(url('/hotel')); ?>"
-            booking-url="<?php echo e(url('/booking')); ?>"
+            digipack-url="<?php echo e(url('/paquete-fibra-mas-movil')); ?>"
+            movil-url="<?php echo e(url('/booking')); ?>"
             checking-url="<?php echo e(url('/checking')); ?>"
             contact-url="<?php echo e(url('/contact')); ?>">              
         </app-main-menu>
@@ -39,6 +39,9 @@
             <?php echo $__env->yieldContent('content'); ?>
         </main>
     </div>
+    <footer style="background-color: #009df9; height: 300px">
+
+    </footer>
     <?php echo $__env->yieldContent('custom_js'); ?>
     
 </body>
