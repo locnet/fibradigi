@@ -18,6 +18,8 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('app-main-menu', require('./components/layouts/MainMenu.vue'));
 Vue.component('app-form-lista-espera', require('./components/forms/FormListaEspera.vue'));
+//digiPack component
+Vue.component('app-digi-pack-menu',require('./components/layouts/DigiPackMenu.vue'));
 
 const app = new Vue({
     el: '#app'

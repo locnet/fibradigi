@@ -142,38 +142,18 @@ label {
     padding: 70px 0 30px 0;
 }
 
-.city-info {
-    min-height: 250px;
+/***************** TARIFAS DIGI *************/
+.combo5 {
+    background-color: #009df9;
 }
-
-.floating-box {
-    margin: -60px 0 40px 0;
-    background-color: #02af53;
-    padding: 30px 10px 0 10px;
+.combo10 {
+    background-color: #f90067;
 }
-
-.floating-box-card {
-    margin: 30px 0px 15px 15px;
-    padding: 20px;
-    background-color: #ffffff;
+.combo15 {
+    background-color: #139c03;
 }
-
-.floating-box-card:last-child {
-    margin-right: 15px;
-}
-
-.floating-box-card img {
-    min-height: 40px;
-}
-
-.oferta {
-    padding: 20px 0;
-    margin-top: 30px;
-    color: #fde614;
-}
-.oferta h3 {
-
-    line-height: 1.5em;
+.combo20{
+    background-color: #f7b90a;
 }
 
 /*------------SEPARATORS------------*/
@@ -203,14 +183,18 @@ label {
 @media (max-width: 576px) {
     /************** FONTS FOR SMALL DEVICES ****************/
     .extra-big {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
     .big {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+    .medium {
+        font-size: 1.5rem;
     }
     .small {
-        font-size:1rem;
+        font-size:0.75rem;
     }
+
     /*********** NAV ************/
     ul.navbar-nav {
         background-color: #A47CA4d4;

@@ -14015,6 +14015,8 @@ window.Vue = __webpack_require__(37);
 Vue.component('example-component', __webpack_require__(40));
 Vue.component('app-main-menu', __webpack_require__(43));
 Vue.component('app-form-lista-espera', __webpack_require__(46));
+//digiPack component
+Vue.component('app-digi-pack-menu', __webpack_require__(54));
 
 var app = new Vue({
   el: '#app'
@@ -48112,6 +48114,799 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(55)
+/* template */
+var __vue_template__ = __webpack_require__(56)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/layouts/DigiPackMenu.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-397c7490", Component.options)
+  } else {
+    hotAPI.reload("data-v-397c7490", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 55 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {
+			activeLayout: false,
+			activeFiber: false,
+			activeCombo: false
+		};
+	},
+
+	methods: {
+		checkActive: function checkActive(id) {
+			if (this.activeLayout == 'internacional') {
+				if (this.activeFiber == 'digi500' && id == 'internacional500') {
+					return true;
+				} else if (this.activeFiber == 'digi30' && id == 'internacional30') {
+					return true;
+				}
+			} else if (this.activeLayout == 'nacional') {
+				if (this.activeFiber == 'digi500' && id == 'nacional500') {
+					return true;
+				} else if (this.activeFiber == 'digi30' && id == 'nacional30') {
+					return true;
+				}
+			}
+			return false;
+		},
+		setFiber: function setFiber(type) {
+			this.activeFiber = type;
+			console.log('fiber: ' + this.activeFiber);
+		},
+		setActive: function setActive(id) {
+			this.activeLayout = id;
+			console.log('active layout: ' + id);
+		}
+	}
+});
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row", attrs: { id: "showPacks" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-6 text-center" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary btn-lg",
+          staticStyle: { width: "100%" },
+          on: {
+            click: function($event) {
+              _vm.setFiber("digi500")
+            }
+          }
+        },
+        [
+          _c("h3", { staticClass: "w-600 yellow" }, [
+            _vm._v("FIBRA 500Mb - 30€")
+          ])
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-6 text-center" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary btn-lg",
+          staticStyle: { width: "100%" },
+          on: {
+            click: function($event) {
+              _vm.setFiber("digi30")
+            }
+          }
+        },
+        [
+          _c("h3", { staticClass: "w-600 yellow" }, [
+            _vm._v("FIBRA 30Mb - 25€")
+          ])
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "h-20" }),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-6 text-center" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary btn-lg",
+          staticStyle: { width: "100%" },
+          on: {
+            click: function($event) {
+              _vm.setActive("internacional")
+            }
+          }
+        },
+        [
+          _c("h3", { staticClass: "w-600 yellow" }, [
+            _vm._v("LLAMADAS INTERNACIONALES")
+          ])
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-6 text-center" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary btn-lg",
+          staticStyle: { width: "100%" },
+          on: {
+            click: function($event) {
+              _vm.setActive("nacional")
+            }
+          }
+        },
+        [
+          _c("h3", { staticClass: "w-600 yellow" }, [
+            _vm._v("LAMADAS NACIONALES")
+          ])
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "h-30" }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.checkActive("internacional500"),
+            expression: "checkActive('internacional500')"
+          }
+        ],
+        staticClass: "col-12"
+      },
+      [_vm._m(2)]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.checkActive("internacional30"),
+            expression: "checkActive('internacional30')"
+          }
+        ],
+        staticClass: "col-12"
+      },
+      [_vm._m(3)]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.checkActive("nacional500"),
+            expression: "checkActive('nacional500')"
+          }
+        ],
+        staticClass: "col-12"
+      },
+      [_vm._m(4)]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.checkActive("nacional30"),
+            expression: "checkActive('nacional30')"
+          }
+        ],
+        staticClass: "col-12"
+      },
+      [_vm._m(5)]
+    ),
+    _vm._v(" "),
+    _vm._m(6)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [
+      _c("h2", { staticClass: "big w-600 blue text-center" }, [
+        _vm._v("Elige un producto de fibra Digi...")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [
+      _c("h2", { staticClass: "w-300 blue text-center" }, [
+        _vm._v(
+          "...y combinalo con cualquier producto de telefonia \n\t\tmovil Digi."
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("table", { staticClass: "table animated fadeIn" }, [
+      _c("thead", { staticClass: "blue" }, [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("COMBINACION")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [
+          _vm._v("MINUTOS INTERNACIONALES")
+        ]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("INTERNET MOVIL")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [
+          _vm._v("LLAMADAS DE DIGI A DIGI")
+        ]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("PRECIO FINAL")])
+      ]),
+      _vm._v(" "),
+      _c("tbody", [
+        _c("tr", { staticClass: "combo5 white" }, [
+          _c("td", [_vm._v("Fibra 500Mb + Combo5")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("100 minutos")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("2Gb internet velocidad 4G")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitadas")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("32€ al mes")])
+        ]),
+        _vm._v(" "),
+        _c("tr", { staticClass: "combo10 white" }, [
+          _c("td", [_vm._v("Fibra 500Mb + Combo10")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("400 minutos")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("6Gb internet velocidad 4G")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitadas")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("36€ al mes")])
+        ]),
+        _vm._v(" "),
+        _c("tr", { staticClass: "combo15 white" }, [
+          _c("td", [_vm._v("Fibra 500Mb + Combo15")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("800 minutos")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("12Gb internet velocidad 4G")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitadas")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("39€ al mes")])
+        ]),
+        _vm._v(" "),
+        _c("tr", { staticClass: "combo20 white" }, [
+          _c("td", [_vm._v("Fibra 500Mb + Combo20")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("2000 minutos")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("40Gb internet velocidad 4G")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitadas")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("42€ al mes")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("table", { staticClass: "table animated fadeIn" }, [
+      _c("thead", { staticClass: "blue" }, [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("COMBINACION")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [
+          _vm._v("MINUTOS INTERNACIONALES")
+        ]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("INTERNET MOVIL")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [
+          _vm._v("LLAMADAS DE DIGI A DIGI")
+        ]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("PRECIO FINAL")])
+      ]),
+      _vm._v(" "),
+      _c("tbody", [
+        _c("tr", { staticClass: "combo5 white" }, [
+          _c("td", [_vm._v("Fibra 30Mb + Combo 5")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("100 minutos")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("2Gb internet velocidad 4G")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitadas")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("27€ al mes")])
+        ]),
+        _vm._v(" "),
+        _c("tr", { staticClass: "combo10 white" }, [
+          _c("td", [_vm._v("Fibra 30Mb + Combo 10")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("400 minutos")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("6Gb internet velocidad 4G")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitadas")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("31€ al mes")])
+        ]),
+        _vm._v(" "),
+        _c("tr", { staticClass: "combo15 white" }, [
+          _c("td", [_vm._v("Fibra 30Mb + Combo 15")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("800 minutos")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("12Gb internet velocidad 4G")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitadas")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("34€ al mes")])
+        ]),
+        _vm._v(" "),
+        _c("tr", { staticClass: "combo20 white" }, [
+          _c("td", [_vm._v("Fibra 30Mb + Combo 20")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("2000 minutos")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("40Gb internet velocidad 4G")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitadas")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("37€ al mes")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("table", { staticClass: "table animated fadeIn" }, [
+      _c("thead", { staticClass: "blue" }, [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("COMBINACION")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("MINUTOS NACIONALES")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("INTERNET MOVIL")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [
+          _vm._v("LLAMADAS DE DIGI A DIGI")
+        ]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("PRECIO FINAL")])
+      ]),
+      _vm._v(" "),
+      _c("tbody", [
+        _c("tr", { staticClass: "combo5 white" }, [
+          _c("td", [_vm._v("Fibra 500Mb + Mini")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("100 minutos")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("2Gb internet velocidad 4G")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitadas")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("32€ al mes")])
+        ]),
+        _vm._v(" "),
+        _c("tr", { staticClass: "combo10 white" }, [
+          _c("td", [_vm._v("Fibra 500Mb + Ilimitado10")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitados")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("6Gb internet velocidad 4G")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitadas")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("36€ al mes")])
+        ]),
+        _vm._v(" "),
+        _c("tr", { staticClass: "combo15 white" }, [
+          _c("td", [_vm._v("Fibra 500Mb + Ilimitado15")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitados")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("12Gb internet velocidad 4G")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitadas")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("39€ al mes")])
+        ]),
+        _vm._v(" "),
+        _c("tr", { staticClass: "combo20 white" }, [
+          _c("td", [_vm._v("Fibra 500Mb + Ilimitado20")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitados")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("40Gb internet velocidad 4G")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitadas")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("42€ al mes")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("table", { staticClass: "table animated fadeIn" }, [
+      _c("thead", { staticClass: "blue" }, [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("COMBINACION")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("MINUTOS NACIONALES")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("INTERNET MOVIL")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [
+          _vm._v("LLAMADAS DE DIGI A DIGI")
+        ]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("PRECIO FINAL")])
+      ]),
+      _vm._v(" "),
+      _c("tbody", [
+        _c("tr", { staticClass: "combo5 white" }, [
+          _c("td", [_vm._v("Fibra 30Mb + Mini3")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("100 minutos")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("1Gb internet velocidad 4G")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitadas")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("27€ al mes")])
+        ]),
+        _vm._v(" "),
+        _c("tr", { staticClass: "combo10 white" }, [
+          _c("td", [_vm._v("Fibra 30Mb + Ilimitado10")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitados")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("6Gb internet velocidad 4G")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitadas")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("31€ al mes")])
+        ]),
+        _vm._v(" "),
+        _c("tr", { staticClass: "combo15 white" }, [
+          _c("td", [_vm._v("Fibra 30Mb + Combo 15")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("800 minutos")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("12Gb internet velocidad 4G")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitadas")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("34€ al mes")])
+        ]),
+        _vm._v(" "),
+        _c("tr", { staticClass: "combo20 white" }, [
+          _c("td", [_vm._v("Fibra 30Mb + Combo 20")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("2000 minutos")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("40Gb internet velocidad 4G")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Ilimitadas")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("37€ al mes")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [
+      _c("h3", { staticClass: "w-400 ral blue" }, [
+        _vm._v("Puedes combinar hasta cuatro lineas de movil con tu fibra.")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-397c7490", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
