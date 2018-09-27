@@ -402,110 +402,6 @@ module.exports = g;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(22);
-
-var DEFAULT_CONTENT_TYPE = {
-  'Content-Type': 'application/x-www-form-urlencoded'
-};
-
-function setContentTypeIfUnset(headers, value) {
-  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
-    headers['Content-Type'] = value;
-  }
-}
-
-function getDefaultAdapter() {
-  var adapter;
-  if (typeof XMLHttpRequest !== 'undefined') {
-    // For browsers use XHR adapter
-    adapter = __webpack_require__(8);
-  } else if (typeof process !== 'undefined') {
-    // For node use HTTP adapter
-    adapter = __webpack_require__(8);
-  }
-  return adapter;
-}
-
-var defaults = {
-  adapter: getDefaultAdapter(),
-
-  transformRequest: [function transformRequest(data, headers) {
-    normalizeHeaderName(headers, 'Content-Type');
-    if (utils.isFormData(data) ||
-      utils.isArrayBuffer(data) ||
-      utils.isBuffer(data) ||
-      utils.isStream(data) ||
-      utils.isFile(data) ||
-      utils.isBlob(data)
-    ) {
-      return data;
-    }
-    if (utils.isArrayBufferView(data)) {
-      return data.buffer;
-    }
-    if (utils.isURLSearchParams(data)) {
-      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
-      return data.toString();
-    }
-    if (utils.isObject(data)) {
-      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
-      return JSON.stringify(data);
-    }
-    return data;
-  }],
-
-  transformResponse: [function transformResponse(data) {
-    /*eslint no-param-reassign:0*/
-    if (typeof data === 'string') {
-      try {
-        data = JSON.parse(data);
-      } catch (e) { /* Ignore */ }
-    }
-    return data;
-  }],
-
-  /**
-   * A timeout in milliseconds to abort a request. If set to 0 (default) a
-   * timeout is not created.
-   */
-  timeout: 0,
-
-  xsrfCookieName: 'XSRF-TOKEN',
-  xsrfHeaderName: 'X-XSRF-TOKEN',
-
-  maxContentLength: -1,
-
-  validateStatus: function validateStatus(status) {
-    return status >= 200 && status < 300;
-  }
-};
-
-defaults.headers = {
-  common: {
-    'Accept': 'application/json, text/plain, */*'
-  }
-};
-
-utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
-  defaults.headers[method] = {};
-});
-
-utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
-  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
-});
-
-module.exports = defaults;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -612,6 +508,110 @@ module.exports = function normalizeComponent (
   }
 }
 
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+var utils = __webpack_require__(0);
+var normalizeHeaderName = __webpack_require__(22);
+
+var DEFAULT_CONTENT_TYPE = {
+  'Content-Type': 'application/x-www-form-urlencoded'
+};
+
+function setContentTypeIfUnset(headers, value) {
+  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+    headers['Content-Type'] = value;
+  }
+}
+
+function getDefaultAdapter() {
+  var adapter;
+  if (typeof XMLHttpRequest !== 'undefined') {
+    // For browsers use XHR adapter
+    adapter = __webpack_require__(8);
+  } else if (typeof process !== 'undefined') {
+    // For node use HTTP adapter
+    adapter = __webpack_require__(8);
+  }
+  return adapter;
+}
+
+var defaults = {
+  adapter: getDefaultAdapter(),
+
+  transformRequest: [function transformRequest(data, headers) {
+    normalizeHeaderName(headers, 'Content-Type');
+    if (utils.isFormData(data) ||
+      utils.isArrayBuffer(data) ||
+      utils.isBuffer(data) ||
+      utils.isStream(data) ||
+      utils.isFile(data) ||
+      utils.isBlob(data)
+    ) {
+      return data;
+    }
+    if (utils.isArrayBufferView(data)) {
+      return data.buffer;
+    }
+    if (utils.isURLSearchParams(data)) {
+      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+      return data.toString();
+    }
+    if (utils.isObject(data)) {
+      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
+      return JSON.stringify(data);
+    }
+    return data;
+  }],
+
+  transformResponse: [function transformResponse(data) {
+    /*eslint no-param-reassign:0*/
+    if (typeof data === 'string') {
+      try {
+        data = JSON.parse(data);
+      } catch (e) { /* Ignore */ }
+    }
+    return data;
+  }],
+
+  /**
+   * A timeout in milliseconds to abort a request. If set to 0 (default) a
+   * timeout is not created.
+   */
+  timeout: 0,
+
+  xsrfCookieName: 'XSRF-TOKEN',
+  xsrfHeaderName: 'X-XSRF-TOKEN',
+
+  maxContentLength: -1,
+
+  validateStatus: function validateStatus(status) {
+    return status >= 200 && status < 300;
+  }
+};
+
+defaults.headers = {
+  common: {
+    'Accept': 'application/json, text/plain, */*'
+  }
+};
+
+utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+  defaults.headers[method] = {};
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+});
+
+module.exports = defaults;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
 /* 4 */
@@ -13988,7 +13988,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(49);
+module.exports = __webpack_require__(55);
 
 
 /***/ }),
@@ -14015,8 +14015,9 @@ window.Vue = __webpack_require__(37);
 Vue.component('example-component', __webpack_require__(40));
 Vue.component('app-main-menu', __webpack_require__(43));
 Vue.component('app-form-lista-espera', __webpack_require__(46));
+Vue.component('app-calculadora', __webpack_require__(49));
 //digiPack component
-Vue.component('app-digi-pack-menu', __webpack_require__(54));
+Vue.component('app-digi-pack-menu', __webpack_require__(52));
 
 var app = new Vue({
   el: '#app'
@@ -35192,7 +35193,7 @@ module.exports = __webpack_require__(19);
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(6);
 var Axios = __webpack_require__(21);
-var defaults = __webpack_require__(2);
+var defaults = __webpack_require__(3);
 
 /**
  * Create an instance of Axios
@@ -35275,7 +35276,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(2);
+var defaults = __webpack_require__(3);
 var utils = __webpack_require__(0);
 var InterceptorManager = __webpack_require__(30);
 var dispatchRequest = __webpack_require__(31);
@@ -35814,7 +35815,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(32);
 var isCancel = __webpack_require__(10);
-var defaults = __webpack_require__(2);
+var defaults = __webpack_require__(3);
 var isAbsoluteURL = __webpack_require__(33);
 var combineURLs = __webpack_require__(34);
 
@@ -47298,7 +47299,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(41)
 /* template */
@@ -47417,7 +47418,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(44)
 /* template */
@@ -47662,7 +47663,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(47)
 /* template */
@@ -48111,24 +48112,1786 @@ if (false) {
 
 /***/ }),
 /* 49 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(55)
+var __vue_script__ = __webpack_require__(50)
 /* template */
-var __vue_template__ = __webpack_require__(56)
+var __vue_template__ = __webpack_require__(51)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/layouts/Calculadora.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-446b728e", Component.options)
+  } else {
+    hotAPI.reload("data-v-446b728e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {
+			activeType: '',
+			combo5counter: 0,
+			combo10counter: 0,
+			combo15counter: 0,
+			combo20counter: 0,
+			miniCounter: 0,
+			i5counter: 0,
+			i10counter: 0,
+			i15counter: 0,
+			i20counter: 0,
+			nav5counter: 0,
+			nav10counter: 0,
+			totalCounter: 0,
+			phone: 0,
+			totalPrice: 0
+		};
+	},
+
+	methods: {
+		setType: function setType(type) {
+			this.activeType = type;
+			console.log("bingo");
+		},
+		checkIfVisible: function checkIfVisible(comboCounter) {
+			return comboCounter > 0;
+		},
+		getTotal: function getTotal() {
+			// precio total
+			var t = 0;
+
+			// total servicios que cuestan 2 €, tarifa MINI
+			if (this.miniCounter > 0) {
+				t += this.miniCounter * 2;
+			}
+
+			// total servicios que cuestan 3€, combo 5 y navega 2gb
+			var y = this.combo5counter + this.nav5counter;
+			if (y > 0) {
+				t += y * 3;
+			}
+
+			// sumo todos los servicios que cuestan 6 €, combo 10, ilimitado 10 y navega 5gb
+			var x = this.combo10counter + this.i10counter + this.nav10counter;
+			if (x > 0) {
+				t += x * 6;
+			}
+
+			// servicios que cuestan 9€ 
+			var z = this.combo15counter + this.i15counter;
+			if (z > 0) {
+				t += z * 9;
+			}
+
+			// servicio que cuestan 12€
+			var w = this.combo20counter + this.i20counter;
+			if (w > 0) {
+				t += w * 12;
+			}
+
+			// precio telefonia fija
+			if (this.phone > 0) {
+				t += parseInt(this.phone);
+			}
+			this.totalPrice = t;
+			return t + this.activeType;
+		},
+		resetAll: function resetAll() {
+			this.combo5counter = 0;
+			this.combo10counter = 0;
+			this.combo15counter = 0;
+			this.combo20counter = 0;
+			this.i10counter = 0;
+			this.i15counter = 0;
+			this.i20counter = 0;
+			this.miniCounter = 0;
+			this.nav5counter = 0;
+			this.nav10counter = 0;
+			this.phone = 0;
+			this.activeType = 0;
+		}
+	}
+
+});
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row", attrs: { id: "showPacks" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-6 col-xs-12 pointer" }, [
+      _c(
+        "div",
+        {
+          staticClass: "card text-white bg-primary w-80 text-center",
+          on: {
+            click: function($event) {
+              _vm.setType(30)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "card-header" }, [
+            _c("h2", { staticClass: "w-600" }, [
+              _vm._v("FIBRA 500Mb \n\t\t\t\t\t\t"),
+              _c("i", {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.activeType == 30,
+                    expression: "activeType == 30"
+                  }
+                ],
+                staticClass: "fas fa-check-circle yellow"
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "h-30 d-block d-sm-none" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-6 col-xs-12 pointer" }, [
+      _c(
+        "div",
+        {
+          staticClass: "card text-white bg-primary w-80 text-center",
+          on: {
+            click: function($event) {
+              _vm.setType(25)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "card-header" }, [
+            _c("h2", { staticClass: "w-600" }, [
+              _vm._v("FIBRA 30Mb\n\t\t\t\t\t"),
+              _c("i", {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.activeType == 25,
+                    expression: "activeType == 25"
+                  }
+                ],
+                staticClass: "fas fa-check-circle yellow"
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(2)
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "h-20" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-12" }, [
+      _c(
+        "h2",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.activeType,
+              expression: "activeType"
+            }
+          ],
+          staticClass: "w-300 blue"
+        },
+        [
+          _vm._v("Has seleccionado la \n\t\t\t"),
+          _c("span", { staticClass: "w-600 big" }, [
+            _vm._v(
+              "Fibra Digi de " + _vm._s(_vm.activeType == 30 ? "500Mb" : "30Mb")
+            )
+          ]),
+          _vm._v(
+            ".\n\t\t\tPara que empieze la magia combinala con cualquier producto de telefonia movil Digi.\n\t\t\tPuedes asociar hasta 4 productos diferentes junto con la fibra."
+          )
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "h-30" }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.activeType,
+            expression: "activeType"
+          }
+        ],
+        staticClass: "col-12"
+      },
+      [
+        _vm._m(3),
+        _vm._v(" "),
+        _c("table", { staticClass: "table animated fadeIn" }, [
+          _c("tbody", [
+            _c("tr", { staticClass: "combo5 white" }, [
+              _c("td", [_vm._v("Combo5")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v(
+                  "\n\t\t\t\t\t\t100 minutos nacional y internacional, ilimitadas de Digi a Digi\n\t\t\t\t\t"
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v("2Gb internet velocidad 4G")
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v("3€ al mes")]),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.totalCounter < 4
+                        ? (_vm.combo5counter++, _vm.totalCounter++)
+                        : _vm.combo5counter
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "fas fa-plus-circle" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.combo5counter > 0
+                        ? (_vm.totalCounter--, _vm.combo5counter--)
+                        : _vm.combo5counter
+                    }
+                  }
+                },
+                [
+                  _c("i", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.checkIfVisible(_vm.combo5counter),
+                        expression: "checkIfVisible(combo5counter)"
+                      }
+                    ],
+                    staticClass: "fas fa-minus-circle"
+                  })
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("tr", { staticClass: "combo10 white" }, [
+              _c("td", [_vm._v("Combo10")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v(
+                  "\n\t\t\t\t\t\t400 minutos nacional y internacional, ilimitadas de Digi a Digi"
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v("6Gb internet velocidad 4G")
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v("6€ al mes")]),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.totalCounter < 4
+                        ? (_vm.combo10counter++, _vm.totalCounter++)
+                        : _vm.combo10counter
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "fas fa-plus-circle" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.combo10counter > 0
+                        ? (_vm.totalCounter--, _vm.combo10counter--)
+                        : _vm.combo10counter
+                    }
+                  }
+                },
+                [
+                  _c("i", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.checkIfVisible(_vm.combo10counter),
+                        expression: "checkIfVisible(combo10counter)"
+                      }
+                    ],
+                    staticClass: "fas fa-minus-circle"
+                  })
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("tr", { staticClass: "combo15 white" }, [
+              _c("td", [_vm._v("Combo15")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v(
+                  "\n\t\t\t\t\t\t800 minutos nacional y internacional, Ilimitadas de Digi a Digi"
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v("12Gb internet velocidad 4G")
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v("9€ al mes")]),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.totalCounter < 4
+                        ? (_vm.combo15counter++, _vm.totalCounter++)
+                        : _vm.combo15counter
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "fas fa-plus-circle" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.combo15counter > 0
+                        ? (_vm.totalCounter--, _vm.combo15counter--)
+                        : _vm.combo15counter
+                    }
+                  }
+                },
+                [
+                  _c("i", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.checkIfVisible(_vm.combo15counter),
+                        expression: "checkIfVisible(combo15counter)"
+                      }
+                    ],
+                    staticClass: "fas fa-minus-circle"
+                  })
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("tr", { staticClass: "combo20 white" }, [
+              _c("td", [_vm._v("Combo20")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v(
+                  " \n\t\t\t\t\t\t2000 minutos nacional y internacional, ilimitadas de Digi a Digi"
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v("40Gb internet velocidad 4G")
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v("12€ al mes")]),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.totalCounter < 4
+                        ? (_vm.combo20counter++, _vm.totalCounter++)
+                        : _vm.combo20counter
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "fas fa-plus-circle" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.combo20counter > 0
+                        ? (_vm.totalCounter--, _vm.combo20counter--)
+                        : _vm.combo20counter
+                    }
+                  }
+                },
+                [
+                  _c("i", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.checkIfVisible(_vm.combo20counter),
+                        expression: "checkIfVisible(combo20counter)"
+                      }
+                    ],
+                    staticClass: "fas fa-minus-circle"
+                  })
+                ]
+              )
+            ])
+          ])
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "h-30" }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.activeType,
+            expression: "activeType"
+          }
+        ],
+        staticClass: "col-12"
+      },
+      [
+        _vm._m(4),
+        _vm._v(" "),
+        _c("table", { staticClass: "table animated fadeIn" }, [
+          _c("tbody", [
+            _c("tr", { staticClass: "mini" }, [
+              _c("td", [_vm._v("Mini")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v(
+                  "\n\t\t\t\t\t\t100 minutos nacionales, ilimitado de Digi a Digi"
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v("1Gb internet velocidad 4G")
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v("2€ al mes")]),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.totalCounter < 4
+                        ? (_vm.miniCounter++, _vm.totalCounter++)
+                        : _vm.miniCounter
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "fas fa-plus-circle white" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.miniCounter > 0
+                        ? (_vm.totalCounter--, _vm.miniCounter--)
+                        : _vm.miniCounter
+                    }
+                  }
+                },
+                [
+                  _c("i", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.checkIfVisible(_vm.miniCounter),
+                        expression: "checkIfVisible(miniCounter)"
+                      }
+                    ],
+                    staticClass: "fas fa-minus-circle white"
+                  })
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("tr", { staticClass: "ilimitado white" }, [
+              _c("td", [_vm._v("Ilimitado 3GB")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v("Llamadas ilimitadas nacionales")
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v("6Gb internet velocidad 4G")
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v("6€ al mes")]),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.totalCounter < 4
+                        ? (_vm.i10counter++, _vm.totalCounter++)
+                        : _vm.i10counter
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "fas fa-plus-circle" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.i10counter > 0
+                        ? (_vm.totalCounter--, _vm.i10counter--)
+                        : _vm.i10counter
+                    }
+                  }
+                },
+                [
+                  _c("i", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.checkIfVisible(_vm.i10counter),
+                        expression: "checkIfVisible(i10counter)"
+                      }
+                    ],
+                    staticClass: "fas fa-minus-circle"
+                  })
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("tr", { staticClass: "ilimitado white" }, [
+              _c("td", [_vm._v("Ilimitado 6GB")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v("Llamadas ilimitadas nacionales")
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v("12Gb internet velocidad 4G")
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v("9€ al mes")]),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.totalCounter < 4
+                        ? (_vm.i15counter++, _vm.totalCounter++)
+                        : _vm.i15counter
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "fas fa-plus-circle" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.i15counter > 0
+                        ? (_vm.totalCounter--, _vm.i15counter--)
+                        : _vm.i15counter
+                    }
+                  }
+                },
+                [
+                  _c("i", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.checkIfVisible(_vm.i15counter),
+                        expression: "checkIfVisible(i15counter)"
+                      }
+                    ],
+                    staticClass: "fas fa-minus-circle"
+                  })
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("tr", { staticClass: "ilimitado white" }, [
+              _c("td", [_vm._v("Ilimitado 12GB")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v("Llamadas ilimitadas nacionales")
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v("40Gb internet velocidad 4G")
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v("12€ al mes")]),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.totalCounter < 4
+                        ? (_vm.i20counter++, _vm.totalCounter++)
+                        : _vm.i20counter
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "fas fa-plus-circle" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.i20counter > 0
+                        ? (_vm.totalCounter--, _vm.i20counter--)
+                        : _vm.i20counter
+                    }
+                  }
+                },
+                [
+                  _c("i", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.checkIfVisible(_vm.i20counter),
+                        expression: "checkIfVisible(i20counter)"
+                      }
+                    ],
+                    staticClass: "fas fa-minus-circle"
+                  })
+                ]
+              )
+            ])
+          ])
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "h-30" }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.activeType,
+            expression: "activeType"
+          }
+        ],
+        staticClass: "col-12"
+      },
+      [
+        _vm._m(5),
+        _vm._v(" "),
+        _c("table", { staticClass: "table animated fadeIn" }, [
+          _c("tbody", [
+            _c("tr", { staticClass: "navega white" }, [
+              _c("td", [_vm._v("NAVEG@ 2GB")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v("Llamadas ilimitadas de Digi a Digi")
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v("4GB internet velocidad 4G")
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v("3€ al mes")]),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.totalCounter < 4
+                        ? (_vm.nav5counter++, _vm.totalCounter++)
+                        : _vm.nav5counter
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "fas fa-plus-circle white" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.nav5counter > 0
+                        ? (_vm.totalCounter--, _vm.nav5counter--)
+                        : _vm.nav5counter
+                    }
+                  }
+                },
+                [
+                  _c("i", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.checkIfVisible(_vm.nav5counter),
+                        expression: "checkIfVisible(nav5counter)"
+                      }
+                    ],
+                    staticClass: "fas fa-minus-circle white"
+                  })
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("tr", { staticClass: "navega white" }, [
+              _c("td", [_vm._v("NAVEG@ 5GB")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v("Llamadas ilimitadas de Digi a Digi")
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v("10Gb internet velocidad 4G")
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v("6€ al mes")]),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.totalCounter < 4
+                        ? (_vm.nav10counter++, _vm.totalCounter++)
+                        : _vm.nav10counter
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "fas fa-plus-circle" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "pointer grey",
+                  on: {
+                    click: function($event) {
+                      _vm.nav10counter > 0
+                        ? (_vm.totalCounter--, _vm.nav10counter--)
+                        : _vm.nav10counter
+                    }
+                  }
+                },
+                [
+                  _c("i", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.checkIfVisible(_vm.nav10counter),
+                        expression: "checkIfVisible(nav10counter)"
+                      }
+                    ],
+                    staticClass: "fas fa-minus-circle"
+                  })
+                ]
+              )
+            ])
+          ])
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "h-30" }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.activeType,
+            expression: "activeType"
+          }
+        ],
+        staticClass: "col-12"
+      },
+      [
+        _vm._m(6),
+        _vm._v(" "),
+        _c("table", { staticClass: "table animated fadeIn" }, [
+          _c("tbody", [
+            _c("tr", { staticClass: "phone white" }, [
+              _c("td", [_vm._v("FIJO SIN LLAMADAS")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v("Llamadas a coste por minuto")
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v("1€ al mes")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "grey" }, [
+                _vm._v("\n\t\t\t\t\t\tSelecciona\n\t\t\t\t\t\t"),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.phone,
+                      expression: "phone"
+                    }
+                  ],
+                  attrs: { type: "radio", value: "1" },
+                  domProps: { checked: _vm._q(_vm.phone, "1") },
+                  on: {
+                    change: function($event) {
+                      _vm.phone = "1"
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tr", { staticClass: "phone white" }, [
+              _c("td", [_vm._v("FIJO CON LLAMADAS")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+                _vm._v(
+                  "\n\t\t\t\t\t\tLlamadas ilimitadas nacionales + 500 minutos \tinternacionales"
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v("3€ al mes")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "grey" }, [
+                _vm._v("\n\t\t\t\t\t\tSelecciona\n\t\t\t\t\t\t"),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.phone,
+                      expression: "phone"
+                    }
+                  ],
+                  attrs: { type: "radio", value: "3" },
+                  domProps: { checked: _vm._q(_vm.phone, "3") },
+                  on: {
+                    change: function($event) {
+                      _vm.phone = "3"
+                    }
+                  }
+                })
+              ])
+            ])
+          ])
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "h-20" }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.activeType,
+            expression: "activeType"
+          }
+        ],
+        staticClass: "col-12"
+      },
+      [
+        _vm._m(7),
+        _vm._v(" "),
+        _c("ul", { staticClass: "list-group" }, [
+          _c("li", { staticClass: "list-group-item" }, [
+            _vm._v(
+              "Fibra Digi \n\t\t\t\t" +
+                _vm._s(
+                  _vm.activeType == 30 ? "500Mb simetrica " : "30Mb simetrica"
+                ) +
+                "\n\t\t\t\t"
+            ),
+            _c("span", { staticClass: "blue w-600" }, [
+              _vm._v(" - " + _vm._s(_vm.activeType) + " €")
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.combo5counter > 0,
+                  expression: "combo5counter > 0"
+                }
+              ],
+              staticClass: "list-group-item"
+            },
+            [
+              _vm._v(
+                "\n\t\t\t\t" +
+                  _vm._s(_vm.combo5counter) +
+                  " x Combo5 \n\t\t\t\t(100 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 2GB acumulables) - \n\t\t\t\t"
+              ),
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.combo5counter * 3) + " €")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.combo10counter,
+                  expression: "combo10counter"
+                }
+              ],
+              staticClass: "list-group-item"
+            },
+            [
+              _vm._v(
+                " " +
+                  _vm._s(_vm.combo10counter) +
+                  " x Combo10\n\t\t\t\t(400 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 6GB acumulables) -\n\t\t\t\t"
+              ),
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.combo10counter * 6) + " €")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.combo15counter,
+                  expression: "combo15counter"
+                }
+              ],
+              staticClass: "list-group-item"
+            },
+            [
+              _vm._v(
+                " " +
+                  _vm._s(_vm.combo15counter) +
+                  " x Combo15\n\t\t\t\t(800 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 12GB acumulables) -\n\t\t\t\t"
+              ),
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.combo15counter * 9) + " €")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.combo20counter,
+                  expression: "combo20counter"
+                }
+              ],
+              staticClass: "list-group-item"
+            },
+            [
+              _vm._v(
+                " " +
+                  _vm._s(_vm.combo20counter) +
+                  " x Combo20\n\t\t\t\t(2000 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 40GB acumulables) -\n\t\t\t\t"
+              ),
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.combo20counter * 12) + " €")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.miniCounter,
+                  expression: "miniCounter"
+                }
+              ],
+              staticClass: "list-group-item"
+            },
+            [
+              _vm._v(
+                " " +
+                  _vm._s(_vm.miniCounter) +
+                  " x Mini \n\t\t\t\t(100 minutos nacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 1GB acumulables) -\n\t\t\t\t"
+              ),
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.miniCounter * 2) + " €")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.i10counter,
+                  expression: "i10counter"
+                }
+              ],
+              staticClass: "list-group-item"
+            },
+            [
+              _vm._v(
+                " " +
+                  _vm._s(_vm.i10counter) +
+                  " x Ilimitado 3GB\n\t\t\t\t(llamadas ilimitadas a moviles y fijos de España\n\t\t\t\t+ 6GB acumulables) -\n\t\t\t\t"
+              ),
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.i10counter * 6) + " €")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.i15counter,
+                  expression: "i15counter"
+                }
+              ],
+              staticClass: "list-group-item"
+            },
+            [
+              _vm._v(
+                " " +
+                  _vm._s(_vm.i15counter) +
+                  " x Ilimitado 6GB\n\t\t\t\t(llamadas ilimitadas a moviles y fijos de España\n\t\t\t\t+ 12GB acumulables) -\n\t\t\t\t"
+              ),
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.i15counter * 9) + " €")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.i20counter,
+                  expression: "i20counter"
+                }
+              ],
+              staticClass: "list-group-item"
+            },
+            [
+              _vm._v(
+                " " +
+                  _vm._s(_vm.i20counter) +
+                  " x Ilimitado 20GB\n\t\t\t\t(llamadas ilimitadas a moviles y fijos de España\n\t\t\t\t+ 40GB acumulables) -\n\t\t\t\t"
+              ),
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.i20counter * 12) + " €")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.nav5counter,
+                  expression: "nav5counter"
+                }
+              ],
+              staticClass: "list-group-item"
+            },
+            [
+              _vm._v(
+                " " +
+                  _vm._s(_vm.nav5counter) +
+                  " x NAVEG@ 2GB \n\t\t\t\t(llamadas ilimitada de Digi a Digi + 4GB acumulables) - \n\t\t\t\t"
+              ),
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(" " + _vm._s(_vm.nav5counter * 3) + " €")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.nav10counter,
+                  expression: "nav10counter"
+                }
+              ],
+              staticClass: "list-group-item"
+            },
+            [
+              _vm._v(
+                " " +
+                  _vm._s(_vm.nav10counter) +
+                  " x NAVEG@ 5GB \n\t\t\t\t(llamadas ilimitada de Digi a Digi + 10GB acumulables) - \n\t\t\t\t"
+              ),
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(" " + _vm._s(_vm.nav10counter * 6) + "€")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.phone == 1,
+                  expression: "phone == 1"
+                }
+              ],
+              staticClass: "list-group-item"
+            },
+            [
+              _vm._v(
+                " 1 x linea fija con llamadas a \n\t\t\t\tcoste por minuto - "
+              ),
+              _c("span", { staticClass: "w-600 blue" }, [_vm._v(" 1€")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.phone == 3,
+                  expression: "phone == 3"
+                }
+              ],
+              staticClass: "list-group-item"
+            },
+            [
+              _vm._v(
+                " 1 x linea fija con llamadas a \n\t\t\t\tcoste por minuto - "
+              ),
+              _c("span", { staticClass: "w-600 blue" }, [_vm._v(" 3€")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.activeType,
+                  expression: "activeType"
+                }
+              ],
+              staticClass: "list-group-item"
+            },
+            [
+              _c("span", { staticClass: "medium w-600 blue" }, [
+                _vm._v("TOTAL " + _vm._s(_vm.getTotal()) + "€")
+              ]),
+              _vm._v(
+                " IVA incluido /\n\t\t\t\tprecio para toda la vida\n\t\t\t"
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("li", { staticClass: "list-group-item" }, [
+            _c(
+              "button",
+              { staticClass: "btn btn-warning", on: { click: _vm.resetAll } },
+              [_vm._v("Empieza otra vez")]
+            )
+          ])
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [
+      _c("h2", { staticClass: "big w-600 blue text-center" }, [
+        _vm._v("Elige un producto de fibra Digi...")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("p", { staticClass: "card-text" }, [
+        _c("i", { staticClass: "fas fa-euro-sign" }),
+        _vm._v("\n\t\t\t\t\t30 euros al mes, IVA incluido.")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("p", { staticClass: "card-text" }, [
+        _c("i", { staticClass: "fas fa-euro-sign" }),
+        _vm._v("\n\t\t\t\t\t25 euros al mes, IVA incluido.")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h2", { staticClass: "blue" }, [
+      _vm._v("Digi Combo"),
+      _c("span", { staticClass: "small" }, [
+        _vm._v(
+          " Para navegar y llamar a destinos nacionales\n\t\ty internacionales (mas de 50 paises)"
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h2", { staticClass: "blue" }, [
+      _vm._v("DIGI ILIMITADO\n\t\t\t"),
+      _c("span", { staticClass: "small" }, [
+        _vm._v(" Para navegar y llamar a destinos nacionales")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h2", { staticClass: "blue" }, [
+      _vm._v("DIGI NAVEG@\n\t\t\t"),
+      _c("span", { staticClass: "small" }, [
+        _vm._v(
+          " Para hablar y navegar con las tarifas por minuto mas económicas"
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h2", { staticClass: "blue" }, [
+      _vm._v("LINEA DE TELEFONO FIJO\n\t\t\t"),
+      _c("span", { staticClass: "small" }, [
+        _vm._v(" Telefono fijo con o sin llamadas incluidas")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h2", { staticClass: "w-300 blue" }, [
+      _c("span", { staticClass: "w-600" }, [_vm._v("RESUMEN DEL PRECIO")]),
+      _vm._v(" ¡LO QUE VES ES LO QUE HAY!  ")
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-446b728e", module.exports)
+  }
+}
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(53)
+/* template */
+var __vue_template__ = __webpack_require__(54)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48167,7 +49930,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 55 */
+/* 53 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -48418,7 +50181,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 56 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -48865,7 +50628,7 @@ var staticRenderFns = [
         _c("tr", { staticClass: "combo15 white" }, [
           _c("td", [_vm._v("Fibra 30Mb + Combo 15")]),
           _vm._v(" "),
-          _c("td", [_vm._v("800 minutos")]),
+          _c("td", [_vm._v("Ilimitados")]),
           _vm._v(" "),
           _c("td", [_vm._v("12Gb internet velocidad 4G")]),
           _vm._v(" "),
@@ -48877,7 +50640,7 @@ var staticRenderFns = [
         _c("tr", { staticClass: "combo20 white" }, [
           _c("td", [_vm._v("Fibra 30Mb + Combo 20")]),
           _vm._v(" "),
-          _c("td", [_vm._v("2000 minutos")]),
+          _c("td", [_vm._v("Ilimitados")]),
           _vm._v(" "),
           _c("td", [_vm._v("40Gb internet velocidad 4G")]),
           _vm._v(" "),
@@ -48907,6 +50670,12 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-397c7490", module.exports)
   }
 }
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

@@ -185,14 +185,14 @@
 					</tr>
 					<tr class="combo15 white">
 						<td>Fibra 30Mb + Combo 15</td>
-						<td>800 minutos</td>
+						<td>Ilimitados</td>
 					    <td>12Gb internet velocidad 4G</td>
 						<td>Ilimitadas</td>
 						<td>34€ al mes</td>
 					</tr>
 					<tr class="combo20 white">
 						<td>Fibra 30Mb + Combo 20</td>
-						<td>2000 minutos</td>
+						<td>Ilimitados</td>
 					    <td>40Gb internet velocidad 4G</td>
 						<td>Ilimitadas</td>
 						<td>37€ al mes</td>

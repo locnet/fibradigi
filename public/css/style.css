@@ -144,18 +144,35 @@ label {
 
 /***************** TARIFAS DIGI *************/
 .combo5 {
-    background-color: #009df9;
+    background-color: #0772b1;
 }
 .combo10 {
-    background-color: #f90067;
+    background-color: #840036;
 }
 .combo15 {
-    background-color: #139c03;
+    background-color: #f5801b;
 }
 .combo20{
-    background-color: #f7b90a;
+    background-color: #f10064;
 }
-
+.mini {
+    background-color: #c4eef3;
+}
+.ilimitado {
+    background-color: #3296d2;
+}
+.grey {
+    background-color: grey;
+}
+.navega {
+    background-color: #4bb708;
+}
+.phone {
+    background-color: #284838;
+}
+.pointer {
+    cursor: pointer;
+}
 /*------------SEPARATORS------------*/
 .h-20,.h-30,.h-40, .h-50, .h-60 {
     width: 100%;
