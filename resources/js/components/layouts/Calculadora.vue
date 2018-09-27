@@ -55,6 +55,7 @@
 						</td>
 					    <td class="d-none d-sm-table-cell">2Gb internet velocidad 4G</td>
 						<td>3€ al mes</td>
+						<td class="grey"><span class="yellow">{{ combo5counter }}</span></td>
 						<td class="pointer grey" 
 							@click="totalCounter < 4 ? (combo5counter++,totalCounter++) :combo5counter">
 							<i class="fas fa-plus-circle"></i>
@@ -70,6 +71,7 @@
 							400 minutos nacional y internacional, ilimitadas de Digi a Digi</td>
 					    <td class="d-none d-sm-table-cell">6Gb internet velocidad 4G</td>
 						<td>6€ al mes</td>
+						<td class="grey"><span class="yellow">{{ combo10counter }}</span></td>
 						<td class="pointer grey" 
 								@click="totalCounter < 4 ? (combo10counter++,totalCounter++) :combo10counter">
 							<i 	class="fas fa-plus-circle"></i>
@@ -85,6 +87,7 @@
 							800 minutos nacional y internacional, Ilimitadas de Digi a Digi</td>
 					    <td class="d-none d-sm-table-cell">12Gb internet velocidad 4G</td>
 						<td>9€ al mes</td>
+						<td class="grey"><span class="yellow">{{ combo15counter }}</span></td>
 						<td class="pointer grey" 
 							@click="totalCounter < 4 ? (combo15counter++,totalCounter++) :combo15counter">
 							<i class="fas fa-plus-circle"></i>
@@ -100,7 +103,8 @@
 							2000 minutos nacional y internacional, ilimitadas de Digi a Digi</td>
 					    <td class="d-none d-sm-table-cell">40Gb internet velocidad 4G</td>
 						<td>12€ al mes</td>
-						<td class="pointer grey" 
+						<td class="grey"><span class="yellow">{{ combo20counter }}</span></td>
+						<td class="pointer grey"
 							@click="totalCounter < 4 ? (combo20counter++,totalCounter++) :combo20counter">
 							<i class="fas fa-plus-circle"></i>
 						</td>
@@ -126,6 +130,7 @@
 							100 minutos nacionales, ilimitado de Digi a Digi</td>
 					    <td class="d-none d-sm-table-cell">1Gb internet velocidad 4G</td>
 						<td>2€ al mes</td>
+						<td class="grey"><span class="yellow">{{ miniCounter }}</span></td>
 						<td class="pointer grey" 
 							@click="totalCounter < 4 ? (miniCounter++,totalCounter++) :miniCounter">
 							<i class="fas fa-plus-circle white"></i>
@@ -140,6 +145,7 @@
 						<td class="d-none d-sm-table-cell">Llamadas ilimitadas nacionales</td>
 					    <td class="d-none d-sm-table-cell">6Gb internet velocidad 4G</td>
 						<td>6€ al mes</td>
+						<td class="grey"><span class="yellow">{{ i10counter }}</span></td>
 						<td class="pointer grey" 
 								@click="totalCounter < 4 ? (i10counter++,totalCounter++) :i10counter">
 							<i 	class="fas fa-plus-circle"></i>
@@ -154,6 +160,7 @@
 						<td class="d-none d-sm-table-cell">Llamadas ilimitadas nacionales</td>
 					    <td class="d-none d-sm-table-cell">12Gb internet velocidad 4G</td>
 						<td>9€ al mes</td>
+						<td class="grey"><span class="yellow">{{ i15counter }}</span></td>
 						<td class="pointer grey" 
 							@click="totalCounter < 4 ? (i15counter++,totalCounter++) :i15counter">
 							<i class="fas fa-plus-circle"></i>
@@ -168,6 +175,7 @@
 						<td class="d-none d-sm-table-cell">Llamadas ilimitadas nacionales</td>
 					    <td class="d-none d-sm-table-cell">40Gb internet velocidad 4G</td>
 						<td>12€ al mes</td>
+						<td class="grey"><span class="yellow">{{ i20counter }}</span></td>
 						<td class="pointer grey" 
 							@click="totalCounter < 4 ? (i20counter++,totalCounter++) :i20counter">
 							<i class="fas fa-plus-circle"></i>
@@ -193,6 +201,7 @@
 						<td class="d-none d-sm-table-cell">Llamadas ilimitadas de Digi a Digi</td>
 					    <td class="d-none d-sm-table-cell">4GB internet velocidad 4G</td>
 						<td>3€ al mes</td>
+						<td class="grey"><span class="yellow">{{ nav5counter }}</span></td>
 						<td class="pointer grey" 
 							@click="totalCounter < 4 ? (nav5counter++,totalCounter++) :nav5counter">
 							<i class="fas fa-plus-circle white"></i>
@@ -207,6 +216,7 @@
 						<td class="d-none d-sm-table-cell">Llamadas ilimitadas de Digi a Digi</td>
 					    <td class="d-none d-sm-table-cell">10Gb internet velocidad 4G</td>
 						<td>6€ al mes</td>
+						<td class="grey"><span class="yellow">{{ nav10counter }}</span></td>
 						<td class="pointer grey" 
 								@click="totalCounter < 4 ? (nav10counter++,totalCounter++) :nav10counter">
 							<i 	class="fas fa-plus-circle"></i>

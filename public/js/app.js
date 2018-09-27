@@ -48493,6 +48493,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -48728,6 +48738,12 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("3€ al mes")]),
               _vm._v(" "),
+              _c("td", { staticClass: "grey" }, [
+                _c("span", { staticClass: "yellow" }, [
+                  _vm._v(_vm._s(_vm.combo5counter))
+                ])
+              ]),
+              _vm._v(" "),
               _c(
                 "td",
                 {
@@ -48785,6 +48801,12 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("td", [_vm._v("6€ al mes")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "grey" }, [
+                _c("span", { staticClass: "yellow" }, [
+                  _vm._v(_vm._s(_vm.combo10counter))
+                ])
+              ]),
               _vm._v(" "),
               _c(
                 "td",
@@ -48844,6 +48866,12 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("9€ al mes")]),
               _vm._v(" "),
+              _c("td", { staticClass: "grey" }, [
+                _c("span", { staticClass: "yellow" }, [
+                  _vm._v(_vm._s(_vm.combo15counter))
+                ])
+              ]),
+              _vm._v(" "),
               _c(
                 "td",
                 {
@@ -48901,6 +48929,12 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("td", [_vm._v("12€ al mes")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "grey" }, [
+                _c("span", { staticClass: "yellow" }, [
+                  _vm._v(_vm._s(_vm.combo20counter))
+                ])
+              ]),
               _vm._v(" "),
               _c(
                 "td",
@@ -48984,6 +49018,12 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("2€ al mes")]),
               _vm._v(" "),
+              _c("td", { staticClass: "grey" }, [
+                _c("span", { staticClass: "yellow" }, [
+                  _vm._v(_vm._s(_vm.miniCounter))
+                ])
+              ]),
+              _vm._v(" "),
               _c(
                 "td",
                 {
@@ -49039,6 +49079,12 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("td", [_vm._v("6€ al mes")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "grey" }, [
+                _c("span", { staticClass: "yellow" }, [
+                  _vm._v(_vm._s(_vm.i10counter))
+                ])
+              ]),
               _vm._v(" "),
               _c(
                 "td",
@@ -49096,6 +49142,12 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("9€ al mes")]),
               _vm._v(" "),
+              _c("td", { staticClass: "grey" }, [
+                _c("span", { staticClass: "yellow" }, [
+                  _vm._v(_vm._s(_vm.i15counter))
+                ])
+              ]),
+              _vm._v(" "),
               _c(
                 "td",
                 {
@@ -49151,6 +49203,12 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("td", [_vm._v("12€ al mes")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "grey" }, [
+                _c("span", { staticClass: "yellow" }, [
+                  _vm._v(_vm._s(_vm.i20counter))
+                ])
+              ]),
               _vm._v(" "),
               _c(
                 "td",
@@ -49232,6 +49290,12 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("3€ al mes")]),
               _vm._v(" "),
+              _c("td", { staticClass: "grey" }, [
+                _c("span", { staticClass: "yellow" }, [
+                  _vm._v(_vm._s(_vm.nav5counter))
+                ])
+              ]),
+              _vm._v(" "),
               _c(
                 "td",
                 {
@@ -49287,6 +49351,12 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("td", [_vm._v("6€ al mes")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "grey" }, [
+                _c("span", { staticClass: "yellow" }, [
+                  _vm._v(_vm._s(_vm.nav10counter))
+                ])
+              ]),
               _vm._v(" "),
               _c(
                 "td",
