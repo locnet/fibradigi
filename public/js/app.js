@@ -48503,6 +48503,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -49513,8 +49524,9 @@ var render = function() {
         _vm._v(" "),
         _c("ul", { staticClass: "list-group" }, [
           _c("li", { staticClass: "list-group-item" }, [
+            _c("span", { staticClass: "w-600 blue" }, [_vm._v("Fibra Digi ")]),
             _vm._v(
-              "Fibra Digi \n\t\t\t\t" +
+              "\n\t\t\t\t" +
                 _vm._s(
                   _vm.activeType == 30 ? "500Mb simetrica " : "30Mb simetrica"
                 ) +
@@ -49539,10 +49551,11 @@ var render = function() {
               staticClass: "list-group-item"
             },
             [
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.combo5counter) + " x Combo5 ")
+              ]),
               _vm._v(
-                "\n\t\t\t\t" +
-                  _vm._s(_vm.combo5counter) +
-                  " x Combo5 \n\t\t\t\t(100 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 2GB acumulables) - \n\t\t\t\t"
+                "\n\t\t\t\t(100 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 2GB acumulables) - \n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(_vm._s(_vm.combo5counter * 3) + " €")
@@ -49564,10 +49577,11 @@ var render = function() {
               staticClass: "list-group-item"
             },
             [
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.combo10counter) + " x Combo10")
+              ]),
               _vm._v(
-                " " +
-                  _vm._s(_vm.combo10counter) +
-                  " x Combo10\n\t\t\t\t(400 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 6GB acumulables) -\n\t\t\t\t"
+                "\n\t\t\t\t(400 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 6GB acumulables) -\n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(_vm._s(_vm.combo10counter * 6) + " €")
@@ -49589,10 +49603,11 @@ var render = function() {
               staticClass: "list-group-item"
             },
             [
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.combo15counter) + " x Combo15")
+              ]),
               _vm._v(
-                " " +
-                  _vm._s(_vm.combo15counter) +
-                  " x Combo15\n\t\t\t\t(800 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 12GB acumulables) -\n\t\t\t\t"
+                "\n\t\t\t\t(800 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 12GB acumulables) -\n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(_vm._s(_vm.combo15counter * 9) + " €")
@@ -49614,10 +49629,11 @@ var render = function() {
               staticClass: "list-group-item"
             },
             [
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.combo20counter) + " x Combo20")
+              ]),
               _vm._v(
-                " " +
-                  _vm._s(_vm.combo20counter) +
-                  " x Combo20\n\t\t\t\t(2000 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 40GB acumulables) -\n\t\t\t\t"
+                "\n\t\t\t\t(2000 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 40GB acumulables) -\n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(_vm._s(_vm.combo20counter * 12) + " €")
@@ -49639,10 +49655,11 @@ var render = function() {
               staticClass: "list-group-item"
             },
             [
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.miniCounter) + " x Mini ")
+              ]),
               _vm._v(
-                " " +
-                  _vm._s(_vm.miniCounter) +
-                  " x Mini \n\t\t\t\t(100 minutos nacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 1GB acumulables) -\n\t\t\t\t"
+                "\n\t\t\t\t(100 minutos nacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 1GB acumulables) -\n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(_vm._s(_vm.miniCounter * 2) + " €")
@@ -49664,10 +49681,11 @@ var render = function() {
               staticClass: "list-group-item"
             },
             [
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.i10counter) + " x Ilimitado 3GB")
+              ]),
               _vm._v(
-                " " +
-                  _vm._s(_vm.i10counter) +
-                  " x Ilimitado 3GB\n\t\t\t\t(llamadas ilimitadas a moviles y fijos de España\n\t\t\t\t+ 6GB acumulables) -\n\t\t\t\t"
+                "\n\t\t\t\t(llamadas ilimitadas a moviles y fijos de España\n\t\t\t\t+ 6GB acumulables) -\n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(_vm._s(_vm.i10counter * 6) + " €")
@@ -49689,10 +49707,11 @@ var render = function() {
               staticClass: "list-group-item"
             },
             [
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.i15counter) + " x Ilimitado 6GB")
+              ]),
               _vm._v(
-                " " +
-                  _vm._s(_vm.i15counter) +
-                  " x Ilimitado 6GB\n\t\t\t\t(llamadas ilimitadas a moviles y fijos de España\n\t\t\t\t+ 12GB acumulables) -\n\t\t\t\t"
+                "\n\t\t\t\t(llamadas ilimitadas a moviles y fijos de España\n\t\t\t\t+ 12GB acumulables) -\n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(_vm._s(_vm.i15counter * 9) + " €")
@@ -49714,10 +49733,11 @@ var render = function() {
               staticClass: "list-group-item"
             },
             [
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.i20counter) + " x Ilimitado 20GB")
+              ]),
               _vm._v(
-                " " +
-                  _vm._s(_vm.i20counter) +
-                  " x Ilimitado 20GB\n\t\t\t\t(llamadas ilimitadas a moviles y fijos de España\n\t\t\t\t+ 40GB acumulables) -\n\t\t\t\t"
+                "\n\t\t\t\t(llamadas ilimitadas a moviles y fijos de España\n\t\t\t\t+ 40GB acumulables) -\n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(_vm._s(_vm.i20counter * 12) + " €")
@@ -49739,10 +49759,11 @@ var render = function() {
               staticClass: "list-group-item"
             },
             [
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.nav5counter) + " x NAVEG@ 2GB ")
+              ]),
               _vm._v(
-                " " +
-                  _vm._s(_vm.nav5counter) +
-                  " x NAVEG@ 2GB \n\t\t\t\t(llamadas ilimitada de Digi a Digi + 4GB acumulables) - \n\t\t\t\t"
+                "\n\t\t\t\t(llamadas ilimitada de Digi a Digi + 4GB acumulables) - \n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(" " + _vm._s(_vm.nav5counter * 3) + " €")
@@ -49764,10 +49785,11 @@ var render = function() {
               staticClass: "list-group-item"
             },
             [
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v(_vm._s(_vm.nav10counter) + " x NAVEG@ 5GB ")
+              ]),
               _vm._v(
-                " " +
-                  _vm._s(_vm.nav10counter) +
-                  " x NAVEG@ 5GB \n\t\t\t\t(llamadas ilimitada de Digi a Digi + 10GB acumulables) - \n\t\t\t\t"
+                "\n\t\t\t\t(llamadas ilimitada de Digi a Digi + 10GB acumulables) - \n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(" " + _vm._s(_vm.nav10counter * 6) + "€")
@@ -49789,9 +49811,10 @@ var render = function() {
               staticClass: "list-group-item"
             },
             [
-              _vm._v(
-                " 1 x linea fija con llamadas a \n\t\t\t\tcoste por minuto - "
-              ),
+              _c("span", { staticClass: "w-600 blue" }, [
+                _vm._v("1 x linea fija")
+              ]),
+              _vm._v(" con llamadas a \n\t\t\t\tcoste por minuto - "),
               _c("span", { staticClass: "w-600 blue" }, [_vm._v(" 1€")])
             ]
           ),
@@ -49810,9 +49833,8 @@ var render = function() {
               staticClass: "list-group-item"
             },
             [
-              _vm._v(
-                " 1 x linea fija con llamadas a \n\t\t\t\tcoste por minuto - "
-              ),
+              _c("span", { staticClass: "w-600 blue" }, [_vm._v("1 x linea")]),
+              _vm._v(" fija con llamadas a \n\t\t\t\tcoste por minuto - "),
               _c("span", { staticClass: "w-600 blue" }, [_vm._v(" 3€")])
             ]
           ),

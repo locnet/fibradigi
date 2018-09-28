@@ -266,63 +266,74 @@
 		<div class="col-12" v-show="activeType">
 			<h2 class="w-300 blue"><span class="w-600">RESUMEN DEL PRECIO</span> ¡LO QUE VES ES LO QUE HAY!  </h2>
 			<ul class="list-group">
-				<li class="list-group-item">Fibra Digi 
+				<li class="list-group-item"><span class="w-600 blue">Fibra Digi </span>
 					{{ activeType == 30 ? '500Mb simetrica ' : '30Mb simetrica' }}
 					<span class="blue w-600"> - {{ activeType }} €</span>
 				</li>
 				<li class="list-group-item" v-show="combo5counter > 0">
-					{{ combo5counter }} x Combo5 
+					<span class="w-600 blue">{{ combo5counter }} x Combo5 </span>
 					(100 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi 
 					+ 2GB acumulables) - 
 					<span class="w-600 blue">{{ combo5counter * 3 }} €</span>
 				</li>
-				<li class="list-group-item" v-show="combo10counter"> {{ combo10counter }} x Combo10
+				<li class="list-group-item" v-show="combo10counter"> 
+					<span class="w-600 blue">{{ combo10counter }} x Combo10</span>
 					(400 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi 
 					+ 6GB acumulables) -
 					<span class="w-600 blue">{{ combo10counter * 6 }} €</span>
 				</li>
-				<li class="list-group-item" v-show="combo15counter"> {{ combo15counter }} x Combo15
+				<li class="list-group-item" v-show="combo15counter"> 
+					<span class="w-600 blue">{{ combo15counter }} x Combo15</span>
 					(800 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi 
 					+ 12GB acumulables) -
 					<span class="w-600 blue">{{ combo15counter * 9 }} €</span>
 				</li>
-				<li class="list-group-item" v-show="combo20counter"> {{ combo20counter }} x Combo20
+				<li class="list-group-item" v-show="combo20counter"> 
+					<span class="w-600 blue">{{ combo20counter }} x Combo20</span>
 					(2000 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi 
 					+ 40GB acumulables) -
 					<span class="w-600 blue">{{ combo20counter * 12 }} €</span>
 				</li>
-				<li class="list-group-item" v-show="miniCounter"> {{ miniCounter }} x Mini 
+				<li class="list-group-item" v-show="miniCounter"> 
+					<span class="w-600 blue">{{ miniCounter }} x Mini </span>
 					(100 minutos nacionales + llamadas ilimitadas de Digi a Digi 
 					+ 1GB acumulables) -
 					<span class="w-600 blue">{{ miniCounter * 2 }} €</span>
 				</li>
-				<li class="list-group-item" v-show="i10counter"> {{ i10counter }} x Ilimitado 3GB
+				<li class="list-group-item" v-show="i10counter"> 
+					<span class="w-600 blue">{{ i10counter }} x Ilimitado 3GB</span>
 					(llamadas ilimitadas a moviles y fijos de España
 					+ 6GB acumulables) -
 					<span class="w-600 blue">{{ i10counter * 6 }} €</span>
 				</li>
-				<li class="list-group-item" v-show="i15counter"> {{ i15counter }} x Ilimitado 6GB
+				<li class="list-group-item" v-show="i15counter"> 
+					<span class="w-600 blue">{{ i15counter }} x Ilimitado 6GB</span>
 					(llamadas ilimitadas a moviles y fijos de España
 					+ 12GB acumulables) -
 					<span class="w-600 blue">{{ i15counter * 9 }} €</span>
 				</li>
-				<li class="list-group-item" v-show="i20counter"> {{ i20counter }} x Ilimitado 20GB
+				<li class="list-group-item" v-show="i20counter"> 
+					<span class="w-600 blue">{{ i20counter }} x Ilimitado 20GB</span>
 					(llamadas ilimitadas a moviles y fijos de España
 					+ 40GB acumulables) -
 					<span class="w-600 blue">{{ i20counter * 12 }} €</span>
 				</li>
-				<li class="list-group-item" v-show="nav5counter"> {{ nav5counter }} x NAVEG@ 2GB 
+				<li class="list-group-item" v-show="nav5counter"> 
+					<span class="w-600 blue">{{ nav5counter }} x NAVEG@ 2GB </span>
 					(llamadas ilimitada de Digi a Digi + 4GB acumulables) - 
 					<span class="w-600 blue"> {{ nav5counter * 3 }} €</span>
 				</li>
-				<li class="list-group-item" v-show="nav10counter"> {{ nav10counter }} x NAVEG@ 5GB 
+				<li class="list-group-item" v-show="nav10counter"> 
+					<span class="w-600 blue">{{ nav10counter }} x NAVEG@ 5GB </span>
 					(llamadas ilimitada de Digi a Digi + 10GB acumulables) - 
 					<span class="w-600 blue"> {{ nav10counter *  6 }}€</span>
 				</li>
-				<li class="list-group-item" v-show="phone == 1"> 1 x linea fija con llamadas a 
+				<li class="list-group-item" v-show="phone == 1"> 
+					<span class="w-600 blue">1 x linea fija</span> con llamadas a 
 					coste por minuto - <span class="w-600 blue"> 1€</span>					
 				</li>
-				<li class="list-group-item" v-show="phone == 3"> 1 x linea fija con llamadas a 
+				<li class="list-group-item" v-show="phone == 3"> 
+					<span class="w-600 blue">1 x linea</span> fija con llamadas a 
 					coste por minuto - <span class="w-600 blue"> 3€</span>					
 				</li>
 				<li class="list-group-item" v-show="activeType">
