@@ -29,8 +29,8 @@
         <app-main-menu
             main-url="{{ url('/') }}"
             home-url="{{ url('/') }}"
-            digipack-url="{{ url('/paquete-fibra-mas-movil') }}"
-            movil-url="{{ url('/booking') }}"
+            digipack-url="{{ route('digipack') }}"
+            movil-url="{{ url('/digi-mobil-tarifas') }}"
             checking-url="{{ url('/checking') }}"
             contact-url="{{ url('/contact') }}">              
         </app-main-menu>
@@ -44,6 +44,15 @@
 
     </footer>
     @yield('custom_js')
-    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109879058-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-109879058-3');
+    </script>
+
 </body>
 </html>

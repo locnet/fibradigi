@@ -329,12 +329,13 @@
 					<span class="w-600 blue"> {{ nav10counter *  6 }}€</span>
 				</li>
 				<li class="list-group-item" v-show="phone == 1"> 
-					<span class="w-600 blue">1 x linea fija</span> con llamadas a 
+					<span class="w-600 blue">1 linea fija</span> con llamadas a 
 					coste por minuto - <span class="w-600 blue"> 1€</span>					
 				</li>
 				<li class="list-group-item" v-show="phone == 3"> 
-					<span class="w-600 blue">1 x linea</span> fija con llamadas a 
-					coste por minuto - <span class="w-600 blue"> 3€</span>					
+					<span class="w-600 blue">1 linea</span> fija con llamadas ilimitadas a
+					fijos y moviles de España + 500 minutos internacionales
+					- <span class="w-600 blue"> 3€</span>					
 				</li>
 				<li class="list-group-item" v-show="activeType">
 					<span class="medium w-600 blue">TOTAL {{ getTotal() }}€</span> IVA incluido /

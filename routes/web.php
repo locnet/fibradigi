@@ -17,7 +17,13 @@ Route::get('/', function () {
 
 Route::post('/fibra/lista-espera', 'Fibra\MainController@store');
 
-Route::get('/paquete-fibra-mas-movil',function() {
+Route::get('/paquete-fibra-digi-con-movil-incluido',function() {
+
 	return view('fibra/digipack');
+	
+})->name('digipack');
+
+Route::get('/digi-mobil-tarifas', function() {
+	return view('fibra/movil');
 });
 

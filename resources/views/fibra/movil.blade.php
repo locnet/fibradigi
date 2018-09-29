@@ -1,0 +1,77 @@
+@extends('master')
+
+@section('title','Calcula precio fibra Digi Mobil| Digi Fibra optica')
+
+@section('meta_description','Aqui puedes calcular la tarifa que pagaras con nosotros. 
+Combina la fibra Digi con cualquier tarifa de movil y 
+te doblamos las gigas y pagaras menos. Fibra de 500Mb mas una linea de movil con 
+llamadas ilimitadas y 40Gb para navegar por solo 42€/mes, IVA incluido.')
+
+@section('content')
+<section>
+	<div class="container-fluid">
+		<div class="row align-items-center">
+			<div class="h-30"></div><!-- separador 30px-->
+			<div class="col-md-10 col-xs-12 offset-md-1">
+				<h1 class="blue text-center extra-big w-600">TARIFAS DIGI MOBIL</h1>
+				<h2 class="text-center big w-300">Las mejores tarifas de telefonia 
+				movil para llamar a España o estranjero.</h2>
+					<div class="h-30"></div><!-- separador -->
+					
+			</div>
+		</div
+	</div>
+	<div class="container" >
+		<div class="row align-items-center">
+			<div class="h-30"></div><!-- separador-->
+			<div class="col-12 jumbotron" style="background-color: #009df9">
+				<h3 class="w-600 text-center white medium" style="margin-bottom:20px">
+					TENEMOS LAS TARIFAS DE DIGI MOBIL QUE HAS PEDIDO</h3>
+				<p class="white lead">En Digi Mobil estamos siempre al servicio del cliente. Por esto nunca
+					hemos subido el precio, cada nuevo producto Digi Mobil que sacamos es mejor y mas barato que el anterior, tienes mas megas para nevegar y mas minutos para hablar con los tuyos.
+				</p>
+				<p class="white lead">En los diez años de vida que llevamos hemos aprendido mucho sobre 
+				nuestros clientes y sobre el mercado. Podemos decir con orgullo que tenemos tarifas 
+				para cada tipo de clientes, tantos para los que llaman fuera como para los que solo 
+				llaman a numeros nacionales.</p>
+			</div>
+			<div class="h-30"></div><!-- separador -->
+			<div class="col-12">
+				<h4 class="medium w-100 ral text-center">Te ayudamos a decidir cual es la mejor tarifa Digi Mobil para ti</h4>
+				<p>Nuestras tarifas <a href="#combos">DIGI COMBO</a> estan pensadas para los clientes que tienen familia fuera de España. Tienes minutos internacionales y megas para navegar.</p>
+				<p>Si solo quieres llamara a fijos y movile de España tenemos las tarifas llamadas 
+					<a href="#ilimitado">DIGI ILIMITADO</a> que 
+				incluyen llamadas nacionales ilimitadas y muchos megas para navegar.</p>
+				<p>Para los que solo quieren navegar tenemos las tarifas <a href="#navega">DIGI NAVEG@</a> que incluyen megas para navegar y llamadas ilimitadas de Digi a Digi.</p>
+			</div>
+			<div class="h-30"></div>
+		</div>
+		
+		<div class="col-12" id="combos">
+			<h2 class="ral w-300">Llamadas internacionales y nacionales  y muchos megas para navegar.</h2>
+		</div>
+		<app-tarifas-combo></app-tarifas-combo>
+		<div class="h-60"></div><!-- separador -->
+		<div class="col-12" id="ilimitado">
+			<h2 class="ral w-300">Llamadas ilimitadas a fijos y moviles de España. Sin trucos.</h2>
+		</div>
+		<app-tarifas-ilimitado></app-tarifas-ilimitado>
+
+		<div class="h-60"></div><!--seprador -->
+		<div class="col-12" id="navega">
+			<h2 class="ral w-300">
+				Para navegar libremente gastando lo justo.
+			</h2>
+		</div>
+		<app-tarifas-navega></app-tarifas-navega>
+	</div>
+</section>
+@endsection
+
+@section('custom_js')
+<script>
+	var scroll = new SmoothScroll('a[href*="#"]',{
+		speed:1000,
+	});
+</script>
+@endsection

@@ -29,8 +29,8 @@
         <app-main-menu
             main-url="<?php echo e(url('/')); ?>"
             home-url="<?php echo e(url('/')); ?>"
-            digipack-url="<?php echo e(url('/paquete-fibra-mas-movil')); ?>"
-            movil-url="<?php echo e(url('/booking')); ?>"
+            digipack-url="<?php echo e(route('digipack')); ?>"
+            movil-url="<?php echo e(url('/digi-mobil-tarifas')); ?>"
             checking-url="<?php echo e(url('/checking')); ?>"
             contact-url="<?php echo e(url('/contact')); ?>">              
         </app-main-menu>
@@ -44,6 +44,15 @@
 
     </footer>
     <?php echo $__env->yieldContent('custom_js'); ?>
-    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109879058-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-109879058-3');
+    </script>
+
 </body>
 </html>

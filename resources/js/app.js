@@ -21,6 +21,10 @@ Vue.component('app-form-lista-espera', require('./components/forms/FormListaEspe
 Vue.component('app-calculadora', require('./components/layouts/Calculadora.vue'));
 //digiPack component
 Vue.component('app-digi-pack-menu',require('./components/layouts/DigiPackMenu.vue'));
+//tarifasMobil component
+Vue.component('app-tarifas-combo', require('./components/layouts/TarifasCombo.vue'));
+Vue.component('app-tarifas-ilimitado',require('./components/layouts/TarifasIlimitado.vue'));
+Vue.component('app-tarifas-navega', require('./components/layouts/TarifasNavega.vue'));
 
 const app = new Vue({
     el: '#app'

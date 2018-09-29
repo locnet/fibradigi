@@ -14018,6 +14018,10 @@ Vue.component('app-form-lista-espera', __webpack_require__(46));
 Vue.component('app-calculadora', __webpack_require__(49));
 //digiPack component
 Vue.component('app-digi-pack-menu', __webpack_require__(52));
+//tarifasMobil component
+Vue.component('app-tarifas-combo', __webpack_require__(62));
+Vue.component('app-tarifas-ilimitado', __webpack_require__(64));
+Vue.component('app-tarifas-navega', __webpack_require__(66));
 
 var app = new Vue({
   el: '#app'
@@ -48514,6 +48518,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -49812,7 +49817,7 @@ var render = function() {
             },
             [
               _c("span", { staticClass: "w-600 blue" }, [
-                _vm._v("1 x linea fija")
+                _vm._v("1 linea fija")
               ]),
               _vm._v(" con llamadas a \n\t\t\t\tcoste por minuto - "),
               _c("span", { staticClass: "w-600 blue" }, [_vm._v(" 1€")])
@@ -49833,8 +49838,10 @@ var render = function() {
               staticClass: "list-group-item"
             },
             [
-              _c("span", { staticClass: "w-600 blue" }, [_vm._v("1 x linea")]),
-              _vm._v(" fija con llamadas a \n\t\t\t\tcoste por minuto - "),
+              _c("span", { staticClass: "w-600 blue" }, [_vm._v("1 linea")]),
+              _vm._v(
+                " fija con llamadas ilimitadas a\n\t\t\t\tfijos y moviles de España + 500 minutos internacionales\n\t\t\t\t- "
+              ),
               _c("span", { staticClass: "w-600 blue" }, [_vm._v(" 3€")])
             ]
           ),
@@ -50768,6 +50775,600 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(63)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/layouts/TarifasCombo.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-59bbb56b", Component.options)
+  } else {
+    hotAPI.reload("data-v-59bbb56b", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row align-items-center" }, [
+      _c("div", { staticClass: "col-md-6 col-xs-12 w-90" }, [
+        _c("div", { staticClass: "card text-white combo5 w-80 text-center" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("h2", { staticClass: "w-600" }, [_vm._v("COMBO 5")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-check" }),
+              _vm._v("\n\t\t\t\t\t5 euros al mes, IVA incluido.")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-rocket" }),
+              _vm._v(" \n\t\t\t\t\t1GB acumulables.")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-phone" }),
+              _vm._v("\n\t\t\t\t\t100 minutos nacionales y internacionales")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-broadcast-tower" }),
+              _vm._v("\n\t\t\t\t\tLlamadas ilimitadas de Digi a Digi.")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-comments" }),
+              _vm._v("\n\t\t\t\t\t1000 SMS de Digi a Digi.")
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "h-30 d-block d-sm-none" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6 col-xs-12 w-90" }, [
+        _c("div", { staticClass: "card text-white combo10 w-80 text-center" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("h2", { staticClass: "w-600" }, [_vm._v("COMBO 10")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-check" }),
+              _vm._v("\n\t\t\t\t\t10 euros al mes, IVA incluido.")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-rocket" }),
+              _vm._v(" \n\t\t\t\t\t3GB acumulables.")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-phone" }),
+              _vm._v("\n\t\t\t\t\t400 minutos nacionales y internacionales")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-broadcast-tower" }),
+              _vm._v("\n\t\t\t\t\tLlamadas ilimitadas de Digi a Digi.")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-comments" }),
+              _vm._v("\n\t\t\t\t\t1000 SMS de Digi a Digi.")
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "h-30 " }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6 col-xs-12 w-90" }, [
+        _c("div", { staticClass: "card text-white combo15 w-80 text-center" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("h2", { staticClass: "w-600" }, [_vm._v("COMBO 10")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-check" }),
+              _vm._v("\n\t\t\t\t\t15 euros al mes, IVA incluido.")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-rocket" }),
+              _vm._v(" \n\t\t\t\t\t6GB acumulables.")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-phone" }),
+              _vm._v("\n\t\t\t\t\t800 minutos nacionales y internacionales")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-broadcast-tower" }),
+              _vm._v("\n\t\t\t\t\tLlamadas ilimitadas de Digi a Digi.")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-comments" }),
+              _vm._v("\n\t\t\t\t\t1000 SMS de Digi a Digi.")
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "h-30 d-block d-sm-none" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6 col-xs-12 w-90" }, [
+        _c("div", { staticClass: "card text-white combo20 w-80 text-center" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("h2", { staticClass: "w-600" }, [_vm._v("COMBO 20")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-check" }),
+              _vm._v("\n\t\t\t\t\t20 euros al mes, IVA incluido.")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-rocket" }),
+              _vm._v(" \n\t\t\t\t\t20GB acumulables.")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-phone" }),
+              _vm._v("\n\t\t\t\t\t2000 minutos nacionales y internacionales")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-broadcast-tower" }),
+              _vm._v("\n\t\t\t\t\tLlamadas ilimitadas de Digi a Digi.")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _c("i", { staticClass: "fas fa-comments" }),
+              _vm._v("\n\t\t\t\t\t1000 SMS de Digi a Digi.")
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-59bbb56b", module.exports)
+  }
+}
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(65)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/layouts/TarifasIlimitado.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-270559d7", Component.options)
+  } else {
+    hotAPI.reload("data-v-270559d7", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "combo" } }, [
+      _c("div", { staticClass: "row align-items-center" }, [
+        _c("div", { staticClass: "col-md-6 col-xs-12 w-90" }, [
+          _c("div", { staticClass: "card  mini w-80 text-center" }, [
+            _c("div", { staticClass: "card-header" }, [
+              _c("h2", { staticClass: "w-600" }, [_vm._v("MINI")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("p", { staticClass: "card-text" }, [
+                _c("i", { staticClass: "fas fa-check" }),
+                _vm._v("\n\t\t\t\t\t\t5 euros al mes, IVA incluido.")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _c("i", { staticClass: "fas fa-rocket" }),
+                _vm._v(" \n\t\t\t\t\t\t500MB acumulables.")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _c("i", { staticClass: "fas fa-phone" }),
+                _vm._v(
+                  "\n\t\t\t\t\t\t100 minutos nacionales, ilimitado de Digi a Digi"
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _c("i", { staticClass: "fas fa-comments" }),
+                _vm._v("\n\t\t\t\t\t\t1000 SMS de Digi a Digi.")
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "h-30 d-block d-sm-none" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6 col-xs-12 w-90" }, [
+          _c(
+            "div",
+            { staticClass: "card text-white ilimitado w-80 text-center" },
+            [
+              _c("div", { staticClass: "card-header" }, [
+                _c("h2", { staticClass: "w-600" }, [_vm._v("ILIMITADO 3GB")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-check" }),
+                  _vm._v("\n\t\t\t\t\t\t10 euros al mes, IVA incluido.")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-rocket" }),
+                  _vm._v(" \n\t\t\t\t\t\t3GB acumulables.")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-phone" }),
+                  _vm._v(
+                    "\n\t\t\t\t\t\tLlamadas ilimitadas a fijos y moviles de España"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-comments" }),
+                  _vm._v("\n\t\t\t\t\t\t1000 SMS de Digi a Digi.")
+                ])
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "h-30" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6 col-xs-12 w-90" }, [
+          _c(
+            "div",
+            { staticClass: "card text-white ilimitado w-80 text-center" },
+            [
+              _c("div", { staticClass: "card-header" }, [
+                _c("h2", { staticClass: "w-600" }, [_vm._v("ILIMITADO 6GB")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-check" }),
+                  _vm._v("\n\t\t\t\t\t\t15 euros al mes, IVA incluido.")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-rocket" }),
+                  _vm._v(" \n\t\t\t\t\t\t6GB acumulables.")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-phone" }),
+                  _vm._v(
+                    "\n\t\t\t\t\t\tLlamadas ilimitadas a fijo y mobiles de España"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-comments" }),
+                  _vm._v("\n\t\t\t\t\t\t1000 SMS de Digi a Digi.")
+                ])
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "h-30 d-block d-sm-none" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6 col-xs-12 w-90" }, [
+          _c(
+            "div",
+            { staticClass: "card text-white ilimitado w-80 text-center" },
+            [
+              _c("div", { staticClass: "card-header" }, [
+                _c("h2", { staticClass: "w-600" }, [_vm._v("ILIMITADO 20GB")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-check" }),
+                  _vm._v("\n\t\t\t\t\t\t20 euros al mes, IVA incluido.")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-rocket" }),
+                  _vm._v(" \n\t\t\t\t\t\t20GB acumulables.")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-phone" }),
+                  _vm._v(
+                    "\n\t\t\t\t\t\tLlamadas ilimitadas a fijos y mobiles de España"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-comments" }),
+                  _vm._v("\n\t\t\t\t\t\t1000 SMS de Digi a Digi.")
+                ])
+              ])
+            ]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-270559d7", module.exports)
+  }
+}
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(67)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/layouts/TarifasNavega.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7bc93cef", Component.options)
+  } else {
+    hotAPI.reload("data-v-7bc93cef", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "combo" } }, [
+      _c("div", { staticClass: "row align-items-center" }, [
+        _c("div", { staticClass: "col-md-6 col-xs-12 w-90" }, [
+          _c(
+            "div",
+            { staticClass: "card  text-white navega w-80 text-center" },
+            [
+              _c("div", { staticClass: "card-header" }, [
+                _c("h2", { staticClass: "w-600" }, [_vm._v("NAVEG@ 2GB")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-check" }),
+                  _vm._v("\n\t\t\t\t\t\t5 euros al mes, IVA incluido.")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-rocket" }),
+                  _vm._v(" \n\t\t\t\t\t\t2GB acumulables.")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-phone" }),
+                  _vm._v("\n\t\t\t\t\t\tLlamadas ilimitado de Digi a Digi")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-comments" }),
+                  _vm._v("\n\t\t\t\t\t\t1000 SMS de Digi a Digi.")
+                ])
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "h-30 d-block d-sm-none" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6 col-xs-12 w-90" }, [
+          _c(
+            "div",
+            { staticClass: "card text-white navega w-80 text-center" },
+            [
+              _c("div", { staticClass: "card-header" }, [
+                _c("h2", { staticClass: "w-600" }, [_vm._v("NAVEG@ 5GB")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-check" }),
+                  _vm._v("\n\t\t\t\t\t\t10 euros al mes, IVA incluido.")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-rocket" }),
+                  _vm._v(" \n\t\t\t\t\t\t5GB acumulables.")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-phone" }),
+                  _vm._v("\n\t\t\t\t\t\tLlamadas ilimitadas de Digi a Digi")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c("i", { staticClass: "fas fa-comments" }),
+                  _vm._v("\n\t\t\t\t\t\t1000 SMS de Digi a Digi.")
+                ])
+              ])
+            ]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7bc93cef", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
