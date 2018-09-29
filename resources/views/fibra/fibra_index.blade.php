@@ -74,7 +74,7 @@ infraestructura de Movistar.')
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-12">
-				<h1 class="big w-600 text-center blue">CARACTERISTICAS DE NUESTRA FIBRA</h1>
+				<h1 class="big w-600 text-center blue">FIBRA DIGIMOBIL - INTERNET DE VERDAD</h1>
 			</div>
 
 			<div class="h-30"></div><!--separador-->

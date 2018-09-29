@@ -55,12 +55,12 @@
 						</td>
 					    <td class="d-none d-sm-table-cell">2Gb internet velocidad 4G</td>
 						<td>3€ al mes</td>
-						<td class="grey"><span class="yellow">{{ combo5counter }}</span></td>
-						<td class="pointer grey" 
+						<td class="bgGrey"><span class="lightBlue">{{ combo5counter }}</span></td>
+						<td class="pointer bgGrey" 
 							@click="totalCounter < 4 ? (combo5counter++,totalCounter++) :combo5counter">
 							<i class="fas fa-plus-circle"></i>
 						</td>
-						<td class="pointer grey" 
+						<td class="pointer bgGrey" 
 						 		@click="combo5counter > 0 ? (totalCounter--,combo5counter--) :combo5counter">
 							<i class="fas fa-minus-circle" v-show="checkIfVisible(combo5counter)"></i>
 						</td>
@@ -71,12 +71,12 @@
 							400 minutos nacional y internacional, ilimitadas de Digi a Digi</td>
 					    <td class="d-none d-sm-table-cell">6Gb internet velocidad 4G</td>
 						<td>6€ al mes</td>
-						<td class="grey"><span class="yellow">{{ combo10counter }}</span></td>
-						<td class="pointer grey" 
+						<td class="bgGrey"><span class="lightBlue">{{ combo10counter }}</span></td>
+						<td class="pointer bgGrey" 
 								@click="totalCounter < 4 ? (combo10counter++,totalCounter++) :combo10counter">
 							<i 	class="fas fa-plus-circle"></i>
 						</td>
-						<td class="pointer grey" 
+						<td class="pointer bgGrey" 
 								@click="combo10counter > 0 ? (totalCounter--,combo10counter--) :combo10counter">
 							<i class="fas fa-minus-circle" v-show="checkIfVisible(combo10counter)"></i>
 						</td>
@@ -87,12 +87,12 @@
 							800 minutos nacional y internacional, Ilimitadas de Digi a Digi</td>
 					    <td class="d-none d-sm-table-cell">12Gb internet velocidad 4G</td>
 						<td>9€ al mes</td>
-						<td class="grey"><span class="yellow">{{ combo15counter }}</span></td>
-						<td class="pointer grey" 
+						<td class="bgGrey"><span class="lightBlue">{{ combo15counter }}</span></td>
+						<td class="pointer bgGrey" 
 							@click="totalCounter < 4 ? (combo15counter++,totalCounter++) :combo15counter">
 							<i class="fas fa-plus-circle"></i>
 						</td>
-						<td class="pointer grey" 
+						<td class="pointer bgGrey" 
 						 		@click="combo15counter > 0 ? (totalCounter--,combo15counter--) :combo15counter">
 							<i class="fas fa-minus-circle" v-show="checkIfVisible(combo15counter)"></i>
 						</td>
@@ -103,12 +103,12 @@
 							2000 minutos nacional y internacional, ilimitadas de Digi a Digi</td>
 					    <td class="d-none d-sm-table-cell">40Gb internet velocidad 4G</td>
 						<td>12€ al mes</td>
-						<td class="grey"><span class="yellow">{{ combo20counter }}</span></td>
-						<td class="pointer grey"
+						<td class="bgGrey"><span class="lightBlue">{{ combo20counter }}</span></td>
+						<td class="pointer bgGrey"
 							@click="totalCounter < 4 ? (combo20counter++,totalCounter++) :combo20counter">
 							<i class="fas fa-plus-circle"></i>
 						</td>
-						<td class="pointer grey" 
+						<td class="pointer bgGrey" 
 						 		@click="combo20counter > 0 ? (totalCounter--,combo20counter--) :combo20counter">
 							<i class="fas fa-minus-circle" v-show="checkIfVisible(combo20counter)"></i>
 						</td>
@@ -130,12 +130,12 @@
 							100 minutos nacionales, ilimitado de Digi a Digi</td>
 					    <td class="d-none d-sm-table-cell">1Gb internet velocidad 4G</td>
 						<td>2€ al mes</td>
-						<td class="grey"><span class="yellow">{{ miniCounter }}</span></td>
-						<td class="pointer grey" 
+						<td class="bgGrey"><span class="lightBlue">{{ miniCounter }}</span></td>
+						<td class="pointer bgGrey" 
 							@click="totalCounter < 4 ? (miniCounter++,totalCounter++) :miniCounter">
 							<i class="fas fa-plus-circle white"></i>
 						</td>
-						<td class="pointer grey" 
+						<td class="pointer bgGrey" 
 						 		@click="miniCounter > 0 ? (totalCounter--,miniCounter--) :miniCounter">
 							<i class="fas fa-minus-circle white" v-show="checkIfVisible(miniCounter)"></i>
 						</td>
@@ -145,12 +145,12 @@
 						<td class="d-none d-sm-table-cell">Llamadas ilimitadas nacionales</td>
 					    <td class="d-none d-sm-table-cell">6Gb internet velocidad 4G</td>
 						<td>6€ al mes</td>
-						<td class="grey"><span class="yellow">{{ i10counter }}</span></td>
-						<td class="pointer grey" 
+						<td class="bgGrey"><span class="lightBlue">{{ i10counter }}</span></td>
+						<td class="pointer bgGrey" 
 								@click="totalCounter < 4 ? (i10counter++,totalCounter++) :i10counter">
 							<i 	class="fas fa-plus-circle"></i>
 						</td>
-						<td class="pointer grey" 
+						<td class="pointer bgGrey" 
 								@click="i10counter > 0 ? (totalCounter--,i10counter--) :i10counter">
 							<i class="fas fa-minus-circle" v-show="checkIfVisible(i10counter)"></i>
 						</td>
@@ -160,12 +160,12 @@
 						<td class="d-none d-sm-table-cell">Llamadas ilimitadas nacionales</td>
 					    <td class="d-none d-sm-table-cell">12Gb internet velocidad 4G</td>
 						<td>9€ al mes</td>
-						<td class="grey"><span class="yellow">{{ i15counter }}</span></td>
-						<td class="pointer grey" 
+						<td class="bgGrey"><span class="lightBlue">{{ i15counter }}</span></td>
+						<td class="pointer bgGrey" 
 							@click="totalCounter < 4 ? (i15counter++,totalCounter++) :i15counter">
 							<i class="fas fa-plus-circle"></i>
 						</td>
-						<td class="pointer grey" 
+						<td class="pointer bgGrey" 
 						 		@click="i15counter > 0 ? (totalCounter--,i15counter--) :i15counter">
 							<i class="fas fa-minus-circle" v-show="checkIfVisible(i15counter)"></i>
 						</td>
@@ -175,12 +175,12 @@
 						<td class="d-none d-sm-table-cell">Llamadas ilimitadas nacionales</td>
 					    <td class="d-none d-sm-table-cell">40Gb internet velocidad 4G</td>
 						<td>12€ al mes</td>
-						<td class="grey"><span class="yellow">{{ i20counter }}</span></td>
-						<td class="pointer grey" 
+						<td class="bgGrey"><span class="lightBlue">{{ i20counter }}</span></td>
+						<td class="pointer bgGrey" 
 							@click="totalCounter < 4 ? (i20counter++,totalCounter++) :i20counter">
 							<i class="fas fa-plus-circle"></i>
 						</td>
-						<td class="pointer grey" 
+						<td class="pointer bgGrey" 
 						 		@click="i20counter > 0 ? (totalCounter--,i20counter--) :i20counter">
 							<i class="fas fa-minus-circle" v-show="checkIfVisible(i20counter)"></i>
 						</td>
@@ -201,12 +201,12 @@
 						<td class="d-none d-sm-table-cell">Llamadas ilimitadas de Digi a Digi</td>
 					    <td class="d-none d-sm-table-cell">4GB internet velocidad 4G</td>
 						<td>3€ al mes</td>
-						<td class="grey"><span class="yellow">{{ nav5counter }}</span></td>
-						<td class="pointer grey" 
+						<td class="bgGrey"><span class="lightBlue">{{ nav5counter }}</span></td>
+						<td class="pointer bgGrey" 
 							@click="totalCounter < 4 ? (nav5counter++,totalCounter++) :nav5counter">
 							<i class="fas fa-plus-circle white"></i>
 						</td>
-						<td class="pointer grey" 
+						<td class="pointer bgGrey" 
 						 		@click="nav5counter > 0 ? (totalCounter--,nav5counter--) :nav5counter">
 							<i class="fas fa-minus-circle white" v-show="checkIfVisible(nav5counter)"></i>
 						</td>
@@ -216,12 +216,12 @@
 						<td class="d-none d-sm-table-cell">Llamadas ilimitadas de Digi a Digi</td>
 					    <td class="d-none d-sm-table-cell">10Gb internet velocidad 4G</td>
 						<td>6€ al mes</td>
-						<td class="grey"><span class="yellow">{{ nav10counter }}</span></td>
-						<td class="pointer grey" 
+						<td class="bgGrey"><span class="lightBlue">{{ nav10counter }}</span></td>
+						<td class="pointer bgGrey" 
 								@click="totalCounter < 4 ? (nav10counter++,totalCounter++) :nav10counter">
 							<i 	class="fas fa-plus-circle"></i>
 						</td>
-						<td class="pointer grey" 
+						<td class="pointer bgGrey" 
 								@click="nav10counter > 0 ? (totalCounter--,nav10counter--) :nav10counter">
 							<i class="fas fa-minus-circle" v-show="checkIfVisible(nav10counter)"></i>
 						</td>
@@ -242,7 +242,7 @@
 						<td>FIJO SIN LLAMADAS</td>
 						<td class="d-none d-sm-table-cell">Llamadas a coste por minuto</td>
 						<td>1€ al mes</td>
-						<td class="grey">
+						<td class="bgGrey">
 							Selecciona
 							<input class="" type="radio"  v-model="phone" value=1>  							
 						</td>
@@ -252,7 +252,7 @@
 						<td class="d-none d-sm-table-cell">
 							Llamadas ilimitadas nacionales + 500 minutos 	internacionales</td>
 						<td>3€ al mes</td>
-						<td class="grey">
+						<td class="bgGrey">
 							Selecciona
 							<input class="" type="radio" v-model="phone" value=3>  							
 						</td>
@@ -342,7 +342,7 @@
 					precio para toda la vida
 				</li>
 				<li class="list-group-item">
-					<button class="btn btn-warning" @click="resetAll">Empieza otra vez</button>
+					<button class="btn btn-warning bt-lg" @click="resetAll">EMPEZAR OTRA VEZ</button>
 				</li>
 			</ul>
 		</div>

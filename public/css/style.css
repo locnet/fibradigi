@@ -60,6 +60,15 @@ p.big {
 .yellow {
     color: #fde614;;
 }
+.lightBlue {
+    color: #79eeee;
+}
+.bgWhite {
+    background-color: #ffffff;
+}
+.bgGrey {
+    background-color: #5f5d5d;
+}
 /***********BUTTONS ****************/
 
 .btn-warning {
@@ -147,7 +156,7 @@ label {
     background-color: #0772b1;
 }
 .combo10 {
-    background-color: #840036;
+    background-color: #951B81;
 }
 .combo15 {
     background-color: #f5801b;
@@ -161,9 +170,7 @@ label {
 .ilimitado {
     background-color: #3296d2;
 }
-.grey {
-    background-color: grey;
-}
+
 .navega {
     background-color: #4bb708;
 }

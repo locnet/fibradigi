@@ -14023,6 +14023,9 @@ Vue.component('app-tarifas-combo', __webpack_require__(62));
 Vue.component('app-tarifas-ilimitado', __webpack_require__(64));
 Vue.component('app-tarifas-navega', __webpack_require__(66));
 
+//modals
+Vue.component('app-faq-digi-combo', __webpack_require__(68));
+
 var app = new Vue({
   el: '#app'
 });
@@ -48754,8 +48757,8 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("3€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "grey" }, [
-                _c("span", { staticClass: "yellow" }, [
+              _c("td", { staticClass: "bgGrey" }, [
+                _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.combo5counter))
                 ])
               ]),
@@ -48763,7 +48766,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -48778,7 +48781,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.combo5counter > 0
@@ -48818,8 +48821,8 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("6€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "grey" }, [
-                _c("span", { staticClass: "yellow" }, [
+              _c("td", { staticClass: "bgGrey" }, [
+                _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.combo10counter))
                 ])
               ]),
@@ -48827,7 +48830,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -48842,7 +48845,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.combo10counter > 0
@@ -48882,8 +48885,8 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("9€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "grey" }, [
-                _c("span", { staticClass: "yellow" }, [
+              _c("td", { staticClass: "bgGrey" }, [
+                _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.combo15counter))
                 ])
               ]),
@@ -48891,7 +48894,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -48906,7 +48909,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.combo15counter > 0
@@ -48946,8 +48949,8 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("12€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "grey" }, [
-                _c("span", { staticClass: "yellow" }, [
+              _c("td", { staticClass: "bgGrey" }, [
+                _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.combo20counter))
                 ])
               ]),
@@ -48955,7 +48958,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -48970,7 +48973,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.combo20counter > 0
@@ -49034,8 +49037,8 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("2€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "grey" }, [
-                _c("span", { staticClass: "yellow" }, [
+              _c("td", { staticClass: "bgGrey" }, [
+                _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.miniCounter))
                 ])
               ]),
@@ -49043,7 +49046,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -49058,7 +49061,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.miniCounter > 0
@@ -49096,8 +49099,8 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("6€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "grey" }, [
-                _c("span", { staticClass: "yellow" }, [
+              _c("td", { staticClass: "bgGrey" }, [
+                _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.i10counter))
                 ])
               ]),
@@ -49105,7 +49108,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -49120,7 +49123,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.i10counter > 0
@@ -49158,8 +49161,8 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("9€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "grey" }, [
-                _c("span", { staticClass: "yellow" }, [
+              _c("td", { staticClass: "bgGrey" }, [
+                _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.i15counter))
                 ])
               ]),
@@ -49167,7 +49170,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -49182,7 +49185,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.i15counter > 0
@@ -49220,8 +49223,8 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("12€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "grey" }, [
-                _c("span", { staticClass: "yellow" }, [
+              _c("td", { staticClass: "bgGrey" }, [
+                _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.i20counter))
                 ])
               ]),
@@ -49229,7 +49232,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -49244,7 +49247,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.i20counter > 0
@@ -49306,8 +49309,8 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("3€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "grey" }, [
-                _c("span", { staticClass: "yellow" }, [
+              _c("td", { staticClass: "bgGrey" }, [
+                _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.nav5counter))
                 ])
               ]),
@@ -49315,7 +49318,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -49330,7 +49333,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.nav5counter > 0
@@ -49368,8 +49371,8 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("6€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "grey" }, [
-                _c("span", { staticClass: "yellow" }, [
+              _c("td", { staticClass: "bgGrey" }, [
+                _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.nav10counter))
                 ])
               ]),
@@ -49377,7 +49380,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -49392,7 +49395,7 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer grey",
+                  staticClass: "pointer bgGrey",
                   on: {
                     click: function($event) {
                       _vm.nav10counter > 0
@@ -49450,7 +49453,7 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("1€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "grey" }, [
+              _c("td", { staticClass: "bgGrey" }, [
                 _vm._v("\n\t\t\t\t\t\tSelecciona\n\t\t\t\t\t\t"),
                 _c("input", {
                   directives: [
@@ -49483,7 +49486,7 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("3€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "grey" }, [
+              _c("td", { staticClass: "bgGrey" }, [
                 _vm._v("\n\t\t\t\t\t\tSelecciona\n\t\t\t\t\t\t"),
                 _c("input", {
                   directives: [
@@ -49872,8 +49875,11 @@ var render = function() {
           _c("li", { staticClass: "list-group-item" }, [
             _c(
               "button",
-              { staticClass: "btn btn-warning", on: { click: _vm.resetAll } },
-              [_vm._v("Empieza otra vez")]
+              {
+                staticClass: "btn btn-warning bt-lg",
+                on: { click: _vm.resetAll }
+              },
+              [_vm._v("EMPEZAR OTRA VEZ")]
             )
           ])
         ])
@@ -51367,6 +51373,602 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-7bc93cef", module.exports)
+  }
+}
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(69)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/modals/faqDigiCombo.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6068c83f", Component.options)
+  } else {
+    hotAPI.reload("data-v-6068c83f", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "faqModal",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog modal-lg", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "exampleModalLabel" }
+                  },
+                  [_vm._v("Todo sobre los Combos de Digi Mobil")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Cerrar"
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { attrs: { id: "accordion" } }, [
+                  _c("div", { staticClass: "card" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card-header",
+                        attrs: { id: "headingOne" }
+                      },
+                      [
+                        _c("h4", { staticClass: "mb-0" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "col-xs-12 btn btn-link",
+                              attrs: {
+                                "data-toggle": "collapse",
+                                "data-target": "#collapseOne",
+                                "aria-expanded": "false",
+                                "aria-controls": "collapseOne"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n\t\t\t\t\t\t\t\t\t¿Tiene buena covertura Digi Mobil?\n\t\t\t\t\t\t\t\t"
+                              )
+                            ]
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "collapse show",
+                        attrs: {
+                          id: "collapseOne",
+                          "aria-labelledby": "headingOne",
+                          "data-parent": "#accordion"
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "card-body" }, [
+                          _vm._v(
+                            "\n\t\t\t\t\t\t\t\tDigi funciona sobre la red de Movistar. Aprovecha la mejor covertura de \n\t\t\t\t\t\t\t\tEspaña para hablar y navegar con la velocidad 4G.\n\t\t\t\t\t\t\t"
+                          )
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card-header",
+                        attrs: { id: "headingSeven" }
+                      },
+                      [
+                        _c("h5", { staticClass: "mb-0" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-link collapsed",
+                              attrs: {
+                                "data-toggle": "collapse",
+                                "data-target": "#collapseSeven",
+                                "aria-expanded": "false",
+                                "aria-controls": "collapseSeven"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n\t\t\t\t\t\t\t\t\t¿Como se activan los bonos Digi?\n\t\t\t\t\t\t\t\t"
+                              )
+                            ]
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "collapse",
+                        attrs: {
+                          id: "collapseSeven",
+                          "aria-labelledby": "headingSeven",
+                          "data-parent": "#accordion"
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("p", [
+                            _vm._v(
+                              "Puedes activar cualquier bono Digi marcando "
+                            ),
+                            _c("span", { staticClass: "blue" }, [
+                              _vm._v("\n\t\t\t\t\t\t\t\t*100#")
+                            ]),
+                            _vm._v(" en tu movil, entrando en "),
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href: "https://micuentadigi.digimobil.es"
+                                }
+                              },
+                              [_vm._v(" \n\t\t\t\t\t\t\t\tMi Cuenta Digi")]
+                            ),
+                            _vm._v(" o en cualquier "),
+                            _c("span", { staticClass: "blue" }, [
+                              _vm._v("distribuidor Digi Mobil")
+                            ]),
+                            _vm._v(".")
+                          ])
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card-header",
+                        attrs: { id: "headingTwo" }
+                      },
+                      [
+                        _c("h5", { staticClass: "mb-0" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-link collapsed",
+                              attrs: {
+                                "data-toggle": "collapse",
+                                "data-target": "#collapseTwo",
+                                "aria-expanded": "false",
+                                "aria-controls": "collapseTwo"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n\t\t\t\t\t\t\t\t\t¿Se acumulan los megas y los minutos?\n\t\t\t\t\t\t\t\t"
+                              )
+                            ]
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "collapse",
+                        attrs: {
+                          id: "collapseTwo",
+                          "aria-labelledby": "headingTwo",
+                          "data-parent": "#accordion"
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("p", [
+                            _vm._v("Si, los megas sin gastar de cualquier "),
+                            _c("span", { staticClass: "blue" }, [
+                              _vm._v("Digi Combo")
+                            ]),
+                            _vm._v(", \n\t\t\t\t\t\t\t\t\t"),
+                            _c("span", { staticClass: "blue" }, [
+                              _vm._v("Digi Naveg@")
+                            ]),
+                            _vm._v(", "),
+                            _c("span", { staticClass: "blue" }, [
+                              _vm._v("Mini")
+                            ]),
+                            _vm._v(" o \n\t\t\t\t\t\t\t\t\t"),
+                            _c("span", { staticClass: "blue" }, [
+                              _vm._v("Digi Ilimitado")
+                            ]),
+                            _vm._v(" o "),
+                            _c("span", { staticClass: "blue" }, [
+                              _vm._v("contrato")
+                            ]),
+                            _vm._v(
+                              " se acumulan de forma automatica para el mes siguiente al activar cualquier producto Digi Mobil."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Los minutos y los SMS no se acumulan para el mes siguiente y no son\n\t\t\t\t\t\t\t\t\treembolsables."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Si tienes contrato Digi, los megas sin gastar se te acumulan de forma\n\t\t\t\t\t\t\t\t\t\tautomatica el dia 16 de cada mes. Disfrutaras de los megas acumulados el \n\t\t\t\t\t\t\t\t\t\tsiguiente ciclo de facturacion."
+                            )
+                          ])
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card-header",
+                        attrs: { id: "headingThree" }
+                      },
+                      [
+                        _c("h5", { staticClass: "mb-0" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-link collapsed",
+                              attrs: {
+                                "data-toggle": "collapse",
+                                "data-target": "#collapseThree",
+                                "aria-expanded": "false",
+                                "aria-controls": "collapseThree"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n\t\t\t\t\t\t\t\t\t¿Y si no tengo saldo para la auto-renovacion?\n\t\t\t\t\t\t\t\t"
+                              )
+                            ]
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "collapse",
+                        attrs: {
+                          id: "collapseThree",
+                          "aria-labelledby": "headingThree",
+                          "data-parent": "#accordion"
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("p", [
+                            _vm._v(
+                              "Si no tenias suficiente saldo para la renovacion automatica de tu bono Digi no te preocupes. "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Tienes "),
+                            _c("span", { staticClass: "blue" }, [
+                              _vm._v("48 horas")
+                            ]),
+                            _vm._v(
+                              " desde el vencimiento de tu \n\t\t\t\t\t\t\t\tactual producto para activar cualquier producto Digi, de esta manera los megas sin gastar del mes anterior se acumularan para el mes siquiente."
+                            )
+                          ])
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card-header",
+                        attrs: { id: "headingFour" }
+                      },
+                      [
+                        _c("h5", { staticClass: "mb-0" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-link collapsed",
+                              attrs: {
+                                "data-toggle": "collapse",
+                                "data-target": "#collapseFour",
+                                "aria-expanded": "false",
+                                "aria-controls": "collapseFour"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n\t\t\t\t\t\t\t\t\t¿Has terminado los megas y el mes no ha pasado?\n\t\t\t\t\t\t\t\t"
+                              )
+                            ]
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "collapse",
+                        attrs: {
+                          id: "collapseFour",
+                          "aria-labelledby": "headingFour",
+                          "data-parent": "#accordion"
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("p", [
+                            _vm._v(
+                              "Todos los productos Digi incluyen una cantidad de megas a baja velocidad \n\t\t\t\t\t\t\t\t    para sequir navegando si has gastados todos tus megas de maxima velocidad."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Si has acabado los megas a maxima velocidad tienes varias opciones:"
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("ul", [
+                            _c("li", [
+                              _vm._v("Activar otra vez un bono Digi.")
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v(
+                                "Aumentar megas extra. Puedes aumentar 200MB o 1GB extra.\n\t\t\t\t\t\t\t\t\t\t"
+                              )
+                            ]),
+                            _c("li", [
+                              _vm._v("Seguir navegando a baja velocidad.")
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Los megas extra que no hayas gastado se acumulan para el proximo mes."
+                            )
+                          ])
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card-header",
+                        attrs: { id: "headingFive" }
+                      },
+                      [
+                        _c("h5", { staticClass: "mb-0" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-link collapsed",
+                              attrs: {
+                                "data-toggle": "collapse",
+                                "data-target": "#collapseFive",
+                                "aria-expanded": "false",
+                                "aria-controls": "collapseFive"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n\t\t\t\t\t\t\t\t\t¿Como verifico el saldo?\n\t\t\t\t\t\t\t\t"
+                              )
+                            ]
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "collapse",
+                        attrs: {
+                          id: "collapseFive",
+                          "aria-labelledby": "headingFive",
+                          "data-parent": "#accordion"
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("p", [
+                            _vm._v(
+                              "El saldo de megas y minutos lo puedes comprobar marcando "
+                            ),
+                            _c("span", { staticClass: "blue" }, [
+                              _vm._v("\n\t\t\t\t\t\t\t\t*134#")
+                            ]),
+                            _vm._v(" en tu movil.")
+                          ])
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card-header",
+                        attrs: { id: "headingSix" }
+                      },
+                      [
+                        _c("h5", { staticClass: "mb-0" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-link collapsed",
+                              attrs: {
+                                "data-toggle": "collapse",
+                                "data-target": "#collapseSix",
+                                "aria-expanded": "false",
+                                "aria-controls": "collapseSix"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n\t\t\t\t\t\t\t\t\t¿Puedo activar mas de un bono?\n\t\t\t\t\t\t\t\t"
+                              )
+                            ]
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "collapse",
+                        attrs: {
+                          id: "collapseSix",
+                          "aria-labelledby": "headingSix",
+                          "data-parent": "#accordion"
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "card-body" }, [
+                          _c("p", [
+                            _vm._v(
+                              "Si. Se pueden activar hasta 3 bonos distintos en los 30 dias siquientes a \n\t\t\t\t\t\t\t\t\tla fecha de la primera activacion. Cada bono caduca a los \n\t\t\t\t\t\t\t\t\t30 dias desde su activacion.\n\t\t\t\t\t\t\t\t\t"
+                            )
+                          ]),
+                          _c("p", [
+                            _vm._v(
+                              " Los minutos y los megas de los distintos bonos que se encuentran activos \n\t\t\t\t\t\t\t\t\ten un momento dado se suman."
+                            )
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Cerrar")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-6068c83f", module.exports)
   }
 }
 

@@ -26,6 +26,9 @@ Vue.component('app-tarifas-combo', require('./components/layouts/TarifasCombo.vu
 Vue.component('app-tarifas-ilimitado',require('./components/layouts/TarifasIlimitado.vue'));
 Vue.component('app-tarifas-navega', require('./components/layouts/TarifasNavega.vue'));
 
+//modals
+Vue.component('app-faq-digi-combo',require('./components/modals/faqDigiCombo.vue'));
+
 const app = new Vue({
     el: '#app'
 });
