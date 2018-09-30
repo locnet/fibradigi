@@ -32,3 +32,7 @@ Route::get('/calcula-tarifa-fibra-digi', function() {
 	return view('fibra/calculadora');
 });
 
+Route::get('/contact', function() {
+	return view('working');
+});
+
