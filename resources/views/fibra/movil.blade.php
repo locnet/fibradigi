@@ -76,7 +76,7 @@ Comprueba los precios de nuestros combos y comparalos con la competencia.')
 		<div class="" ss="col-12 jumbotron bgWhite">
 			<h3 class="w-600 text-center blue medium" style="margin-bottom:20px">
 				¿TIENES PREGUNTAS SOBRE LOS COMBOS DE DIGI?</h3>
-			<p class="lead">Tenemos una seccion dedicada a responder a cualquier pregunta sobre 
+			<p class="lead">Tenemos una seccion dedicada a responder a preguntas comunes sobre 
 				los Combos y las tarifas Digi Mobil, 
 				<a href="" data-toggle="modal" data-target="#faqModal">pulsa aqui 
 					<i class="fa fa-link"></i>

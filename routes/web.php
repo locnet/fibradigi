@@ -20,10 +20,15 @@ Route::post('/fibra/lista-espera', 'Fibra\MainController@store');
 Route::get('/paquete-fibra-digi-con-movil-incluido',function() {
 
 	return view('fibra/digipack');
-	
+
 })->name('digipack');
 
 Route::get('/digi-mobil-tarifas', function() {
 	return view('fibra/movil');
+});
+
+Route::get('/calcula-tarifa-fibra-digi', function() {
+
+	return view('fibra/calculadora');
 });
 

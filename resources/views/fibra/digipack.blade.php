@@ -22,7 +22,7 @@ llamadas ilimitadas y 40Gb para navegar por solo 42€/mes, IVA incluido.')
 						CALCULA LO QUE PAGARAS CON DIGI</a>
 					</h3>
 			</div>
-		</div
+		</div>
 	</div>
 	<div class="container" >
 		<div class="row align-items-center">
