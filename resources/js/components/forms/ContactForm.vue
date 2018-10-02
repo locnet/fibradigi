@@ -81,7 +81,7 @@
 				</div>
 			</div>
 			<div class="col-md-6 col-xs-12">
-				<label for="confirm_email">Confirma correo electronic</label>
+				<label for="confirm_email">Confirma correo electronico</label>
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<div class="input-group-text">
@@ -94,15 +94,31 @@
                         		{'is-invalid': hasErrors.confirm_email !== undefined }]"
 							v-model="second_email"
 							v-on:keyup="checkEmail"
-							placeholder="Confirma correo" required />
-
-					
+							placeholder="Confirma correo" required />					
 				</div>
 				<div>
-         				<p class="yellow">{{ error_message }}</p>
-        			</div>
+     				<p class="yellow">{{ error_message }}</p>
+    			</div>
 			</div>
 		</div>
+
+		<div class="form-row">
+			<div class="col-12">
+				<label for="message">Dejanos un mensaje</label>
+				<div class="input-group">
+					<textarea class="form-control" rows="5" 
+						v-model="message"
+						name="message"
+						v-bind:class="[formControl,
+                        		{'is-invalid': hasErrors.message !== undefined }]"
+						></textarea>
+				</div>
+				<div>
+     				<p class="yellow">{{ hasErrors.message ? "Mesaje demasiado corto" : '' }}</p>
+    			</div>
+			</div>
+		</div>
+
 		<div class="h-30"></div> <!-- separador -->
 		<div class="col-12">
 			<p class="text-center">
@@ -111,12 +127,13 @@
 				</button>
 			</p>
 		</div>
+		
 	</div>
 </template>
 
 <script>
 export default {
-	props:['first_name','phone','email','confirm_email','post_code','errors'],
+	props:['first_name','phone','email','confirm_email','post_code', 'old_message','errors'],
 	data() {
 		return {
 			hasErrors: JSON.parse(this.errors),
@@ -124,6 +141,7 @@ export default {
 			inputGroup: 'input-group',
 			first_email: this.email,
 			second_email: this.confirm_email,
+			message: this.old_message,
 			error_message: ''
 		}
 	},
@@ -135,6 +153,9 @@ export default {
 				this.error_message = "¡Estupendo!";
 			}
 		}
+	},
+	created() {
+		console.log(this.hasErrors.message);
 	}
 };
 </script>

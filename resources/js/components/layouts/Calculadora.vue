@@ -35,13 +35,14 @@
 		<div class="h-20"></div><!-- separador -->
 
 		<div class="col-12">
-			<h2 class="w-300 blue" v-show="activeType">Has seleccionado la 
+			<h4 class="w-300 blue" v-if="activeType">Has seleccionado la 
 				<span class="w-600 big">Fibra Digi de {{ activeType == 30 ? '500Mb' : '30Mb' }}</span>.
 				Para que empieze la magia combinala con cualquier producto de telefonia movil Digi.
-				Puedes asociar hasta 4 productos diferentes junto con la fibra.</h2>
+				Puedes asociar hasta 4 productos diferentes junto con la fibra.</h4>
+			
+		<div class="h-30"></div><!-- separador -->
 		</div>
 		
-		<div class="h-30"></div><!-- separador -->
 		<div class="col-12" v-show="activeType">
 			<h2 class="blue">Digi Combo<span class="small"> Para navegar y llamar a destinos nacionales
 			y internacionales (mas de 50 paises)</span></h2>
@@ -346,7 +347,7 @@
 				</li>
 			</ul>
 		</div>
-		
+		<div class="h-30"></div><!-- separador-->
 	</div>
 </template>
 

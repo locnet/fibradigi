@@ -33,12 +33,10 @@
             movil-url="{{ url('/digi-mobil-tarifas') }}"
             settings-url="{{ route('ajustes') }}"
             contact-url="{{ url('/contacto') }}">              
-        </app-main-menu>
-        
+        </app-main-menu>      
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        @yield('content')
+
     </div>
     <footer style="background-color: #009df9; height: 300px">
 

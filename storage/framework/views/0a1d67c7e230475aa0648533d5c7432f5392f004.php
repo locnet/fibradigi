@@ -33,12 +33,10 @@
             movil-url="<?php echo e(url('/digi-mobil-tarifas')); ?>"
             settings-url="<?php echo e(route('ajustes')); ?>"
             contact-url="<?php echo e(url('/contacto')); ?>">              
-        </app-main-menu>
-        
+        </app-main-menu>      
 
-        <main class="py-4">
-            <?php echo $__env->yieldContent('content'); ?>
-        </main>
+        <?php echo $__env->yieldContent('content'); ?>
+
     </div>
     <footer style="background-color: #009df9; height: 300px">
 

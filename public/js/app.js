@@ -48527,6 +48527,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -48700,34 +48701,23 @@ var render = function() {
     _c("div", { staticClass: "h-20" }),
     _vm._v(" "),
     _c("div", { staticClass: "col-12" }, [
-      _c(
-        "h2",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.activeType,
-              expression: "activeType"
-            }
-          ],
-          staticClass: "w-300 blue"
-        },
-        [
-          _vm._v("Has seleccionado la \n\t\t\t"),
-          _c("span", { staticClass: "w-600 big" }, [
+      _vm.activeType
+        ? _c("h4", { staticClass: "w-300 blue" }, [
+            _vm._v("Has seleccionado la \n\t\t\t"),
+            _c("span", { staticClass: "w-600 big" }, [
+              _vm._v(
+                "Fibra Digi de " +
+                  _vm._s(_vm.activeType == 30 ? "500Mb" : "30Mb")
+              )
+            ]),
             _vm._v(
-              "Fibra Digi de " + _vm._s(_vm.activeType == 30 ? "500Mb" : "30Mb")
+              ".\n\t\t\tPara que empieze la magia combinala con cualquier producto de telefonia movil Digi.\n\t\t\tPuedes asociar hasta 4 productos diferentes junto con la fibra."
             )
-          ]),
-          _vm._v(
-            ".\n\t\t\tPara que empieze la magia combinala con cualquier producto de telefonia movil Digi.\n\t\t\tPuedes asociar hasta 4 productos diferentes junto con la fibra."
-          )
-        ]
-      )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "h-30" })
     ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "h-30" }),
     _vm._v(" "),
     _c(
       "div",
@@ -49889,7 +49879,9 @@ var render = function() {
           ])
         ])
       ]
-    )
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "h-30" })
   ])
 }
 var staticRenderFns = [
@@ -52146,9 +52138,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['first_name', 'phone', 'email', 'confirm_email', 'post_code', 'errors'],
+	props: ['first_name', 'phone', 'email', 'confirm_email', 'post_code', 'old_message', 'errors'],
 	data: function data() {
 		return {
 			hasErrors: JSON.parse(this.errors),
@@ -52156,6 +52165,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			inputGroup: 'input-group',
 			first_email: this.email,
 			second_email: this.confirm_email,
+			message: this.old_message,
 			error_message: ''
 		};
 	},
@@ -52168,6 +52178,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				this.error_message = "¡Estupendo!";
 			}
 		}
+	},
+	created: function created() {
+		console.log(this.hasErrors.message);
 	}
 });
 
@@ -52303,7 +52316,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "col-md-6 col-xs-12" }, [
         _c("label", { attrs: { for: "confirm_email" } }, [
-          _vm._v("Confirma correo electronic")
+          _vm._v("Confirma correo electronico")
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "input-group" }, [
@@ -52344,6 +52357,50 @@ var render = function() {
         _c("div", [
           _c("p", { staticClass: "yellow" }, [
             _vm._v(_vm._s(_vm.error_message))
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-row" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("label", { attrs: { for: "message" } }, [
+          _vm._v("Dejanos un mensaje")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group" }, [
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.message,
+                expression: "message"
+              }
+            ],
+            staticClass: "form-control",
+            class: [
+              _vm.formControl,
+              { "is-invalid": _vm.hasErrors.message !== undefined }
+            ],
+            attrs: { rows: "5", name: "message" },
+            domProps: { value: _vm.message },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.message = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("p", { staticClass: "yellow" }, [
+            _vm._v(
+              _vm._s(_vm.hasErrors.message ? "Mesaje demasiado corto" : "")
+            )
           ])
         ])
       ])
