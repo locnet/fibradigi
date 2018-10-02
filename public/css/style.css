@@ -200,6 +200,19 @@ label {
     min-height: 60px!important;
 }
 
+/************* LAYOUTS ************/
+.digipack {
+    min-height: 600px;
+    background: url('../img/tarifas-fibra-digi-mobil.jpg') no-repeat center left;
+}
+.digicombo {
+    min-height: 600px;
+    background: url('../img/tarifas-combos-digi-mobil.jpg') no-repeat center top;
+}
+.contacto {
+    background: url('../img/distribuidor-digi.jpg') no-repeat center top;
+}
+
 /*--------------------------------------------------|
 |             BREAKPOINTS                           |
 |---------------------------------------------------|*/
@@ -217,6 +230,9 @@ label {
     }
     .small {
         font-size:0.75rem;
+    }
+    .digipack {
+        min-height: 200px;
     }
 
     /*********** NAV ************/

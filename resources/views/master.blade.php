@@ -31,8 +31,8 @@
             home-url="{{ url('/') }}"
             digipack-url="{{ route('digipack') }}"
             movil-url="{{ url('/digi-mobil-tarifas') }}"
-            checking-url="{{ url('/checking') }}"
-            contact-url="{{ url('/contact') }}">              
+            settings-url="{{ route('ajustes') }}"
+            contact-url="{{ url('/contacto') }}">              
         </app-main-menu>
         
 

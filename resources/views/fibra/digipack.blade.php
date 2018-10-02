@@ -9,19 +9,22 @@ llamadas ilimitadas y 40Gb para navegar por solo 42€/mes, IVA incluido.')
 
 @section('content')
 <section>
-	<div class="container-fluid">
+	<div class="container-fluid digipack">
 		<div class="row align-items-center">
-			<div class="h-30"></div><!-- separador 30px-->
-			<div class="col-md-10 col-xs-12 offset-md-1">
-				<h1 class="blue text-center extra-big w-600">FIBRA DIGI + MOVIL DESDE SOLO 27€ / mes</h1>
-				<h2 class="blue text-center big ral w-600">CONTRATA <span class="yellow"> SOLO</span>
-					LO QUE <span class="yellow">NECESITAS</span></h2>
+			<div class="col-md-12 col-xs-12">
+				<div class="h-60"></div>
+				<div class="col-md-6 col-xs-12">
+					<h1 class="white text-center extra-big w-600">FIBRA DIGI + MOVIL DESDE SOLO 27€</h1>
+					<h2 class="white text-center w-600">CONTRATA <span class="lightBlue"> SOLO</span>
+						LO QUE <span class="lightBlue">NECESITAS</span></h2>
 					<div class="h-30"></div><!-- separador -->
 					<h3 class="text-center">
-						<a href="#showPacks" class="btn btn-primary btn-lg" role="button">
+						<a href="#showPacks" class="btn btn-danger btn-lg" role="button">
 						CALCULA LO QUE PAGARAS CON DIGI</a>
 					</h3>
+				</div>	
 			</div>
+			<div class="h-30"></div>
 		</div>
 	</div>
 	<div class="container" >

@@ -27,6 +27,7 @@ class MainController extends Controller
 
 	// guarda una nueva entrada en la lista de espera
 	public function store(Request $request) {
+        
 		// validamos formulario
         $validatedData = $this->validate($request,[
             'first_name' =>    'required',

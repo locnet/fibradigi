@@ -17,7 +17,12 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('app-main-menu', require('./components/layouts/MainMenu.vue'));
+
+// forms
 Vue.component('app-form-lista-espera', require('./components/forms/FormListaEspera.vue'));
+Vue.component('app-form-contacto', require('./components/forms/ContactForm.vue'));
+
+// calculadora
 Vue.component('app-calculadora', require('./components/layouts/Calculadora.vue'));
 //digiPack component
 Vue.component('app-digi-pack-menu',require('./components/layouts/DigiPackMenu.vue'));

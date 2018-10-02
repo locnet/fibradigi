@@ -1,19 +1,19 @@
 @extends('master')
 
-@section('title','Digi Mobil Tarifas | Precios los productos Digi ')
+@section('title','Digi Mobil Tarifas | Precios de los combos Digi Mobil ')
 
 @section('meta_description','Las tarifas Digi Mobil son las mejores tarifas del mercado. Siempre mejoramos 
 nuestros productos dando mas megas y minutos, nunca hemos subido el precio de un combo Digi Mobil. 
-Comprueba los precios de nuestros combos y comparalos con la competencia.')
+Comprueba los precios de nuestros combos Dig y comparalos con la competencia.')
 
 @section('content')
 <section>
 	<div class="container-fluid">
-		<div class="row align-items-center">
+		<div class="row align-items-center digicombo">
 			<div class="h-30"></div><!-- separador 30px-->
 			<div class="col-md-10 col-xs-12 offset-md-1">
 				<h1 class="blue text-center extra-big w-600">TARIFAS DIGI MOBIL</h1>
-				<h2 class="text-center big w-300">Las mejores tarifas de telefonia 
+				<h2 class="text-center big white w-300">Las mejores tarifas de telefonia 
 				movil para llamar a España o estranjero.</h2>
 							
 			</div>
@@ -79,8 +79,11 @@ Comprueba los precios de nuestros combos y comparalos con la competencia.')
 			<p class="lead">Tenemos una seccion dedicada a responder a preguntas comunes sobre 
 				los Combos y las tarifas Digi Mobil, 
 				<a href="" data-toggle="modal" data-target="#faqModal">pulsa aqui 
-					<i class="fa fa-link"></i>
+					<i class="fa fa-link"></i>.
 				</a>
+			</p>
+			<p>Si tienes una pregunta sobre las tarifas Digi para moviles o fibra y no has encontrado 
+				respuesta no dudes en <a href="{{ url('contacto') }}"> contactarnos <i class="fa fa-link"></i>.</a>
 			</p>
 		</div>
 		

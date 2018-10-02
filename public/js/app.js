@@ -14014,7 +14014,12 @@ window.Vue = __webpack_require__(37);
 
 Vue.component('example-component', __webpack_require__(40));
 Vue.component('app-main-menu', __webpack_require__(43));
+
+// forms
 Vue.component('app-form-lista-espera', __webpack_require__(46));
+Vue.component('app-form-contacto', __webpack_require__(70));
+
+// calculadora
 Vue.component('app-calculadora', __webpack_require__(49));
 //digiPack component
 Vue.component('app-digi-pack-menu', __webpack_require__(52));
@@ -47522,7 +47527,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['mainUrl', 'homeUrl', 'digipackUrl', 'movilUrl', 'bookingUrl', 'checkingUrl', 'contactUrl'],
+    props: ['mainUrl', 'homeUrl', 'digipackUrl', 'movilUrl', 'settingsUrl', 'contactUrl'],
     data: function data() {
         return {};
     },
@@ -47603,7 +47608,7 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "a",
-                  { staticClass: "nav-link", attrs: { href: _vm.bookingUrl } },
+                  { staticClass: "nav-link", attrs: { href: _vm.settingsUrl } },
                   [_vm._v("AJUSTES")]
                 )
               ]),
@@ -51969,6 +51974,458 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-6068c83f", module.exports)
+  }
+}
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(71)
+/* template */
+var __vue_template__ = __webpack_require__(72)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/forms/ContactForm.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-775eb249", Component.options)
+  } else {
+    hotAPI.reload("data-v-775eb249", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 71 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['first_name', 'phone', 'email', 'confirm_email', 'post_code', 'errors'],
+	data: function data() {
+		return {
+			hasErrors: JSON.parse(this.errors),
+			formControl: 'form-control',
+			inputGroup: 'input-group',
+			first_email: this.email,
+			second_email: this.confirm_email,
+			error_message: ''
+		};
+	},
+
+	methods: {
+		checkEmail: function checkEmail(e) {
+			if (this.first_email != this.second_email) {
+				this.error_message = "El correo electronico nu coincide";
+			} else {
+				this.error_message = "¡Estupendo!";
+			}
+		}
+	}
+});
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "form-row" }, [
+      _c("p", { staticClass: "yellow" }, [
+        _vm._v(_vm._s(_vm.confirm_email) + "\n\t\t\t")
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-row" }, [
+      _c("div", { staticClass: "col-md-4 col-xs-12" }, [
+        _c("label", { attrs: { for: "phone" } }, [_vm._v("Nombre")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("input", {
+            class: [
+              _vm.formControl,
+              { "is-invalid": _vm.hasErrors.first_name !== undefined }
+            ],
+            attrs: {
+              type: "text",
+              name: "first_name",
+              placeholder: "Nombre",
+              required: ""
+            },
+            domProps: { value: _vm.first_name }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4 col-xs-12" }, [
+        _c("label", { attrs: { for: "phone" } }, [_vm._v("Telefono")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c("input", {
+            class: [
+              _vm.formControl,
+              { "is-invalid": _vm.hasErrors.phone !== undefined }
+            ],
+            attrs: {
+              type: "tel",
+              tigle: "Solo digitos",
+              name: "phone",
+              placeholder: "Telefono",
+              required: ""
+            },
+            domProps: { value: _vm.phone }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4 col-xs-12" }, [
+        _c("label", { staticClass: "xs-hidden", attrs: { for: "city" } }, [
+          _vm._v("Codigo postal")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c("input", {
+            class: [
+              _vm.formControl,
+              { "is-invalid": _vm.hasErrors.post_code !== undefined }
+            ],
+            attrs: {
+              type: "number",
+              pattern: "[0-9",
+              title: "Codigo postal, solo digitos",
+              maxlength: "5",
+              name: "post_code",
+              placeholder: "Codigo postal",
+              required: ""
+            },
+            domProps: { value: _vm.post_code }
+          })
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-row" }, [
+      _c("div", { staticClass: "col-md-6 col-xs-12" }, [
+        _c("label", { attrs: { for: "email" } }, [
+          _vm._v("Correo electronico")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group" }, [
+          _vm._m(3),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.first_email,
+                expression: "first_email"
+              }
+            ],
+            class: [
+              _vm.formControl,
+              { "is-invalid": _vm.hasErrors.email !== undefined }
+            ],
+            attrs: {
+              type: "email",
+              name: "email",
+              placeholder: "Correo",
+              required: ""
+            },
+            domProps: { value: _vm.first_email },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.first_email = $event.target.value
+              }
+            }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6 col-xs-12" }, [
+        _c("label", { attrs: { for: "confirm_email" } }, [
+          _vm._v("Confirma correo electronic")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group" }, [
+          _vm._m(4),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.second_email,
+                expression: "second_email"
+              }
+            ],
+            class: [
+              _vm.formControl,
+              { "is-invalid": _vm.hasErrors.confirm_email !== undefined }
+            ],
+            attrs: {
+              type: "email",
+              name: "confirm_email",
+              placeholder: "Confirma correo",
+              required: ""
+            },
+            domProps: { value: _vm.second_email },
+            on: {
+              keyup: _vm.checkEmail,
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.second_email = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("p", { staticClass: "yellow" }, [
+            _vm._v(_vm._s(_vm.error_message))
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "h-30" }),
+    _vm._v(" "),
+    _vm._m(5)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("div", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "fas fa-user" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("div", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "fas fa-phone" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("div", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "fas fa-map-marker-alt" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("div", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "fas fa-at" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("div", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "fas fa-at" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [
+      _c("p", { staticClass: "text-center" }, [
+        _c(
+          "button",
+          { staticClass: "btn btn-warning btn-lg", attrs: { type: "submit" } },
+          [_vm._v("\n\t\t\t\t\tQUIERO QUE ME LLAMEN\n\t\t\t\t")]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-775eb249", module.exports)
   }
 }
 

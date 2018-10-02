@@ -33,7 +33,7 @@
                     </li>
                     <li class="nav-item">
                         <i class="fas fa-wrench"></i>
-                        <a v-bind:href="bookingUrl" class="nav-link">AJUSTES</a>
+                        <a v-bind:href="settingsUrl" class="nav-link">AJUSTES</a>
                     </li>
                     <li class="nav-item">
                         <i class="fas fa-phone"></i>
@@ -47,7 +47,7 @@
 
 <script>
 export default {
-    props: ['mainUrl','homeUrl','digipackUrl','movilUrl','bookingUrl','checkingUrl','contactUrl'],
+    props: ['mainUrl','homeUrl','digipackUrl','movilUrl','settingsUrl','contactUrl'],
     data() {
         return {            
             

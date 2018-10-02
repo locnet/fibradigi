@@ -31,8 +31,8 @@
             home-url="<?php echo e(url('/')); ?>"
             digipack-url="<?php echo e(route('digipack')); ?>"
             movil-url="<?php echo e(url('/digi-mobil-tarifas')); ?>"
-            checking-url="<?php echo e(url('/checking')); ?>"
-            contact-url="<?php echo e(url('/contact')); ?>">              
+            settings-url="<?php echo e(route('ajustes')); ?>"
+            contact-url="<?php echo e(url('/contacto')); ?>">              
         </app-main-menu>
         
 

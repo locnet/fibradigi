@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +31,13 @@ Route::get('/calcula-tarifa-fibra-digi', function() {
 	return view('fibra/calculadora');
 });
 
-Route::get('/contact', function() {
+Route::get('/configurar-apn-Digi', function() {
 	return view('working');
-});
+})->name('ajustes');
+
+Route::get('/contacto','Contact\ContactController@create');
+Route::post('/contacto/enviar', 'Contact\ContactController@save');
+
+
+// for https
 
