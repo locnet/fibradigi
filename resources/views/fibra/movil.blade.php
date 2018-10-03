@@ -2,9 +2,8 @@
 
 @section('title','Digi Mobil Tarifas | Precios de los combos Digi Mobil ')
 
-@section('meta_description','Las tarifas Digi Mobil son las mejores tarifas del mercado. Siempre mejoramos 
-nuestros productos dando mas megas y minutos, nunca hemos subido el precio de un combo Digi Mobil. 
-Comprueba los precios de nuestros combos Dig y comparalos con la competencia.')
+@section('meta_description','Tarifas Digi Mobil. Las mejores tarifas de telefonia movil para
+llamar a España o estranjero.')
 
 @section('content')
 <section>

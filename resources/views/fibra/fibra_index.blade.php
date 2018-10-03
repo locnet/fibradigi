@@ -2,9 +2,8 @@
 
 @section('title','Fibra Digi Mobil | La mejor fibra optica del mercado')
 
-@section('meta_description','Ya esta disponible la mejor fibra del mercado en cuanto a
-la relacion calidad/precio. Nuestra fibra tiene precio imbatibles y la calidad de la 
-infraestructura de Movistar.')
+@section('meta_description','Ya esta disponible la mejor fibra del mercado. Instalacion y wifi gratis 
+incluido, permanecia 12 meses.')
 
 @section('content')
 <section>
@@ -55,9 +54,9 @@ infraestructura de Movistar.')
 		<div class="row">
 			<div class="h-50"></div>
 			<div class="col-12">
-				<h1 class="big w-600 text-center blue">
+				<h2 class="big w-600 text-center blue">
 					#LO QUE VES ES LO QUE HAY
-				</h1>
+				</h2>
 				<p class="big ral w-100">No tenemos letra pequeña en nuestros productos. Si 
 					te decimos que la Fibra Digi 500Mb cuesta 30€/mes es realmente lo que cuesta: 
 					solo 30 € IVA incluido. Tambien te decimos claro que la instalacion es gratuita
@@ -74,7 +73,7 @@ infraestructura de Movistar.')
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-12">
-				<h1 class="big w-600 text-center blue">FIBRA DIGIMOBIL - INTERNET DE VERDAD</h1>
+				<h2 class="big w-600 text-center blue">FIBRA DIGI MOBIL - INTERNET DE VERDAD</h2>
 			</div>
 
 			<div class="h-30"></div><!--separador-->
@@ -82,7 +81,7 @@ infraestructura de Movistar.')
 			<div class="col-md-6 col-xs-12">
 				<div class="card text-white bg-primary w-80 text-center">
 					<div class="card-header">
-						<h2 class="w-600">FIBRA 500Mb</h2>
+						<h2 class="w-600">FIBRA DIGI 500Mb</h2>
 					</div>
 					<div class="card-body">
 						<p class="card-text"><i class="fas fa-euro-sign"></i>
@@ -103,7 +102,7 @@ infraestructura de Movistar.')
 			<div class="col-md-6 col-xs-12">
 				<div class="card text-white bg-primary w-80 text-center">
 					<div class="card-header">
-						<h2 class="w-600">FIBRA 30Mb</h2>
+						<h2 class="w-600">FIBRA DIGI 30Mb</h2>
 					</div>
 					<div class="card-body">
 						<p class="card-text"><i class="fas fa-euro-sign"></i>

@@ -2,10 +2,8 @@
 
 @section('title','Calcula precio fibra Digi Mobil| Digi Fibra optica')
 
-@section('meta_description','Aqui puedes calcular la tarifa que pagaras con nosotros. 
-Combina la fibra Digi con cualquier tarifa de movil y 
-te doblamos las gigas y pagaras menos. Fibra de 500Mb mas una linea de movil con 
-llamadas ilimitadas y 40Gb para navegar por solo 42€/mes, IVA incluido.')
+@section('meta_description','Fibra Digi Mobil desde solo 27€ al mes. Contrata solo lo
+	que necesitas y solo paga lo que has contratado.')
 
 @section('content')
 <section>
@@ -20,7 +18,7 @@ llamadas ilimitadas y 40Gb para navegar por solo 42€/mes, IVA incluido.')
 					<div class="h-30"></div><!-- separador -->
 					<h3 class="text-center">
 						<a href="#showPacks" class="btn btn-danger btn-lg" role="button">
-						CALCULA LO QUE PAGARAS CON DIGI</a>
+						CALCULA LO QUE PAGARIAS CON DIGI</a>
 					</h3>
 				</div>	
 			</div>

@@ -19,12 +19,11 @@ llamadas ilimitadas y 40Gb para navegar por solo 42€/mes, IVA incluido.')
 					<h1 class="blue text-center big ral w-600">
 						¿En que podemos ayudarte?
 					</h1>
-					<h2 class="white text-center">Si tu consulta es sobre la disponibilidad de la fibra en tu zona no olvides 
-						dejar tu direccion completa (codigo postal, calle, numero, portal, escalera,
+					<h3 class="white text-center">Si tu consulta es sobre la disponibilidad de la fibra en tu zona no olvides dejar tu direccion completa (codigo postal, calle, numero, portal, escalera,
 						piso y puerta).
-					</h2>
+					</h3>
 				</div>
-				<div id="suscribe" class="col-md-8 col-xs-12 offset-md-2">				
+				<div class="col-md-8 col-xs-12 offset-md-2">				
 					<form  action="{{ url('/contacto/enviar') }}" method="POST"
 							class="needs-validation"  novalidate>
 						{{ csrf_field() }}
