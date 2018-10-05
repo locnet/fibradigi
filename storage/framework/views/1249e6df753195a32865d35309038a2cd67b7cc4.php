@@ -1,8 +1,7 @@
 <?php $__env->startSection('title','Fibra Digi Mobil | La mejor fibra optica del mercado'); ?>
 
-<?php $__env->startSection('meta_description','Ya esta disponible la mejor fibra del mercado en cuanto a
-la relacion calidad/precio. Nuestra fibra tiene precio imbatibles y la calidad de la 
-infraestructura de Movistar.'); ?>
+<?php $__env->startSection('meta_description','Ya esta disponible la mejor fibra del mercado. Instalacion y wifi gratis 
+incluido, permanecia 12 meses.'); ?>
 
 <?php $__env->startSection('content'); ?>
 <section>
@@ -54,9 +53,9 @@ infraestructura de Movistar.'); ?>
 		<div class="row">
 			<div class="h-50"></div>
 			<div class="col-12">
-				<h1 class="big w-600 text-center blue">
+				<h2 class="big w-600 text-center blue">
 					#LO QUE VES ES LO QUE HAY
-				</h1>
+				</h2>
 				<p class="big ral w-100">No tenemos letra pequeña en nuestros productos. Si 
 					te decimos que la Fibra Digi 500Mb cuesta 30€/mes es realmente lo que cuesta: 
 					solo 30 € IVA incluido. Tambien te decimos claro que la instalacion es gratuita
@@ -66,6 +65,9 @@ infraestructura de Movistar.'); ?>
 					de fibra. De momento la fibra esta disponible solo en la Comunidad de Madrid.
 					Poco a poco estara disponible para toda España.
 				</p>
+				<p class="big ral w-100">Si tienes cualquier pregunta sobre la fibra Digi o el servicio de telefonia no 
+					dudes en <a href="<?php echo e(url('contacto')); ?>">contactarnos <i class="fas fa-link"></i></a>.
+				Te contestaremos encantados.</p>
 			</div>
 			<div class="h-50"></div>
 		</div>
@@ -73,7 +75,7 @@ infraestructura de Movistar.'); ?>
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-12">
-				<h1 class="big w-600 text-center blue">FIBRA DIGIMOBIL - INTERNET DE VERDAD</h1>
+				<h2 class="big w-600 text-center blue">FIBRA DIGI MOBIL - INTERNET DE VERDAD</h2>
 			</div>
 
 			<div class="h-30"></div><!--separador-->
@@ -81,7 +83,7 @@ infraestructura de Movistar.'); ?>
 			<div class="col-md-6 col-xs-12">
 				<div class="card text-white bg-primary w-80 text-center">
 					<div class="card-header">
-						<h2 class="w-600">FIBRA 500Mb</h2>
+						<h2 class="w-600">FIBRA DIGI 500Mb</h2>
 					</div>
 					<div class="card-body">
 						<p class="card-text"><i class="fas fa-euro-sign"></i>
@@ -102,7 +104,7 @@ infraestructura de Movistar.'); ?>
 			<div class="col-md-6 col-xs-12">
 				<div class="card text-white bg-primary w-80 text-center">
 					<div class="card-header">
-						<h2 class="w-600">FIBRA 30Mb</h2>
+						<h2 class="w-600">FIBRA DIGI 30Mb</h2>
 					</div>
 					<div class="card-body">
 						<p class="card-text"><i class="fas fa-euro-sign"></i>
@@ -119,6 +121,13 @@ infraestructura de Movistar.'); ?>
 				</div>
 			</div>
 		</div>
+		<div class="h-40"></div>
+		<div class="col-12">
+			<h2 class="blue big text-center w-600">¿Quieres saber mas sobre nuestras tarifas?</h2>
+			<p class="big ral w-100">Consulta las <a href="<?php echo e(route('digipack')); ?>">tarifas <i class="fas fa-search">
+				</i></a> de nuestros paquetes de fibra y movil incluidos. Si no quieres fibra en tu casa no hay problema,  tenemos las <a href="<?php echo e(url('digi-mobil-tarifas')); ?>"> tarifas <i class="fas fa-search"></i></a> perfectas para cada caso.</p>
+		</div>
+		<div class="h-40"></div>
 	</div>
 </section>
 <?php $__env->stopSection(); ?>

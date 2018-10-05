@@ -40,7 +40,7 @@
     <footer style="background-color: #009df9; height: 300px">
 
     </footer>
-    <?php echo $__env->yieldContent('custom_js'); ?>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109879058-3"></script>
     <script>
@@ -50,8 +50,10 @@
 
       gtag('config', 'UA-109879058-3');
     </script>
+
      <!-- Smooth Scroll Efect -->
     <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@14.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+     <?php echo $__env->yieldContent('custom_js'); ?>
 
 </body>
 </html>

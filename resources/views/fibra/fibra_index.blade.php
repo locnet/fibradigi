@@ -66,6 +66,9 @@ incluido, permanecia 12 meses.')
 					de fibra. De momento la fibra esta disponible solo en la Comunidad de Madrid.
 					Poco a poco estara disponible para toda España.
 				</p>
+				<p class="big ral w-100">Si tienes cualquier pregunta sobre la fibra Digi o el servicio de telefonia no 
+					dudes en <a href="{{ url('contacto') }}">contactarnos <i class="fas fa-link"></i></a>.
+				Te contestaremos encantados.</p>
 			</div>
 			<div class="h-50"></div>
 		</div>
@@ -119,6 +122,13 @@ incluido, permanecia 12 meses.')
 				</div>
 			</div>
 		</div>
+		<div class="h-40"></div>
+		<div class="col-12">
+			<h2 class="blue big text-center w-600">¿Quieres saber mas sobre nuestras tarifas?</h2>
+			<p class="big ral w-100">Consulta las <a href="{{ route('digipack') }}">tarifas <i class="fas fa-search">
+				</i></a> de nuestros paquetes de fibra y movil incluidos. Si no quieres fibra en tu casa no hay problema,  tenemos las <a href="{{ url('digi-mobil-tarifas') }}"> tarifas <i class="fas fa-search"></i></a> perfectas para cada caso.</p>
+		</div>
+		<div class="h-40"></div>
 	</div>
 </section>
 @endsection

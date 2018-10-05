@@ -2,7 +2,7 @@
 
 @section('title','Calcula precio fibra Digi Mobil| Digi Fibra optica')
 
-@section('meta_description','Fibra Digi Mobil desde solo 27€ al mes. Contrata solo lo
+@section('meta_description','Fibra Digi con linea movil desde solo 27€ al mes. Contrata solo lo
 	que necesitas y solo paga lo que has contratado.')
 
 @section('content')
