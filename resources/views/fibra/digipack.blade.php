@@ -16,10 +16,11 @@
 					<h2 class="white text-center w-600">CONTRATA <span class="lightBlue"> SOLO</span>
 						LO QUE <span class="lightBlue">NECESITAS</span></h2>
 					<div class="h-30"></div><!-- separador -->
-					<h3 class="text-center">
+					<p class="text-center">
 						<a href="#showPacks" class="btn btn-danger btn-lg" role="button">
-						CALCULA LO QUE PAGARIAS CON DIGI</a>
-					</h3>
+						CALCULADORA FIBRA DIGI</a>
+					</p>
+					
 				</div>	
 			</div>
 			<div class="h-30"></div>

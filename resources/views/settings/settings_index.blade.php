@@ -75,7 +75,7 @@ paso a paso, para Android y para iOS.')
 							<h4>
 								<i class="fab fa-android blue"></i>
 								<button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-									APN Digi para telefonos Android
+									Configurar APN Digi para Android
 								</button>
 							</h4>
 						</div>
@@ -113,7 +113,7 @@ paso a paso, para Android y para iOS.')
 							<h5 class="mb-0">
 								<i class="fas fa-mobile blue"></i>
 								<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-									APN Digi para iPhone
+									Configurar APN Digi para iPhone
 								</button>
 							</h5>
 						</div>
