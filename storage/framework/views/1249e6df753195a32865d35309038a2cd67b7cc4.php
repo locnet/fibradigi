@@ -1,4 +1,4 @@
-<?php $__env->startSection('title','Fibra Digi Mobil | La mejor fibra optica del mercado'); ?>
+<?php $__env->startSection('title','Fibra Digi Mobil Distribuidor Autorizat | La mejor fibra optica del mercado'); ?>
 
 <?php $__env->startSection('meta_description','Ya esta disponible la mejor fibra del mercado. Instalacion y wifi gratis 
 incluido, permanecia 12 meses.'); ?>
@@ -8,7 +8,7 @@ incluido, permanecia 12 meses.'); ?>
 	<div class="container-fluid portada">
 		<div class="row align-items-center portada-info">
 			<div class="col-12">
-				<h1 class="text-center extra-big ral w-600 white">FIBRA DIGI MOBIL</h1>
+				<h1 class="text-center extra-big ral w-600 white">DISTRIBUIDOR AUTORIZAT FIBRA DIGI MOBIL</h1>
 				<h2 class="text-center w-300 white">
 					¡Ya esta aqui la mejor fibra del mercado! Internet de verdad, sin trucos.
 				</h2>

@@ -2,8 +2,8 @@
 
 @section('title','Configurar apn Digi Mobil | Configurar internet Digi')
 
-@section('meta_description','Configurar apn Digi Mobil, con ejemplos practicos 
-paso a paso, para Android y para iOS.')
+@section('meta_description','Configurar apn Digi Mobil Naveg@r a velocidad
+	 4G en tu movil es muy facil, activa un bono Digi y configura una conexion.')
 
 @section('content')
 <section>	
@@ -43,7 +43,7 @@ paso a paso, para Android y para iOS.')
 							los datos y la itinerancia de datos.</b></p>
 					</li>
 				</ul>
-				<h3 class="blue big text-center w-400" style="margin-top:30px">Configuracion manual</h3>
+				<h3 id="manual_settings" class="blue big text-center w-400" style="margin-top:30px">Configuracion manual</h3>
 
 				<div id="accordion">
 					<div class="card">
@@ -140,6 +140,10 @@ paso a paso, para Android y para iOS.')
 						</div>
 					</div>
 				</div>
+
+				<h3 class="blue big text-center w-400" style="margin-top:30px">Resolucion problemas de conexion</h3>
+				<p>En esta seccion te ayudamos a resolver los problemas mas comunes con el internet de Digi en el movil.</p>
+				<app-faq-configuracion></app-faq-configuracion>
 				<div class="h-40"></div>
 			</div>
 		</div>

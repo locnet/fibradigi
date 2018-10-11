@@ -31,6 +31,8 @@ Vue.component('app-tarifas-combo', require('./components/layouts/TarifasCombo.vu
 Vue.component('app-tarifas-ilimitado',require('./components/layouts/TarifasIlimitado.vue'));
 Vue.component('app-tarifas-navega', require('./components/layouts/TarifasNavega.vue'));
 
+//faq problemas conexion
+Vue.component('app-faq-configuracion',require('./components/layouts/FaqConfiguracion.vue'));
 //modals
 Vue.component('app-faq-digi-combo',require('./components/modals/faqDigiCombo.vue'));
 
