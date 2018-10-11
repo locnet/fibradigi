@@ -11,7 +11,7 @@ incluido, permanecia 12 meses.')
 		<div class="row align-items-center portada-info">
 			<div class="col-12">
 				<h1 class="text-center extra-big ral w-600 white">FIBRA DIGI MOBIL</h1>
-				<h2 class="text-center big ral w-100 lightBlue">SOMOS DISTRIBUIDOR AUTORIZADO</h2>
+				<h2 class="text-center big ral w-100 lightBlue">SOMOS DISTRIBUIDOR AUTORIZADO <b>DIGI MOBIL</b></h2>
 				<h2 class="text-center w-300 white">
 					¡Ya esta aqui la mejor fibra del mercado! Internet de verdad, sin trucos.
 				</h2>

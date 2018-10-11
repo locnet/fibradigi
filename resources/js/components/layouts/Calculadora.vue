@@ -5,7 +5,8 @@
 		</div>
 
 		<div class="col-md-6 col-xs-12 pointer">
-			<div class="card text-white bg-primary w-80 text-center" @click="setType(30)">
+			<div class="card text-white bg-primary w-80 text-center" 
+				@click="setType(30)" data-toggle="modal" data-target="#exampleModal">
 				<div class="card-header">
 					<h2 class="w-600">FIBRA 500Mb 
 							<i class="fas fa-check-circle yellow"
@@ -20,7 +21,8 @@
 		<div class="h-30 d-block d-sm-none"></div> <!-- separador, solo para moviles -->
 
 		<div class="col-md-6 col-xs-12 pointer" >
-			<div class="card text-white bg-primary w-80 text-center" @click="setType(25)">
+			<div class="card text-white bg-primary w-80 text-center" 
+						@click="setType(25)" data-toggle="modal" data-target="#exampleModal">
 				<div class="card-header">
 					<h2 class="w-600">FIBRA 30Mb
 						<i class="fas fa-check-circle yellow"
@@ -34,14 +36,7 @@
 		</div>
 		<div class="h-20"></div><!-- separador -->
 
-		<div class="col-12">
-			<h4 class="w-300 blue" v-if="activeType">Has seleccionado la 
-				<span class="w-600 big">Fibra Digi de {{ activeType == 30 ? '500Mb' : '30Mb' }}</span>.
-				Para que empieze la magia combinala con cualquier producto de telefonia movil Digi.
-				Puedes asociar hasta 4 productos diferentes junto con la fibra.</h4>
-			
-		<div class="h-30"></div><!-- separador -->
-		</div>
+		
 		
 		<div class="col-12" v-show="activeType">
 			<h2 class="blue">Digi Combo<span class="small"> Para navegar y llamar a destinos nacionales
@@ -116,9 +111,8 @@
 					</tr>
 				</tbody>
 			</table>
-		</div>
-
-		<div class="h-30"></div><!-- separador -->
+			<div class="h-30"></div><!-- separador -->
+		</div>		
 		<div class="col-12" v-show="activeType">
 			<h2 class="blue">DIGI ILIMITADO
 				<span class="small"> Para navegar y llamar a destinos nacionales</span>
@@ -188,9 +182,9 @@
 					</tr>
 				</tbody>
 			</table>
+			<div class="h-30"></div><!-- separador -->
 		</div>
-
-		<div class="h-30"></div><!-- separador -->
+		
 		<div class="col-12" v-show="activeType">
 			<h2 class="blue">DIGI NAVEG@
 				<span class="small"> Para hablar y navegar con las tarifas por minuto mas económicas</span>
@@ -230,9 +224,9 @@
 					
 				</tbody>
 			</table>
+			<div class="h-30"></div><!-- separador -->
 		</div>
-
-		<div class="h-30"></div><!-- separador -->
+		
 		<div class="col-12" v-show="activeType">
 			<h2 class="blue">LINEA DE TELEFONO FIJO
 				<span class="small"> Telefono fijo con o sin llamadas incluidas</span>
@@ -261,11 +255,12 @@
 					
 				</tbody>
 			</table>
+			<div class="h-20"></div><!--separador-->
 		</div>
-
-		<div class="h-20"></div><!--separador-->
+		
 		<div class="col-12" v-show="activeType">
-			<h2 class="w-300 blue"><span class="w-600">RESUMEN DEL PRECIO</span> ¡LO QUE VES ES LO QUE HAY!  </h2>
+			<h2 class="w-300 blue">¡LO QUE VES ES LO QUE HAY!</h2>
+			<h2 class="blue w-600">RESUMEN DEL PRECIO</h2>
 			<ul class="list-group">
 				<li class="list-group-item"><span class="w-600 blue">Fibra Digi </span>
 					{{ activeType == 30 ? '500Mb simetrica ' : '30Mb simetrica' }}
@@ -351,6 +346,36 @@
 			</ul>
 		</div>
 		<div class="h-30"></div><!-- separador-->
+	
+
+		<!-- MODAL FIBRA -->
+		<div class="col-12">
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" 
+						aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<h4 class="w-300 blue" v-if="activeType">Has seleccionado la 
+								<b>Fibra Digi de {{ activeType == 30 ? '500Mb' : '30Mb' }}</b>.
+									Para que empiece la magia combinala con cualquier producto de 
+									telefonia movil Digi.</h4>
+								<h4 class="w-300 blue">
+									Puedes asociar hasta 4 productos diferentes junto con la fibra.
+								</h4>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" data-dismiss="modal">CERRAR</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 

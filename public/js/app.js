@@ -49050,6 +49050,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -49156,6 +49181,7 @@ var render = function() {
         "div",
         {
           staticClass: "card text-white bg-primary w-80 text-center",
+          attrs: { "data-toggle": "modal", "data-target": "#exampleModal" },
           on: {
             click: function($event) {
               _vm.setType(30)
@@ -49192,6 +49218,7 @@ var render = function() {
         "div",
         {
           staticClass: "card text-white bg-primary w-80 text-center",
+          attrs: { "data-toggle": "modal", "data-target": "#exampleModal" },
           on: {
             click: function($event) {
               _vm.setType(25)
@@ -49222,25 +49249,6 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "h-20" }),
-    _vm._v(" "),
-    _c("div", { staticClass: "col-12" }, [
-      _vm.activeType
-        ? _c("h4", { staticClass: "w-300 blue" }, [
-            _vm._v("Has seleccionado la \n\t\t\t"),
-            _c("span", { staticClass: "w-600 big" }, [
-              _vm._v(
-                "Fibra Digi de " +
-                  _vm._s(_vm.activeType == 30 ? "500Mb" : "30Mb")
-              )
-            ]),
-            _vm._v(
-              ".\n\t\t\tPara que empieze la magia combinala con cualquier producto de telefonia movil Digi.\n\t\t\tPuedes asociar hasta 4 productos diferentes junto con la fibra."
-            )
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "h-30" })
-    ]),
     _vm._v(" "),
     _c(
       "div",
@@ -49516,11 +49524,11 @@ var render = function() {
               )
             ])
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "h-30" })
       ]
     ),
-    _vm._v(" "),
-    _c("div", { staticClass: "h-30" }),
     _vm._v(" "),
     _c(
       "div",
@@ -49790,11 +49798,11 @@ var render = function() {
               )
             ])
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "h-30" })
       ]
     ),
-    _vm._v(" "),
-    _c("div", { staticClass: "h-30" }),
     _vm._v(" "),
     _c(
       "div",
@@ -49938,11 +49946,11 @@ var render = function() {
               )
             ])
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "h-30" })
       ]
     ),
-    _vm._v(" "),
-    _c("div", { staticClass: "h-30" }),
     _vm._v(" "),
     _c(
       "div",
@@ -50026,11 +50034,11 @@ var render = function() {
               ])
             ])
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "h-20" })
       ]
     ),
-    _vm._v(" "),
-    _c("div", { staticClass: "h-20" }),
     _vm._v(" "),
     _c(
       "div",
@@ -50046,7 +50054,11 @@ var render = function() {
         staticClass: "col-12"
       },
       [
-        _vm._m(7),
+        _c("h2", { staticClass: "w-300 blue" }, [
+          _vm._v("¡LO QUE VES ES LO QUE HAY!")
+        ]),
+        _vm._v(" "),
+        _c("h2", { staticClass: "blue w-600" }, [_vm._v("RESUMEN DEL PRECIO")]),
         _vm._v(" "),
         _c("ul", { staticClass: "list-group" }, [
           _c("li", { staticClass: "list-group-item" }, [
@@ -50413,7 +50425,62 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "h-30" })
+    _c("div", { staticClass: "h-30" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-12" }, [
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "exampleModal",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "exampleModalLabel",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "modal-dialog modal-dialog-centered",
+              attrs: { role: "document" }
+            },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(7),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _vm.activeType
+                    ? _c("h4", { staticClass: "w-300 blue" }, [
+                        _vm._v("Has seleccionado la \n\t\t\t\t\t\t\t"),
+                        _c("b", [
+                          _vm._v(
+                            "Fibra Digi de " +
+                              _vm._s(_vm.activeType == 30 ? "500Mb" : "30Mb")
+                          )
+                        ]),
+                        _vm._v(
+                          ".\n\t\t\t\t\t\t\t\tPara que empiece la magia combinala con cualquier producto de \n\t\t\t\t\t\t\t\ttelefonia movil Digi."
+                        )
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("h4", { staticClass: "w-300 blue" }, [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\tPuedes asociar hasta 4 productos diferentes junto con la fibra.\n\t\t\t\t\t\t\t"
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(8)
+              ])
+            ]
+          )
+        ]
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -50501,9 +50568,40 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h2", { staticClass: "w-300 blue" }, [
-      _c("span", { staticClass: "w-600" }, [_vm._v("RESUMEN DEL PRECIO")]),
-      _vm._v(" ¡LO QUE VES ES LO QUE HAY!  ")
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Modal title")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("CERRAR")]
+      )
     ])
   }
 ]
