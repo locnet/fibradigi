@@ -344,6 +344,9 @@
 				</li>
 				<li class="list-group-item">
 					<button class="btn btn-warning bt-lg" @click="resetAll">EMPEZAR OTRA VEZ</button>
+
+					<a v-bind:href="contact_url" role="button" class="btn btn-primary bt-lg float-right">
+					ME ENTERESA MUCHO</a>
 				</li>
 			</ul>
 		</div>
@@ -354,6 +357,7 @@
 <script>
 
 export default {
+	props: ['contact_url'],
 	data() {
 		return {
 			activeType: '',
@@ -376,7 +380,7 @@ export default {
 	methods: {
 		setType(type) {
 			this.activeType = type;
-			console.log("bingo");
+			console.log("modalidad fibra seleccionado");
 		},
 		checkIfVisible(comboCounter) {
 			return comboCounter > 0;

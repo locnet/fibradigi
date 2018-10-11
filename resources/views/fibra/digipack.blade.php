@@ -13,8 +13,8 @@
 				<div class="h-60"></div>
 				<div class="col-md-6 col-xs-12">
 					<h1 class="white text-center extra-big w-600">FIBRA DIGI + MOVIL DESDE SOLO 27€</h1>
-					<h2 class="white text-center w-600">CONTRATA <span class="lightBlue"> SOLO</span>
-						LO QUE <span class="lightBlue">NECESITAS</span></h2>
+					<h2 class="white text-center w-600">CONTRATA <span class="lightRed"> SOLO</span>
+						LO QUE <span class="lightRed">NECESITAS</span></h2>
 					<div class="h-30"></div><!-- separador -->
 					<p class="text-center">
 						<a href="#showPacks" class="btn btn-danger btn-lg" role="button">
@@ -46,7 +46,8 @@
 			<div class="h-30"></div><!-- separador -->
 		</div>
 		<!-- componente calculadora -->
-		<app-calculadora></app-calculadora>
+		<app-calculadora
+				contact_url = {{ url('contacto') }}></app-calculadora>
 	</div>
 </section>
 @endsection

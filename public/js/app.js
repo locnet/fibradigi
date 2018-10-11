@@ -49047,9 +49047,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['contact_url'],
 	data: function data() {
 		return {
 			activeType: '',
@@ -49073,7 +49077,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	methods: {
 		setType: function setType(type) {
 			this.activeType = type;
-			console.log("bingo");
+			console.log("modalidad fibra seleccionado");
 		},
 		checkIfVisible: function checkIfVisible(comboCounter) {
 			return comboCounter > 0;
@@ -50394,6 +50398,15 @@ var render = function() {
                 on: { click: _vm.resetAll }
               },
               [_vm._v("EMPEZAR OTRA VEZ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-primary bt-lg float-right",
+                attrs: { href: _vm.contact_url, role: "button" }
+              },
+              [_vm._v("\n\t\t\t\tME ENTERESA MUCHO")]
             )
           ])
         ])

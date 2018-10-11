@@ -71,6 +71,9 @@ p.big {
 .bgGrey {
     background-color: #5f5d5d;
 }
+.lightRed {
+    color: #e3342f;
+}
 /***********BUTTONS ****************/
 
 .btn-warning {
