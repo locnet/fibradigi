@@ -1,7 +1,7 @@
 <template>
 	<div class="row" id="showPacks">
 		<div class="col-12">
-			<h2 class="big w-600 blue text-center">Elige un producto de fibra Digi...</h2>
+			<h2 class="big w-600 blue text-center">Para empezar, elige un producto de fibra Digi.</h2>
 		</div>
 
 		<div class="col-md-6 col-xs-12 pointer">
@@ -39,8 +39,9 @@
 		
 		
 		<div class="col-12" v-show="activeType">
-			<h2 class="blue">Digi Combo<span class="small"> Para navegar y llamar a destinos nacionales
-			y internacionales (mas de 50 paises)</span></h2>
+			<h2 class="blue">DIGI COMBO</h2>
+			<p> Para navegar y llamar a destinos nacionales
+			y internacionales (mas de 50 paises)</p>
 			<table class="table animated fadeIn">
 				
 				<tbody>					
@@ -114,9 +115,9 @@
 			<div class="h-30"></div><!-- separador -->
 		</div>		
 		<div class="col-12" v-show="activeType">
-			<h2 class="blue">DIGI ILIMITADO
-				<span class="small"> Para navegar y llamar a destinos nacionales</span>
-			</h2>
+			<h2 class="blue">DIGI ILIMITADO</h2>
+				<p> Para navegar y llamar a destinos nacionales</p>
+			
 			<table class="table animated fadeIn">				
 				<tbody>					
 					<tr class="mini">
@@ -186,9 +187,9 @@
 		</div>
 		
 		<div class="col-12" v-show="activeType">
-			<h2 class="blue">DIGI NAVEG@
-				<span class="small"> Para hablar y navegar con las tarifas por minuto mas económicas</span>
-			</h2>
+			<h2 class="blue">DIGI NAVEG@</h2>
+			<p> Para hablar y navegar con las tarifas por minuto mas económicas</p>
+			
 			<table class="table animated fadeIn">				
 				<tbody>					
 					<tr class="navega white">
@@ -228,9 +229,9 @@
 		</div>
 		
 		<div class="col-12" v-show="activeType">
-			<h2 class="blue">LINEA DE TELEFONO FIJO
-				<span class="small"> Telefono fijo con o sin llamadas incluidas</span>
-			</h2>
+			<h2 class="blue">LINEA DE TELEFONO FIJO</h2>
+			<p> Telefono fijo con o sin llamadas incluidas</p>
+			
 			<table class="table animated fadeIn">				
 				<tbody>					
 					<tr class="phone white">
@@ -334,7 +335,7 @@
 					- <span class="w-600 blue"> 3€</span>					
 				</li>
 				<li class="list-group-item" v-show="activeType">
-					<span class="medium w-600 blue">TOTAL {{ getTotal() }}€</span> IVA incluido /
+					<span class="big w-600 blue">TOTAL {{ getTotal() }}€</span> IVA incluido /
 					precio para toda la vida
 				</li>
 				<li class="list-group-item">

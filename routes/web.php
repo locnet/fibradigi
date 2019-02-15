@@ -10,8 +10,14 @@
 |
 */
 
+// redirecciona todos las peticiones a la calculaodora
+Route::get('/{any}', function(){
+	return view('fibra/calculadora');
+});
+
 Route::get('/', function () {
-    return view('fibra/fibra_index');
+	//return view('fibra/fibra_index');
+    return view('fibra/calculadora');
 });
 
 Route::post('/fibra/lista-espera', 'Fibra\MainController@store');

@@ -52812,7 +52812,7 @@ var staticRenderFns = [
                     staticClass: "btn btn-secondary",
                     attrs: { type: "button", "data-dismiss": "modal" }
                   },
-                  [_vm._v("Cerrar")]
+                  [_vm._v("Entendido")]
                 )
               ])
             ])
