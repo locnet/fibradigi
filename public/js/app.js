@@ -49075,6 +49075,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -49095,16 +49113,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			nav10counter: 0,
 			totalCounter: 0,
 			phone: 0,
-			totalPrice: 0
+			totalPrice: 0,
+			color: ''
 		};
 	},
 
+
 	methods: {
+		setClassStyle: function setClassStyle(n) {
+
+			if (this.checkIfVisible(n)) {
+				this.color = '#99f308';
+			} else {
+				this.color = '#313131';
+			}
+			return {
+				backgroundColor: this.color
+			};
+		},
 		setType: function setType(type) {
 			this.activeType = type;
 			console.log("modalidad fibra seleccionado");
 		},
 		checkIfVisible: function checkIfVisible(comboCounter) {
+
 			return comboCounter > 0;
 		},
 		getTotal: function getTotal() {
@@ -49181,7 +49213,6 @@ var render = function() {
         "div",
         {
           staticClass: "card text-white bg-primary w-80 text-center",
-          attrs: { "data-toggle": "modal", "data-target": "#exampleModal" },
           on: {
             click: function($event) {
               _vm.setType(30)
@@ -49218,7 +49249,6 @@ var render = function() {
         "div",
         {
           staticClass: "card text-white bg-primary w-80 text-center",
-          attrs: { "data-toggle": "modal", "data-target": "#exampleModal" },
           on: {
             click: function($event) {
               _vm.setType(25)
@@ -49228,7 +49258,7 @@ var render = function() {
         [
           _c("div", { staticClass: "card-header" }, [
             _c("h2", { staticClass: "w-600" }, [
-              _vm._v("FIBRA 30Mb\n\t\t\t\t\t"),
+              _vm._v("FIBRA 50Mb\n\t\t\t\t\t"),
               _c("i", {
                 directives: [
                   {
@@ -49264,7 +49294,13 @@ var render = function() {
         staticClass: "col-12"
       },
       [
-        _vm._m(3),
+        _c("h2", { staticClass: "blue" }, [_vm._v("DIGI COMBO")]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            " Para navegar y llamar a destinos nacionales\n\t\ty internacionales (mas de 50 paises)"
+          )
+        ]),
         _vm._v(" "),
         _c("table", { staticClass: "table animated fadeIn" }, [
           _c("tbody", [
@@ -49278,12 +49314,12 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("td", { staticClass: "d-none d-sm-table-cell" }, [
-                _vm._v("2Gb internet velocidad 4G")
+                _vm._v("3Gb internet velocidad 4G")
               ]),
               _vm._v(" "),
               _c("td", [_vm._v("3€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "bgGrey" }, [
+              _c("td", { style: _vm.setClassStyle(_vm.combo5counter) }, [
                 _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.combo5counter))
                 ])
@@ -49292,7 +49328,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.combo5counter),
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -49307,7 +49344,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.combo5counter),
                   on: {
                     click: function($event) {
                       _vm.combo5counter > 0
@@ -49342,12 +49380,12 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("td", { staticClass: "d-none d-sm-table-cell" }, [
-                _vm._v("6Gb internet velocidad 4G")
+                _vm._v("10Gb internet velocidad 4G")
               ]),
               _vm._v(" "),
               _c("td", [_vm._v("6€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "bgGrey" }, [
+              _c("td", { style: _vm.setClassStyle(_vm.combo10counter) }, [
                 _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.combo10counter))
                 ])
@@ -49356,7 +49394,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.combo10counter),
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -49371,7 +49410,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.combo10counter),
                   on: {
                     click: function($event) {
                       _vm.combo10counter > 0
@@ -49406,12 +49446,12 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("td", { staticClass: "d-none d-sm-table-cell" }, [
-                _vm._v("12Gb internet velocidad 4G")
+                _vm._v("24Gb internet velocidad 4G")
               ]),
               _vm._v(" "),
               _c("td", [_vm._v("9€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "bgGrey" }, [
+              _c("td", { style: _vm.setClassStyle(_vm.combo15counter) }, [
                 _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.combo15counter))
                 ])
@@ -49420,7 +49460,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.combo15counter),
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -49435,7 +49476,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.combo15counter),
                   on: {
                     click: function($event) {
                       _vm.combo15counter > 0
@@ -49461,7 +49503,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("tr", { staticClass: "combo20 white" }, [
-              _c("td", [_vm._v("Combo20")]),
+              _c("td", [_vm._v("Combo30")]),
               _vm._v(" "),
               _c("td", { staticClass: "d-none d-sm-table-cell" }, [
                 _vm._v(
@@ -49470,12 +49512,12 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("td", { staticClass: "d-none d-sm-table-cell" }, [
-                _vm._v("40Gb internet velocidad 4G")
+                _vm._v("60Gb internet velocidad 4G")
               ]),
               _vm._v(" "),
               _c("td", [_vm._v("12€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "bgGrey" }, [
+              _c("td", { style: _vm.setClassStyle(_vm.combo20counter) }, [
                 _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.combo20counter))
                 ])
@@ -49484,7 +49526,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.combo20counter),
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -49499,7 +49542,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.combo20counter),
                   on: {
                     click: function($event) {
                       _vm.combo20counter > 0
@@ -49544,7 +49588,9 @@ var render = function() {
         staticClass: "col-12"
       },
       [
-        _vm._m(4),
+        _c("h2", { staticClass: "blue" }, [_vm._v("DIGI ILIMITADO")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(" Para navegar y llamar a destinos nacionales")]),
         _vm._v(" "),
         _c("table", { staticClass: "table animated fadeIn" }, [
           _c("tbody", [
@@ -49563,7 +49609,7 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v("2€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "bgGrey" }, [
+              _c("td", { style: _vm.setClassStyle(_vm.miniCounter) }, [
                 _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.miniCounter))
                 ])
@@ -49572,7 +49618,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.miniCounter),
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -49587,7 +49634,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointe",
+                  style: _vm.setClassStyle(_vm.miniCounter),
                   on: {
                     click: function($event) {
                       _vm.miniCounter > 0
@@ -49613,19 +49661,19 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("tr", { staticClass: "ilimitado white" }, [
-              _c("td", [_vm._v("Ilimitado 3GB")]),
+              _c("td", [_vm._v("Ilimitado 10GB")]),
               _vm._v(" "),
               _c("td", { staticClass: "d-none d-sm-table-cell" }, [
                 _vm._v("Llamadas ilimitadas nacionales")
               ]),
               _vm._v(" "),
               _c("td", { staticClass: "d-none d-sm-table-cell" }, [
-                _vm._v("6Gb internet velocidad 4G")
+                _vm._v("10Gb internet velocidad 4G")
               ]),
               _vm._v(" "),
               _c("td", [_vm._v("6€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "bgGrey" }, [
+              _c("td", { style: _vm.setClassStyle(_vm.i10counter) }, [
                 _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.i10counter))
                 ])
@@ -49634,7 +49682,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.i10counter),
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -49649,7 +49698,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.i10counter),
                   on: {
                     click: function($event) {
                       _vm.i10counter > 0
@@ -49675,19 +49725,19 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("tr", { staticClass: "ilimitado white" }, [
-              _c("td", [_vm._v("Ilimitado 6GB")]),
+              _c("td", [_vm._v("Ilimitado 12GB")]),
               _vm._v(" "),
               _c("td", { staticClass: "d-none d-sm-table-cell" }, [
                 _vm._v("Llamadas ilimitadas nacionales")
               ]),
               _vm._v(" "),
               _c("td", { staticClass: "d-none d-sm-table-cell" }, [
-                _vm._v("12Gb internet velocidad 4G")
+                _vm._v("24Gb internet velocidad 4G")
               ]),
               _vm._v(" "),
               _c("td", [_vm._v("9€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "bgGrey" }, [
+              _c("td", { style: _vm.setClassStyle(_vm.i15counter) }, [
                 _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.i15counter))
                 ])
@@ -49696,7 +49746,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.i15counter),
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -49711,7 +49762,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.i15counter),
                   on: {
                     click: function($event) {
                       _vm.i15counter > 0
@@ -49737,19 +49789,19 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("tr", { staticClass: "ilimitado white" }, [
-              _c("td", [_vm._v("Ilimitado 12GB")]),
+              _c("td", [_vm._v("Ilimitado 30GB")]),
               _vm._v(" "),
               _c("td", { staticClass: "d-none d-sm-table-cell" }, [
                 _vm._v("Llamadas ilimitadas nacionales")
               ]),
               _vm._v(" "),
               _c("td", { staticClass: "d-none d-sm-table-cell" }, [
-                _vm._v("40Gb internet velocidad 4G")
+                _vm._v("60Gb internet velocidad 4G")
               ]),
               _vm._v(" "),
               _c("td", [_vm._v("12€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "bgGrey" }, [
+              _c("td", { style: _vm.setClassStyle(_vm.i20counter) }, [
                 _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.i20counter))
                 ])
@@ -49758,7 +49810,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.i20counter),
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -49773,7 +49826,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.i20counter),
                   on: {
                     click: function($event) {
                       _vm.i20counter > 0
@@ -49818,24 +49872,30 @@ var render = function() {
         staticClass: "col-12"
       },
       [
-        _vm._m(5),
+        _c("h2", { staticClass: "blue" }, [_vm._v("DIGI NAVEG@")]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            " Para hablar y navegar con las tarifas por minuto mas económicas"
+          )
+        ]),
         _vm._v(" "),
         _c("table", { staticClass: "table animated fadeIn" }, [
           _c("tbody", [
             _c("tr", { staticClass: "navega white" }, [
-              _c("td", [_vm._v("NAVEG@ 2GB")]),
+              _c("td", [_vm._v("NAVEG@ 6GB")]),
               _vm._v(" "),
               _c("td", { staticClass: "d-none d-sm-table-cell" }, [
                 _vm._v("Llamadas ilimitadas de Digi a Digi")
               ]),
               _vm._v(" "),
               _c("td", { staticClass: "d-none d-sm-table-cell" }, [
-                _vm._v("4GB internet velocidad 4G")
+                _vm._v("6GB internet velocidad 4G")
               ]),
               _vm._v(" "),
               _c("td", [_vm._v("3€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "bgGrey" }, [
+              _c("td", { style: _vm.setClassStyle(_vm.nav5counter) }, [
                 _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.nav5counter))
                 ])
@@ -49844,7 +49904,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.nav5counter),
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -49859,7 +49920,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.nav5counter),
                   on: {
                     click: function($event) {
                       _vm.nav5counter > 0
@@ -49885,19 +49947,19 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("tr", { staticClass: "navega white" }, [
-              _c("td", [_vm._v("NAVEG@ 5GB")]),
+              _c("td", [_vm._v("NAVEG@ 12GB")]),
               _vm._v(" "),
               _c("td", { staticClass: "d-none d-sm-table-cell" }, [
                 _vm._v("Llamadas ilimitadas de Digi a Digi")
               ]),
               _vm._v(" "),
               _c("td", { staticClass: "d-none d-sm-table-cell" }, [
-                _vm._v("10Gb internet velocidad 4G")
+                _vm._v("12Gb internet velocidad 4G")
               ]),
               _vm._v(" "),
               _c("td", [_vm._v("6€ al mes")]),
               _vm._v(" "),
-              _c("td", { staticClass: "bgGrey" }, [
+              _c("td", { style: _vm.setClassStyle(_vm.nav10counter) }, [
                 _c("span", { staticClass: "lightBlue" }, [
                   _vm._v(_vm._s(_vm.nav10counter))
                 ])
@@ -49906,7 +49968,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.nav10counter),
                   on: {
                     click: function($event) {
                       _vm.totalCounter < 4
@@ -49921,7 +49984,8 @@ var render = function() {
               _c(
                 "td",
                 {
-                  staticClass: "pointer bgGrey",
+                  staticClass: "pointer",
+                  style: _vm.setClassStyle(_vm.nav10counter),
                   on: {
                     click: function($event) {
                       _vm.nav10counter > 0
@@ -49966,7 +50030,9 @@ var render = function() {
         staticClass: "col-12"
       },
       [
-        _vm._m(6),
+        _c("h2", { staticClass: "blue" }, [_vm._v("LINEA DE TELEFONO FIJO")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(" Telefono fijo con o sin llamadas incluidas")]),
         _vm._v(" "),
         _c("table", { staticClass: "table animated fadeIn" }, [
           _c("tbody", [
@@ -50006,7 +50072,7 @@ var render = function() {
               _vm._v(" "),
               _c("td", { staticClass: "d-none d-sm-table-cell" }, [
                 _vm._v(
-                  "\n\t\t\t\t\t\tLlamadas ilimitadas nacionales + 500 minutos \tinternacionales"
+                  "\n\t\t\t\t\t\tLlamadas ilimitadas nacionales + 500 minutos internacionales"
                 )
               ]),
               _vm._v(" "),
@@ -50066,7 +50132,7 @@ var render = function() {
             _vm._v(
               "\n\t\t\t\t" +
                 _vm._s(
-                  _vm.activeType == 30 ? "500Mb simetrica " : "30Mb simetrica"
+                  _vm.activeType == 30 ? "500Mb simetrica " : "50Mb simetrica"
                 ) +
                 "\n\t\t\t\t"
             ),
@@ -50093,7 +50159,7 @@ var render = function() {
                 _vm._v(_vm._s(_vm.combo5counter) + " x Combo5 ")
               ]),
               _vm._v(
-                "\n\t\t\t\t(100 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 2GB acumulables) - \n\t\t\t\t"
+                "\n\t\t\t\t(100 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 3GB acumulables) - \n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(_vm._s(_vm.combo5counter * 3) + " €")
@@ -50119,7 +50185,7 @@ var render = function() {
                 _vm._v(_vm._s(_vm.combo10counter) + " x Combo10")
               ]),
               _vm._v(
-                "\n\t\t\t\t(400 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 6GB acumulables) -\n\t\t\t\t"
+                "\n\t\t\t\t(400 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 10GB acumulables) -\n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(_vm._s(_vm.combo10counter * 6) + " €")
@@ -50142,10 +50208,10 @@ var render = function() {
             },
             [
               _c("span", { staticClass: "w-600 blue" }, [
-                _vm._v(_vm._s(_vm.combo15counter) + " x Combo15")
+                _vm._v(_vm._s(_vm.combo15counter) + " x Combo12")
               ]),
               _vm._v(
-                "\n\t\t\t\t(800 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 12GB acumulables) -\n\t\t\t\t"
+                "\n\t\t\t\t(800 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 24GB acumulables) -\n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(_vm._s(_vm.combo15counter * 9) + " €")
@@ -50168,10 +50234,10 @@ var render = function() {
             },
             [
               _c("span", { staticClass: "w-600 blue" }, [
-                _vm._v(_vm._s(_vm.combo20counter) + " x Combo20")
+                _vm._v(_vm._s(_vm.combo20counter) + " x Combo30")
               ]),
               _vm._v(
-                "\n\t\t\t\t(2000 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 40GB acumulables) -\n\t\t\t\t"
+                "\n\t\t\t\t(2000 minutos nacionales y internacionales + llamadas ilimitadas de Digi a Digi \n\t\t\t\t+ 60GB acumulables) -\n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(_vm._s(_vm.combo20counter * 12) + " €")
@@ -50220,10 +50286,10 @@ var render = function() {
             },
             [
               _c("span", { staticClass: "w-600 blue" }, [
-                _vm._v(_vm._s(_vm.i10counter) + " x Ilimitado 3GB")
+                _vm._v(_vm._s(_vm.i10counter) + " x Ilimitado 10GB")
               ]),
               _vm._v(
-                "\n\t\t\t\t(llamadas ilimitadas a moviles y fijos de España\n\t\t\t\t+ 6GB acumulables) -\n\t\t\t\t"
+                "\n\t\t\t\t(llamadas ilimitadas a moviles y fijos de España\n\t\t\t\t+ 10GB acumulables) -\n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(_vm._s(_vm.i10counter * 6) + " €")
@@ -50246,10 +50312,10 @@ var render = function() {
             },
             [
               _c("span", { staticClass: "w-600 blue" }, [
-                _vm._v(_vm._s(_vm.i15counter) + " x Ilimitado 6GB")
+                _vm._v(_vm._s(_vm.i15counter) + " x Ilimitado 24GB")
               ]),
               _vm._v(
-                "\n\t\t\t\t(llamadas ilimitadas a moviles y fijos de España\n\t\t\t\t+ 12GB acumulables) -\n\t\t\t\t"
+                "\n\t\t\t\t(llamadas ilimitadas a moviles y fijos de España\n\t\t\t\t+ 24GB acumulables) -\n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(_vm._s(_vm.i15counter * 9) + " €")
@@ -50272,10 +50338,10 @@ var render = function() {
             },
             [
               _c("span", { staticClass: "w-600 blue" }, [
-                _vm._v(_vm._s(_vm.i20counter) + " x Ilimitado 20GB")
+                _vm._v(_vm._s(_vm.i20counter) + " x Ilimitado 60GB")
               ]),
               _vm._v(
-                "\n\t\t\t\t(llamadas ilimitadas a moviles y fijos de España\n\t\t\t\t+ 40GB acumulables) -\n\t\t\t\t"
+                "\n\t\t\t\t(llamadas ilimitadas a moviles y fijos de España\n\t\t\t\t+ 60GB acumulables) -\n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(_vm._s(_vm.i20counter * 12) + " €")
@@ -50298,10 +50364,10 @@ var render = function() {
             },
             [
               _c("span", { staticClass: "w-600 blue" }, [
-                _vm._v(_vm._s(_vm.nav5counter) + " x NAVEG@ 2GB ")
+                _vm._v(_vm._s(_vm.nav5counter) + " x NAVEG@ 6GB ")
               ]),
               _vm._v(
-                "\n\t\t\t\t(llamadas ilimitada de Digi a Digi + 4GB acumulables) - \n\t\t\t\t"
+                "\n\t\t\t\t(llamadas ilimitada de Digi a Digi + 6GB acumulables) - \n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(" " + _vm._s(_vm.nav5counter * 3) + " €")
@@ -50324,10 +50390,10 @@ var render = function() {
             },
             [
               _c("span", { staticClass: "w-600 blue" }, [
-                _vm._v(_vm._s(_vm.nav10counter) + " x NAVEG@ 5GB ")
+                _vm._v(_vm._s(_vm.nav10counter) + " x NAVEG@ 12GB ")
               ]),
               _vm._v(
-                "\n\t\t\t\t(llamadas ilimitada de Digi a Digi + 10GB acumulables) - \n\t\t\t\t"
+                "\n\t\t\t\t(llamadas ilimitada de Digi a Digi + 12GB acumulables) - \n\t\t\t\t"
               ),
               _c("span", { staticClass: "w-600 blue" }, [
                 _vm._v(" " + _vm._s(_vm.nav10counter * 6) + "€")
@@ -50393,7 +50459,7 @@ var render = function() {
               staticClass: "list-group-item"
             },
             [
-              _c("span", { staticClass: "medium w-600 blue" }, [
+              _c("span", { staticClass: "big w-600 blue" }, [
                 _vm._v("TOTAL " + _vm._s(_vm.getTotal()) + "€")
               ]),
               _vm._v(
@@ -50449,7 +50515,7 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(7),
+                _vm._m(3),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _vm.activeType
@@ -50458,7 +50524,7 @@ var render = function() {
                         _c("b", [
                           _vm._v(
                             "Fibra Digi de " +
-                              _vm._s(_vm.activeType == 30 ? "500Mb" : "30Mb")
+                              _vm._s(_vm.activeType == 30 ? "500Mb" : "50Mb")
                           )
                         ]),
                         _vm._v(
@@ -50474,7 +50540,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(8)
+                _vm._m(4)
               ])
             ]
           )
@@ -50490,7 +50556,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12" }, [
       _c("h2", { staticClass: "big w-600 blue text-center" }, [
-        _vm._v("Elige un producto de fibra Digi...")
+        _vm._v("Para empezar, elige un producto de fibra Digi.")
       ])
     ])
   },
@@ -50520,60 +50586,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h2", { staticClass: "blue" }, [
-      _vm._v("Digi Combo"),
-      _c("span", { staticClass: "small" }, [
-        _vm._v(
-          " Para navegar y llamar a destinos nacionales\n\t\ty internacionales (mas de 50 paises)"
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h2", { staticClass: "blue" }, [
-      _vm._v("DIGI ILIMITADO\n\t\t\t"),
-      _c("span", { staticClass: "small" }, [
-        _vm._v(" Para navegar y llamar a destinos nacionales")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h2", { staticClass: "blue" }, [
-      _vm._v("DIGI NAVEG@\n\t\t\t"),
-      _c("span", { staticClass: "small" }, [
-        _vm._v(
-          " Para hablar y navegar con las tarifas por minuto mas económicas"
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h2", { staticClass: "blue" }, [
-      _vm._v("LINEA DE TELEFONO FIJO\n\t\t\t"),
-      _c("span", { staticClass: "small" }, [
-        _vm._v(" Telefono fijo con o sin llamadas incluidas")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Modal title")]
-      ),
+      _c("h5", {
+        staticClass: "modal-title",
+        attrs: { id: "exampleModalLabel" }
+      }),
       _vm._v(" "),
       _c(
         "button",

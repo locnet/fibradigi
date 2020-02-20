@@ -63,13 +63,16 @@ p.big {
     color: #fde614;;
 }
 .lightBlue {
-    color: #79eeee;
+    color: #0395fd;
 }
 .bgWhite {
     background-color: #ffffff;
 }
 .bgGrey {
-    background-color: #5f5d5d;
+    background-color: #313131;
+}
+.bgGreen {
+    background-color: #99f308;
 }
 .lightRed {
     color: #e3342f;

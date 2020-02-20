@@ -44,8 +44,7 @@ llamadas ilimitadas y 40Gb para navegar por solo 42€/mes, IVA incluido.')
 					de llamadas a fijos y moviles de España.
 				</p>
 				<p class="white lead">En el paquete Digi de fibra + movil puedes introducir hasta cuatro
-					lineas de movil diferentes. En cada linea movil que combinas con la fibra te doblamos 
-					los gigas ademas de una reduccion substancial del precio de la linea movil.
+					lineas de movil diferentes. En cada linea movil que combinas con la fibra te doblamos los gigas ademas de una reduccion substancial del precio de la linea movil.
 				</p> 
 			</div>
 			<div class="h-30"></div><!-- separador -->

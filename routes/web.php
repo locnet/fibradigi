@@ -11,13 +11,13 @@
 */
 
 // redirecciona todos las peticiones a la calculaodora
-Route::get('/{any}', function(){
+/*Route::get('/{any}', function(){
 	return view('fibra/calculadora');
-});
+});*/
 
 Route::get('/', function () {
-	//return view('fibra/fibra_index');
-    return view('fibra/calculadora');
+	return view('fibra/fibra_index');
+    //return view('fibra/calculadora');
 });
 
 Route::post('/fibra/lista-espera', 'Fibra\MainController@store');
@@ -39,6 +39,7 @@ Route::get('/calcula-tarifa-fibra-digi', function() {
 
 Route::get('/configurar-apn-Digi','SettingsController@index')->name('ajustes');
 
+// contactar
 Route::get('/contacto','Contact\ContactController@create');
 Route::post('/contacto/enviar', 'Contact\ContactController@save');
 
