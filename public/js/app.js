@@ -60,18 +60,127 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 14);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var bind = __webpack_require__(6);
-var isBuffer = __webpack_require__(20);
+var bind = __webpack_require__(8);
+var isBuffer = __webpack_require__(21);
 
 /*global toString:true*/
 
@@ -374,116 +483,71 @@ module.exports = {
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports) {
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/* globals __VUE_SSR_CONTEXT__ */
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eventBus", function() { return eventBus; });
 
-// IMPORTANT: Do NOT use ES2015 features in this file.
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
 
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
+__webpack_require__(15);
 
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
+window.Vue = __webpack_require__(38);
 
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
 
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-    options._compiled = true
-  }
+Vue.component('example-component', __webpack_require__(41));
+Vue.component('app-main-menu', __webpack_require__(44));
 
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
+// formularios
+Vue.component('app-form-lista-espera', __webpack_require__(47));
+Vue.component('app-form-contacto', __webpack_require__(50));
 
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
+// calculadora
+Vue.component('app-calculadora', __webpack_require__(53));
 
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
+Vue.component('app-calc-container', __webpack_require__(56));
+Vue.component('app-fibra', __webpack_require__(59));
+Vue.component('app-movil', __webpack_require__(62));
+Vue.component('app-ilimitado', __webpack_require__(65));
+Vue.component('app-combo', __webpack_require__(68));
+Vue.component('app-price-component', __webpack_require__(71));
 
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
+//digiPack component
+Vue.component('app-digi-pack-menu', __webpack_require__(74));
 
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
+//tarifas para el movil component
+Vue.component('app-tarifas-combo', __webpack_require__(77));
+Vue.component('app-tarifas-ilimitado', __webpack_require__(79));
+Vue.component('app-tarifas-navega', __webpack_require__(81));
 
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
+//faq problemas conexion
+Vue.component('app-faq-configuracion', __webpack_require__(83));
 
+//modals
+Vue.component('app-faq-digi-combo', __webpack_require__(85));
+Vue.component('app-modal-tarifas', __webpack_require__(87));
+
+// event bus
+var eventBus = new Vue();
+
+// start vue
+var app = new Vue({
+  el: '#app'
+});
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports) {
 
 var g;
@@ -510,14 +574,143 @@ module.exports = g;
 
 
 /***/ }),
-/* 3 */
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return productMixin; });
+/**
+|----------------------------------------|
+|         LISTA PRECIOS CENTRALIZADA     |
+|----------------------------------------|
+*/
+
+var productMixin = {
+				/*
+    * 
+    * los mixins se ejecutan antes que los componentes
+    */
+
+				data: function data() {
+								return {
+												fibra500: {
+																name: 'Fibra 500Mb',
+																price: 30,
+																minutes: '',
+																gb: '500Mb/s'
+												},
+
+												fibra50: {
+																name: 'Fibra 50Mb',
+																price: 25,
+																minutes: '',
+																gb: '50Mb/s'
+
+												},
+
+												fijoSinLlamadas: {
+																name: 'Fijo sin llamadas',
+																price: 1,
+																minutes: 'Sin llamadas incluidas',
+																gb: ''
+												},
+
+												fijoConLlamadas: {
+																name: 'Fijo ilimitado',
+																price: 5,
+																minutes: 'Llamadas ilimitadas a fijos y moviles nacionales.',
+																gb: ''
+												},
+
+												combo5: {
+																name: 'Combo 5',
+																price: 5,
+																minutes: "100",
+																gb: 1.5
+												},
+
+												combo10: {
+																name: 'Combo 10',
+																price: 10,
+																minutes: "400",
+																gb: 5
+												},
+
+												combo15: {
+																name: 'Combo 15',
+																price: 15,
+																minutes: "800",
+																gb: 12
+												},
+
+												combo20: {
+																name: 'Combo 20',
+																price: 20,
+																minutes: "2000",
+																gb: 30
+												},
+
+												mini: {
+																name: 'Mini',
+																price: 3,
+																minutes: 100,
+																gb: 0.5
+												},
+
+												ilimitado10: {
+																name: 'Ilimitado 10',
+																price: 10,
+																minutes: "Ilimitado",
+																gb: 5
+												},
+
+												ilimitado15: {
+																name: 'Ilimitado 15',
+																price: 15,
+																minutes: "Ilimitado",
+																gb: 12
+												},
+
+												ilimitado20: {
+																name: 'Ilimitado 20',
+																price: 20,
+																minutes: "Ilimitado",
+																gb: 30
+												},
+
+												navega5: {
+																name: 'Navega 3Gb',
+																price: 5,
+																minutes: '',
+																gb: 3
+												},
+
+												navega10: {
+																name: 'Navega 6Gb',
+																price: 10,
+																minutes: "",
+																gb: 6
+												},
+
+												// el descuento que se aplica al contratar la fibra
+												discount: 0.4
+								};
+				},
+
+
+				computed: {},
+				created: function created() {}
+};
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(22);
+var utils = __webpack_require__(1);
+var normalizeHeaderName = __webpack_require__(23);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -533,10 +726,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(8);
+    adapter = __webpack_require__(10);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(8);
+    adapter = __webpack_require__(10);
   }
   return adapter;
 }
@@ -611,10 +804,10 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
-/* 4 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3152,10 +3345,10 @@ Popper.Defaults = Defaults;
 /* harmony default export */ __webpack_exports__["default"] = (Popper);
 //# sourceMappingURL=popper.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(3)))
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -13526,7 +13719,7 @@ return jQuery;
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13544,7 +13737,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -13734,19 +13927,19 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
-var settle = __webpack_require__(23);
-var buildURL = __webpack_require__(25);
-var parseHeaders = __webpack_require__(26);
-var isURLSameOrigin = __webpack_require__(27);
-var createError = __webpack_require__(9);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(28);
+var utils = __webpack_require__(1);
+var settle = __webpack_require__(24);
+var buildURL = __webpack_require__(26);
+var parseHeaders = __webpack_require__(27);
+var isURLSameOrigin = __webpack_require__(28);
+var createError = __webpack_require__(11);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(29);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -13843,7 +14036,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(29);
+      var cookies = __webpack_require__(30);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -13921,13 +14114,13 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var enhanceError = __webpack_require__(24);
+var enhanceError = __webpack_require__(25);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -13946,7 +14139,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13958,7 +14151,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13984,66 +14177,20 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(13);
-module.exports = __webpack_require__(68);
-
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-__webpack_require__(14);
-
-window.Vue = __webpack_require__(37);
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-Vue.component('example-component', __webpack_require__(40));
-Vue.component('app-main-menu', __webpack_require__(43));
-
-// forms
-Vue.component('app-form-lista-espera', __webpack_require__(46));
-Vue.component('app-form-contacto', __webpack_require__(49));
-
-// calculadora
-Vue.component('app-calculadora', __webpack_require__(52));
-//digiPack component
-Vue.component('app-digi-pack-menu', __webpack_require__(55));
-//tarifasMobil component
-Vue.component('app-tarifas-combo', __webpack_require__(58));
-Vue.component('app-tarifas-ilimitado', __webpack_require__(60));
-Vue.component('app-tarifas-navega', __webpack_require__(62));
-
-//faq problemas conexion
-Vue.component('app-faq-configuracion', __webpack_require__(64));
-//modals
-Vue.component('app-faq-digi-combo', __webpack_require__(66));
-
-var app = new Vue({
-  el: '#app'
-});
-
-/***/ }),
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(2);
+module.exports = __webpack_require__(90);
 
-window._ = __webpack_require__(15);
-window.Popper = __webpack_require__(4).default;
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+window._ = __webpack_require__(16);
+window.Popper = __webpack_require__(6).default;
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -14052,9 +14199,9 @@ window.Popper = __webpack_require__(4).default;
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(5);
+  window.$ = window.jQuery = __webpack_require__(7);
 
-  __webpack_require__(17);
+  __webpack_require__(18);
 } catch (e) {}
 
 /**
@@ -14063,7 +14210,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(18);
+window.axios = __webpack_require__(19);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -14099,7 +14246,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -31211,10 +31358,10 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(16)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(17)(module)))
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -31242,7 +31389,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -31251,7 +31398,7 @@ module.exports = function(module) {
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 (function (global, factory) {
-   true ? factory(exports, __webpack_require__(5), __webpack_require__(4)) :
+   true ? factory(exports, __webpack_require__(7), __webpack_require__(6)) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery', 'popper.js'], factory) :
   (factory((global.bootstrap = {}),global.jQuery,global.Popper));
 }(this, (function (exports,$,Popper) { 'use strict';
@@ -35192,22 +35339,22 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(19);
+module.exports = __webpack_require__(20);
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
-var bind = __webpack_require__(6);
-var Axios = __webpack_require__(21);
-var defaults = __webpack_require__(3);
+var utils = __webpack_require__(1);
+var bind = __webpack_require__(8);
+var Axios = __webpack_require__(22);
+var defaults = __webpack_require__(5);
 
 /**
  * Create an instance of Axios
@@ -35240,15 +35387,15 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(11);
-axios.CancelToken = __webpack_require__(35);
-axios.isCancel = __webpack_require__(10);
+axios.Cancel = __webpack_require__(13);
+axios.CancelToken = __webpack_require__(36);
+axios.isCancel = __webpack_require__(12);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(36);
+axios.spread = __webpack_require__(37);
 
 module.exports = axios;
 
@@ -35257,7 +35404,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports) {
 
 /*!
@@ -35284,16 +35431,16 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var defaults = __webpack_require__(3);
-var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(30);
-var dispatchRequest = __webpack_require__(31);
+var defaults = __webpack_require__(5);
+var utils = __webpack_require__(1);
+var InterceptorManager = __webpack_require__(31);
+var dispatchRequest = __webpack_require__(32);
 
 /**
  * Create a new instance of Axios
@@ -35370,13 +35517,13 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -35389,13 +35536,13 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createError = __webpack_require__(9);
+var createError = __webpack_require__(11);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -35422,7 +35569,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35450,13 +35597,13 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -35523,13 +35670,13 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -35583,13 +35730,13 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -35658,7 +35805,7 @@ module.exports = (
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35701,13 +35848,13 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -35761,13 +35908,13 @@ module.exports = (
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 
 function InterceptorManager() {
   this.handlers = [];
@@ -35820,18 +35967,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
-var transformData = __webpack_require__(32);
-var isCancel = __webpack_require__(10);
-var defaults = __webpack_require__(3);
-var isAbsoluteURL = __webpack_require__(33);
-var combineURLs = __webpack_require__(34);
+var utils = __webpack_require__(1);
+var transformData = __webpack_require__(33);
+var isCancel = __webpack_require__(12);
+var defaults = __webpack_require__(5);
+var isAbsoluteURL = __webpack_require__(34);
+var combineURLs = __webpack_require__(35);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -35913,13 +36060,13 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 
 /**
  * Transform the data for a request or a response
@@ -35940,7 +36087,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35961,7 +36108,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35982,13 +36129,13 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Cancel = __webpack_require__(11);
+var Cancel = __webpack_require__(13);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -36046,7 +36193,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36080,7 +36227,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47043,10 +47190,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(38).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(39).setImmediate))
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -47102,7 +47249,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(39);
+__webpack_require__(40);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -47113,10 +47260,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -47306,18 +47453,18 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(9)))
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(41)
+var __vue_script__ = __webpack_require__(42)
 /* template */
-var __vue_template__ = __webpack_require__(42)
+var __vue_template__ = __webpack_require__(43)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47356,7 +47503,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -47385,7 +47532,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -47428,15 +47575,15 @@ if (false) {
 }
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(44)
+var __vue_script__ = __webpack_require__(45)
 /* template */
-var __vue_template__ = __webpack_require__(45)
+var __vue_template__ = __webpack_require__(46)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47475,7 +47622,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -47540,7 +47687,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -47673,15 +47820,15 @@ if (false) {
 }
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(47)
+var __vue_script__ = __webpack_require__(48)
 /* template */
-var __vue_template__ = __webpack_require__(48)
+var __vue_template__ = __webpack_require__(49)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47720,7 +47867,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -47867,7 +48014,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -48125,15 +48272,15 @@ if (false) {
 }
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(50)
+var __vue_script__ = __webpack_require__(51)
 /* template */
-var __vue_template__ = __webpack_require__(51)
+var __vue_template__ = __webpack_require__(52)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48172,7 +48319,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -48340,7 +48487,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -48642,15 +48789,15 @@ if (false) {
 }
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(53)
+var __vue_script__ = __webpack_require__(54)
 /* template */
-var __vue_template__ = __webpack_require__(54)
+var __vue_template__ = __webpack_require__(55)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48689,11 +48836,43 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -49123,6 +49302,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		setClassStyle: function setClassStyle(n) {
 
 			if (this.checkIfVisible(n)) {
+
 				this.color = '#99f308';
 			} else {
 				this.color = '#313131';
@@ -49133,7 +49313,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		setType: function setType(type) {
 			this.activeType = type;
-			console.log("modalidad fibra seleccionado");
+			console.log("modalidad fibra seleccionado: " + type);
 		},
 		checkIfVisible: function checkIfVisible(comboCounter) {
 
@@ -49198,7 +49378,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -49213,6 +49393,7 @@ var render = function() {
         "div",
         {
           staticClass: "card text-white bg-primary w-80 text-center",
+          attrs: { "data-toggle": "modal", "data-target": "#exampleModal" },
           on: {
             click: function($event) {
               _vm.setType(30)
@@ -49242,13 +49423,14 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "h-30 d-block d-sm-none" }),
+    _c("div", { staticClass: "h-30 d-block d-md-none d-lg-none d-xl-none" }),
     _vm._v(" "),
     _c("div", { staticClass: "col-md-6 col-xs-12 pointer" }, [
       _c(
         "div",
         {
           staticClass: "card text-white bg-primary w-80 text-center",
+          attrs: { "data-toggle": "modal", "data-target": "#exampleModal" },
           on: {
             click: function($event) {
               _vm.setType(25)
@@ -49307,13 +49489,13 @@ var render = function() {
             _c("tr", { staticClass: "combo5 white" }, [
               _c("td", [_vm._v("Combo5")]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v(
                   "\n\t\t\t\t\t\t100 minutos nacional y internacional, ilimitadas de Digi a Digi\n\t\t\t\t\t"
                 )
               ]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v("3Gb internet velocidad 4G")
               ]),
               _vm._v(" "),
@@ -49373,13 +49555,13 @@ var render = function() {
             _c("tr", { staticClass: "combo10 white" }, [
               _c("td", [_vm._v("Combo10")]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v(
                   "\n\t\t\t\t\t\t400 minutos nacional y internacional, ilimitadas de Digi a Digi"
                 )
               ]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v("10Gb internet velocidad 4G")
               ]),
               _vm._v(" "),
@@ -49439,13 +49621,13 @@ var render = function() {
             _c("tr", { staticClass: "combo15 white" }, [
               _c("td", [_vm._v("Combo15")]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v(
                   "\n\t\t\t\t\t\t800 minutos nacional y internacional, Ilimitadas de Digi a Digi"
                 )
               ]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v("24Gb internet velocidad 4G")
               ]),
               _vm._v(" "),
@@ -49505,13 +49687,13 @@ var render = function() {
             _c("tr", { staticClass: "combo20 white" }, [
               _c("td", [_vm._v("Combo30")]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v(
                   " \n\t\t\t\t\t\t2000 minutos nacional y internacional, ilimitadas de Digi a Digi"
                 )
               ]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v("60Gb internet velocidad 4G")
               ]),
               _vm._v(" "),
@@ -49597,13 +49779,13 @@ var render = function() {
             _c("tr", { staticClass: "mini" }, [
               _c("td", [_vm._v("Mini")]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v(
                   "\n\t\t\t\t\t\t100 minutos nacionales, ilimitado de Digi a Digi"
                 )
               ]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v("1Gb internet velocidad 4G")
               ]),
               _vm._v(" "),
@@ -49663,11 +49845,11 @@ var render = function() {
             _c("tr", { staticClass: "ilimitado white" }, [
               _c("td", [_vm._v("Ilimitado 10GB")]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v("Llamadas ilimitadas nacionales")
               ]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v("10Gb internet velocidad 4G")
               ]),
               _vm._v(" "),
@@ -49727,11 +49909,11 @@ var render = function() {
             _c("tr", { staticClass: "ilimitado white" }, [
               _c("td", [_vm._v("Ilimitado 12GB")]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v("Llamadas ilimitadas nacionales")
               ]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v("24Gb internet velocidad 4G")
               ]),
               _vm._v(" "),
@@ -49791,11 +49973,11 @@ var render = function() {
             _c("tr", { staticClass: "ilimitado white" }, [
               _c("td", [_vm._v("Ilimitado 30GB")]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v("Llamadas ilimitadas nacionales")
               ]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v("60Gb internet velocidad 4G")
               ]),
               _vm._v(" "),
@@ -49885,11 +50067,11 @@ var render = function() {
             _c("tr", { staticClass: "navega white" }, [
               _c("td", [_vm._v("NAVEG@ 6GB")]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v("Llamadas ilimitadas de Digi a Digi")
               ]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v("6GB internet velocidad 4G")
               ]),
               _vm._v(" "),
@@ -49949,11 +50131,11 @@ var render = function() {
             _c("tr", { staticClass: "navega white" }, [
               _c("td", [_vm._v("NAVEG@ 12GB")]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v("Llamadas ilimitadas de Digi a Digi")
               ]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v("12Gb internet velocidad 4G")
               ]),
               _vm._v(" "),
@@ -50039,7 +50221,7 @@ var render = function() {
             _c("tr", { staticClass: "phone white" }, [
               _c("td", [_vm._v("FIJO SIN LLAMADAS")]),
               _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
+              _c("td", { staticClass: "d-none d-md-table-cell" }, [
                 _vm._v("Llamadas a coste por minuto")
               ]),
               _vm._v(" "),
@@ -50067,38 +50249,99 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("tr", { staticClass: "phone white" }, [
-              _c("td", [_vm._v("FIJO CON LLAMADAS")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "d-none d-sm-table-cell" }, [
-                _vm._v(
-                  "\n\t\t\t\t\t\tLlamadas ilimitadas nacionales + 500 minutos internacionales"
-                )
-              ]),
-              _vm._v(" "),
-              _c("td", [_vm._v("3€ al mes")]),
-              _vm._v(" "),
-              _c("td", { staticClass: "bgGrey" }, [
-                _vm._v("\n\t\t\t\t\t\tSelecciona\n\t\t\t\t\t\t"),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.phone,
-                      expression: "phone"
-                    }
-                  ],
-                  attrs: { type: "radio", value: "3" },
-                  domProps: { checked: _vm._q(_vm.phone, "3") },
-                  on: {
-                    change: function($event) {
-                      _vm.phone = "3"
-                    }
+            _c(
+              "tr",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.activeType == 30,
+                    expression: "activeType==30"
                   }
-                })
-              ])
-            ])
+                ],
+                staticClass: "phone white"
+              },
+              [
+                _c("td", [_vm._v("FIJO CON LLAMADAS")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "d-none d-md-table-cell" }, [
+                  _vm._v(
+                    "\n\t\t\t\t\t\tLlamadas ilimitadas nacionales + 500 minutos internacionales"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v("3€ al mes")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "bgGrey" }, [
+                  _vm._v("\n\t\t\t\t\t\tSelecciona\n\t\t\t\t\t\t"),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.phone,
+                        expression: "phone"
+                      }
+                    ],
+                    attrs: { type: "radio", value: "3" },
+                    domProps: { checked: _vm._q(_vm.phone, "3") },
+                    on: {
+                      change: function($event) {
+                        _vm.phone = "3"
+                      }
+                    }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "tr",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.activeType == 25,
+                    expression: "activeType==25"
+                  }
+                ],
+                staticClass: "phone white"
+              },
+              [
+                _c("td", [_vm._v("FIJO CON LLAMADAS")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "d-none d-md-table-cell" }, [
+                  _vm._v(
+                    "\n\t\t\t\t\t\tLlamadas ilimitadas nacionales + 500 minutos internacionales"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v("5€ al mes")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "bgGrey" }, [
+                  _vm._v("\n\t\t\t\t\t\tSelecciona\n\t\t\t\t\t\t"),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.phone,
+                        expression: "phone"
+                      }
+                    ],
+                    attrs: { type: "radio", value: "5" },
+                    domProps: { checked: _vm._q(_vm.phone, "5") },
+                    on: {
+                      change: function($event) {
+                        _vm.phone = "5"
+                      }
+                    }
+                  })
+                ])
+              ]
+            )
           ])
         ]),
         _vm._v(" "),
@@ -50452,6 +50695,28 @@ var render = function() {
                 {
                   name: "show",
                   rawName: "v-show",
+                  value: _vm.phone == 5,
+                  expression: "phone == 5"
+                }
+              ],
+              staticClass: "list-group-item"
+            },
+            [
+              _c("span", { staticClass: "w-600 blue" }, [_vm._v("1 linea")]),
+              _vm._v(
+                " fija con llamadas ilimitadas a\n\t\t\t\tfijos y moviles de España + 500 minutos internacionales\n\t\t\t\t- "
+              ),
+              _c("span", { staticClass: "w-600 blue" }, [_vm._v(" 5€")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
                   value: _vm.activeType,
                   expression: "activeType"
                 }
@@ -50587,10 +50852,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
-      _c("h5", {
-        staticClass: "modal-title",
-        attrs: { id: "exampleModalLabel" }
-      }),
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Velocidad fibra")]
+      ),
       _vm._v(" "),
       _c(
         "button",
@@ -50632,15 +50898,2151 @@ if (false) {
 }
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(56)
+var __vue_script__ = __webpack_require__(57)
 /* template */
-var __vue_template__ = __webpack_require__(57)
+var __vue_template__ = __webpack_require__(58)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/layouts/calculadora/CalcContainer.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2bdaa92a", Component.options)
+  } else {
+    hotAPI.reload("data-v-2bdaa92a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 57 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {
+			totalPrice: 0
+		};
+	},
+
+
+	methods: {},
+	created: function created() {
+		var _this = this;
+
+		__WEBPACK_IMPORTED_MODULE_0__app__["eventBus"].$on('internetPriceHasChanged', function (price) {
+
+			_this.totalPrice = price;
+		});
+
+		__WEBPACK_IMPORTED_MODULE_0__app__["eventBus"].$on('phone');
+	}
+});
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c(
+      "div",
+      { staticClass: "col-12 col-sm-12 col-md-8" },
+      [
+        _c("app-fibra"),
+        _vm._v(" "),
+        _c("div", { staticClass: "h-20" }),
+        _vm._v(" "),
+        _c("app-movil")
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "col-12 col-sm-12 col-md-4" },
+      [_c("app-price-component", { attrs: { totalPrice: _vm.totalPrice } })],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2bdaa92a", module.exports)
+  }
+}
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(60)
+/* template */
+var __vue_template__ = __webpack_require__(61)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/layouts/calculadora/Fibra.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-28e933a6", Component.options)
+  } else {
+    hotAPI.reload("data-v-28e933a6", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 60 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__productMixin__ = __webpack_require__(4);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	mixins: [__WEBPACK_IMPORTED_MODULE_1__productMixin__["a" /* productMixin */]], // lista de precios centralizada
+
+	data: function data() {
+
+		return {
+			internetActiveType: '', //tipo fibra
+			internetPrice: 0,
+			switchFibra: false, // el boton activar/desactivar fibra
+
+			switchPhone: false, // boton activar/desactivar fijo
+			phoneActiveType: '',
+			phoneWithCallsPrice: 0, // precio telefono con fibra
+			onlyPhonePrice: 0,
+			phonePrice: 0
+
+		};
+	},
+
+
+	methods: {
+
+		/* 
+  |------------------------------------------|
+  |    METODOS PARA LA FIBRA                 |
+  |------------------------------------------|
+  */
+
+		/**
+  * @param t = string, el tipo de fibra
+  * 
+  */
+		setInternetType: function setInternetType(t) {
+
+			// el usuario ha elegido un tipo de fibra
+			this.internetActiveType = t;
+
+			this.updateInternetPrice(t);
+
+			this.updatePhonePrice();
+		},
+
+
+		/**
+  * se usa en el switch, enseña o esconde el div
+  * @param v = boolean, 
+  * 
+  */
+		internetSwitchButton: function internetSwitchButton(v) {
+			// si el usuario "esconde" la fibra despues de haberla seleccionado
+			// hay que resetear el precio tanto de la fibra como el del fijo
+
+			if (!v) {
+				this.internetActiveType = ''; // reset fibra
+				this.phoneActiveType = ''; // reset telefono fijo
+				this.internetPrice = 0; // reset precio fibra
+				this.switchPhone = false; // escondo div telefono fijo
+				this.phonePrice = 0; // reset precio telefono
+
+				__WEBPACK_IMPORTED_MODULE_0__app__["eventBus"].$emit('internetPriceWasChanged', this.getTotalPrice());
+			}
+		},
+
+
+		/**
+  * actualiza el precio de la fibra
+  * @param t = string, el tipo de fibra seleccionado
+  */
+
+		updateInternetPrice: function updateInternetPrice(t) {
+			if (t == 'fibra500') {
+				this.internetPrice = this.fibra500.price;
+			} else {
+				this.internetPrice = this.fibra50.price;
+			}
+
+			__WEBPACK_IMPORTED_MODULE_0__app__["eventBus"].$emit('internetPriceWasChanged', this.getTotalPrice());
+		},
+
+
+		/*
+  |--------------------------------------------|
+  |       METODOS PARA EL FIJO                 |
+  |--------------------------------------------|
+  */
+
+		/**
+  * @param t = string, el tipo de fijo
+  */
+		setPhoneType: function setPhoneType(t) {
+
+			this.phoneActiveType = t;
+			this.updatePhonePrice();
+			this.updateInternetPrice(this.internetActiveType);
+		},
+
+
+		/**
+  * se encarga de actualizar de forma dinamica el precio del fijo
+  * 
+  */
+		updatePhonePrice: function updatePhonePrice() {
+
+			// la primera vez que llamamos esta funcion es cuando el usuario ha
+			// escogido una fibra
+			// el precio del fijo con llamadas ilimitadas es diferente, dependiendo  
+			// del tipo de fibra, por esto estoy obligado a cambiar el precio de manera
+			// dinamica
+
+
+			var x = this.fijoConLlamadas.price; // precio normal
+			var y = x - x * 0.4; // precio con descuento de 40%
+			this.onlyPhonePrice = this.fijoSinLlamadas.price; // fijo sin llamadas
+
+
+			if (this.internetActiveType == 'fibra500') {
+				// tiene un descuento de 40%
+				this.phoneWithCallsPrice = y;
+			} else {
+				this.phoneWithCallsPrice = x;
+			}
+
+			if (this.phoneActiveType == "con_llamadas") {
+				var p = 0;
+				if (this.internetActiveType == "fibra500") {
+					// fibra 500, tiene un descuento de 40%
+					p = y;
+				} else {
+					// fibra 50
+					p = x;
+				}
+				// actualiamos el precio que se manda al PriceComponent.vue
+				this.phonePrice = p;
+
+				// actualizamos el precio que se muestra en el div
+				this.phoneWithCallsPrice = p;
+			} else if (this.phoneActiveType == 'sin_llamadas') {
+				this.phonePrice = this.onlyPhonePrice;
+			}
+
+			__WEBPACK_IMPORTED_MODULE_0__app__["eventBus"].$emit('internetPriceWasChanged', this.getTotalPrice());
+		},
+
+
+		/**
+  * lo activa el boton switch, activa/desactiva div precios fijo
+  * @param v boolean
+  * @ return void
+  */
+
+		phoneSwitchButton: function phoneSwitchButton(v) {
+
+			// el usuario esconde el div mediante el boton "switch"
+			// se resetea el precio				
+			if (!v) {
+
+				this.phoneActiveType = '';
+				this.phonePrice = 0;
+			} else {
+				this.updatePhonePrice();
+			}
+
+			__WEBPACK_IMPORTED_MODULE_0__app__["eventBus"].$emit('internetPriceWasChanged', this.getTotalPrice());
+		},
+
+
+		/**
+  * devuelve el precio total de fibra + fijo
+  * @return array, formato [precio internet, precio fijo]
+  */
+		getTotalPrice: function getTotalPrice() {
+			return [this.internetPrice, this.phonePrice];
+		}
+	}
+});
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "productBox" }, [
+    _c("div", { staticClass: "row " }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-2 col-4 col-sm-4 align-items-middle" }, [
+        _c("label", { staticClass: "switch" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.switchFibra,
+                expression: "switchFibra"
+              }
+            ],
+            attrs: { type: "checkbox" },
+            domProps: {
+              checked: Array.isArray(_vm.switchFibra)
+                ? _vm._i(_vm.switchFibra, null) > -1
+                : _vm.switchFibra
+            },
+            on: {
+              click: function($event) {
+                _vm.internetSwitchButton((_vm.switchFibra = !_vm.switchFibra))
+              },
+              change: function($event) {
+                var $$a = _vm.switchFibra,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = null,
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.switchFibra = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.switchFibra = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.switchFibra = $$c
+                }
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "slider round" })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "h-20 d-md-none d-lg-none d-xl-none" }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "col-md-4 col-6 col-sm-6 pointer",
+          on: {
+            click: function($event) {
+              _vm.setInternetType("fibra500")
+            }
+          }
+        },
+        [
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.switchFibra,
+                  expression: "switchFibra"
+                }
+              ],
+              staticClass: "card text-center border-primary",
+              class: { "selected-card": _vm.internetActiveType == "fibra500" }
+            },
+            [_vm._m(1)]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "col-md-4 col-6 col-sm-6 pointer",
+          on: {
+            click: function($event) {
+              _vm.setInternetType("fibra50")
+            }
+          }
+        },
+        [
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.switchFibra,
+                  expression: "switchFibra"
+                }
+              ],
+              staticClass: "card text-center border-primary",
+              class: { "selected-card": _vm.internetActiveType == "fibra50" }
+            },
+            [_vm._m(2)]
+          )
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "h-30" }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.internetPrice > 0,
+            expression: "internetPrice > 0"
+          }
+        ],
+        staticClass: "row"
+      },
+      [
+        _vm._m(3),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-md-2 col-4 col-sm-4 align-items-middle" },
+          [
+            _c("label", { staticClass: "switch" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.switchPhone,
+                    expression: "switchPhone"
+                  }
+                ],
+                attrs: { type: "checkbox" },
+                domProps: {
+                  checked: Array.isArray(_vm.switchPhone)
+                    ? _vm._i(_vm.switchPhone, null) > -1
+                    : _vm.switchPhone
+                },
+                on: {
+                  click: function($event) {
+                    _vm.phoneSwitchButton((_vm.switchPhone = !_vm.switchPhone))
+                  },
+                  change: function($event) {
+                    var $$a = _vm.switchPhone,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = null,
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.switchPhone = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.switchPhone = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.switchPhone = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "slider round" })
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "h-20 d-md-none d-lg-none d-xl-none" }),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col-md-4 col-6 col-sm-6 pointer",
+            on: {
+              click: function($event) {
+                _vm.setPhoneType("con_llamadas")
+              }
+            }
+          },
+          [
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.switchPhone,
+                    expression: "switchPhone"
+                  }
+                ],
+                staticClass: "card text-center border-primary",
+                class: {
+                  "selected-card": _vm.phoneActiveType == "con_llamadas"
+                }
+              },
+              [
+                _c("div", { staticClass: "card-body" }, [
+                  _c("h4", { staticClass: "card-title blue w-200" }, [
+                    _vm._v("Con llamadas")
+                  ]),
+                  _vm._v(" "),
+                  _c("h4", { staticClass: "card-text blue w-600" }, [
+                    _vm._v(
+                      _vm._s(_vm.phoneWithCallsPrice) + " €\n\t\t\t\t\t\t"
+                    ),
+                    _c("span", { staticClass: "small" }, [_vm._v("/mes")])
+                  ])
+                ])
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col-md-4 col-6 col-sm-6 pointer",
+            on: {
+              click: function($event) {
+                _vm.setPhoneType("sin_llamadas")
+              }
+            }
+          },
+          [
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.switchPhone,
+                    expression: "switchPhone"
+                  }
+                ],
+                staticClass: "card text-center border-primary",
+                class: {
+                  "selected-card": _vm.phoneActiveType == "sin_llamadas"
+                }
+              },
+              [
+                _c("div", { staticClass: "card-body" }, [
+                  _c("h4", { staticClass: "card-title blue w-200" }, [
+                    _vm._v("Sin llamadas")
+                  ]),
+                  _vm._v(" "),
+                  _c("h4", { staticClass: "card-text blue w-600" }, [
+                    _vm._v(_vm._s(_vm.onlyPhonePrice) + " €\n\t\t\t\t\t\t"),
+                    _c("span", { staticClass: "small" }, [_vm._v("/mes")])
+                  ])
+                ])
+              ]
+            )
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 col-8 col-sm-8 " }, [
+      _c("h5", { staticClass: "blue align-middle" }, [
+        _c("i", { staticClass: "fas fa-wifi yellow" }),
+        _vm._v(" Fibra")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("h4", { staticClass: "card-title blue" }, [_vm._v("500 Mb")]),
+      _vm._v(" "),
+      _c("h4", { staticClass: "card-text blue w-600" }, [
+        _vm._v("30 €"),
+        _c("span", { staticClass: "small" }, [_vm._v("/mes")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("h4", { staticClass: "card-title blue" }, [_vm._v("50 Mb")]),
+      _vm._v(" "),
+      _c("h4", { staticClass: "card-text blue w-600" }, [
+        _vm._v("25 €"),
+        _c("span", { staticClass: "small" }, [_vm._v("/mes")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 col-8 col-sm-8 " }, [
+      _c("h5", { staticClass: "blue align-middle" }, [
+        _c("i", { staticClass: "fas fa-phone yellow" }),
+        _vm._v(" Fijo ")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-28e933a6", module.exports)
+  }
+}
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(63)
+/* template */
+var __vue_template__ = __webpack_require__(64)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/layouts/calculadora/Movil.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7bed8276", Component.options)
+  } else {
+    hotAPI.reload("data-v-7bed8276", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__productMixin__ = __webpack_require__(4);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {
+			switchMovil: false, // controla la visibilidad de todo el container
+			phoneCounter: 0, // contador vistas activas
+
+			mobileColection: [], // array que contiene los moviles	
+			cleanColection: [], // array "espejo" de mobileColection
+			selectedMobileIndex: false,
+			activeClass: [],
+			internetPrice: 0
+		};
+	},
+
+
+	methods: {
+
+		/**
+  * @param v boolean, true o false segun el estado del boton switch
+  */
+
+		mobileToggleButton: function mobileToggleButton(v) {
+
+			if (!v) {
+
+				// pongo el contador de vistas a zero
+				this.phoneCounter = 0;
+
+				// limpiamos las dos colecciones
+				this.cleanColection = [];
+				this.mobileColection = [];
+
+				// reset a 0 el precio de los moviles
+				__WEBPACK_IMPORTED_MODULE_0__app__["eventBus"].$emit('resetMobilePrice');
+			}
+		},
+
+
+		/**
+  * cada vez que el boton es pulsado  
+  * activa un telefono movil a la vez
+  */
+		addNewMobileView: function addNewMobileView() {
+
+			if (this.phoneCounter < 4) {
+
+				var m = { name: '', price: '0', minutes: '', gb: '' };
+
+				// creamos un nuevo elemento en el array, que sera el ultima
+				// en js cuando se borra un elemento no afecta la longitud del array,
+				// el elemento sigue ocupando su posicion pero con falor false
+				this.mobileColection.push(m);
+
+				// incremento el contador de vistas activas
+				this.phoneCounter++;
+			}
+		},
+
+
+		/**
+  * @param int index, posicion de la vista a esconder
+  */
+
+		destroyView: function destroyView(pos) {
+
+			// el metodo splice elimina completamente un elemento y
+			// reorganiza el array
+			// el primer parametro es la posicion y el segundo el 
+			// numero de elementos a borrar
+
+			this.mobileColection.splice(pos, 1);
+			/*
+   for (var i = 0; i < copy.length; i++) {
+   		if (i != index) {
+   		this.mobileColection.push(copy[i]);
+   	} 
+   	}*/
+			console.log("index to destroy", pos);
+			// el evento mobilePriceWasChanged esta declarado en PriceComponent
+			// toma como argumento un array con la estructura
+			// 0 - action (add o destroy)
+			// 1 - index (posicion en el array de los moviles)
+			// 2 - objeto a destruir
+			var i = ['destroy', pos, this.mobileColection[pos]];
+			__WEBPACK_IMPORTED_MODULE_0__app__["eventBus"].$emit('mobilePriceWasChanged', i);
+
+			// actualizar el counter de los moviles
+			this.phoneCounter--;
+		},
+
+
+		/**
+  * @param int index
+  * funcion que actualiza el valor de selectedMobileIndex
+  * que se pasa como parametro al compontente ModalTarifas
+  */
+
+		setSelectedMobileIndex: function setSelectedMobileIndex(index) {
+
+			this.selectedMobileIndex = index;
+		},
+		priceCalculator: function priceCalculator(p) {
+			if (this.internetPrice > 0) {
+				return p - p * this.discount;
+			}
+			return p;
+		}
+	},
+	computed: {
+
+		getMobileColectionLength: function getMobileColectionLength() {
+
+			return this.mobileColection.length;
+		},
+
+		getMobileColection: function getMobileColection() {
+
+			return this.mobileColection;
+		}
+
+	},
+
+	created: function created() {
+		var _this = this;
+
+		__WEBPACK_IMPORTED_MODULE_0__app__["eventBus"].$on('internetPriceWasChanged', function (data) {
+			_this.internetPrice = data[0];
+			console.log('from mobil event:', _this.discount);
+		});
+
+		__WEBPACK_IMPORTED_MODULE_0__app__["eventBus"].$on('priceWasSetted', function (data) {
+			// data e un array en formato [index, name, precio, minutos, gigas]
+			var i = data[0];
+			if (i >= 0) {
+				_this.mobileColection[i].name = data[1];
+				_this.mobileColection[i].price = _this.priceCalculator(data[2]);
+				_this.mobileColection[i].minutes = data[3];
+				_this.mobileColection[i].gb = data[4];
+				_this.activeClass[i] = data[5];
+
+				console.log("event priceWasSetted", _this.mobileColection[i].price);
+			}
+		});
+	}
+});
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    { staticClass: "productBox" },
+    [
+      _c("div", { staticClass: "row" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2 col-4 col-sm-4 align-items-top" }, [
+          _c("label", { staticClass: "switch" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.switchMovil,
+                  expression: "switchMovil"
+                }
+              ],
+              attrs: { type: "checkbox" },
+              domProps: {
+                checked: Array.isArray(_vm.switchMovil)
+                  ? _vm._i(_vm.switchMovil, null) > -1
+                  : _vm.switchMovil
+              },
+              on: {
+                click: function($event) {
+                  _vm.mobileToggleButton((_vm.switchMovil = !_vm.switchMovil))
+                },
+                change: function($event) {
+                  var $$a = _vm.switchMovil,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = null,
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.switchMovil = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.switchMovil = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.switchMovil = $$c
+                  }
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "slider round" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-8 col-12 col-sm-12 mt-3 mt-md-0" }, [
+          _c(
+            "section",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.getMobileColectionLength,
+                  expression: "getMobileColectionLength"
+                }
+              ]
+            },
+            _vm._l(_vm.mobileColection, function(index, key) {
+              return _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "col-10 col-sm-10 col-md-10 mb-3 border pointer",
+                    attrs: {
+                      "data-toggle": "modal",
+                      "data-target": "#exampleModal"
+                    },
+                    on: {
+                      click: function($event) {
+                        _vm.setSelectedMobileIndex(key)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "h4",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: index.price == 0,
+                            expression: "index.price == 0"
+                          }
+                        ],
+                        staticClass: "text-center m-3"
+                      },
+                      [_vm._v("Elige una tarifa ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: index.price > 0,
+                            expression: "index.price > 0"
+                          }
+                        ],
+                        staticClass: "row text-center align-items-center"
+                      },
+                      [
+                        _c("div", { staticClass: "col-4" }, [
+                          _c("p", [
+                            _c("strong", [_vm._v(_vm._s(index.name) + " ")])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-4" }, [
+                          _c("p", { staticClass: "blue bold align-middle" }, [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t" + _vm._s(index.minutes)
+                            ),
+                            _c("br"),
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t" +
+                                _vm._s(index.gb) +
+                                "GB\n\t\t\t\t\t\t\t\t"
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "col-4 p-3",
+                            class: [_vm.activeClass[key]]
+                          },
+                          [
+                            _c(
+                              "h3",
+                              { staticClass: "white w-600 align-middle" },
+                              [
+                                _vm._v(
+                                  "\n\t\t\t\t\t\t\t\t\t" +
+                                    _vm._s(index.price) +
+                                    "€"
+                                ),
+                                _c("span", { staticClass: "small" }, [
+                                  _vm._v("/mes")
+                                ])
+                              ]
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-2 text-right" }, [
+                  _c("span", { staticClass: " align-middle" }, [
+                    _c("i", {
+                      staticClass: "fas fa-trash red mt-4",
+                      on: {
+                        click: function($event) {
+                          _vm.destroyView(key)
+                        }
+                      }
+                    })
+                  ])
+                ])
+              ])
+            })
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.switchMovil && _vm.phoneCounter < 4,
+                  expression: "switchMovil && phoneCounter < 4"
+                }
+              ],
+              staticClass: "col-md-12 col-12 col-sm-12"
+            },
+            [
+              _c(
+                "p",
+                {
+                  staticClass: "pointer",
+                  staticStyle: { "margin-top": "20px" },
+                  on: { click: _vm.addNewMobileView }
+                },
+                [
+                  _c("i", {
+                    staticClass: "fas fa-plus-circle green",
+                    staticStyle: { "font-size": "26px" }
+                  }),
+                  _vm._v(" \n\t\t\t\t\tAñadir movil\n\t\t\t\t")
+                ]
+              )
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("app-modal-tarifas", {
+        attrs: { selectedMobileIndex: _vm.selectedMobileIndex }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 col-8 col-sm-8" }, [
+      _c("h5", { staticClass: "blue" }, [
+        _c("i", { staticClass: "fas fa-mobile-alt yellow" }),
+        _vm._v(" Movil")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7bed8276", module.exports)
+  }
+}
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(66)
+/* template */
+var __vue_template__ = __webpack_require__(67)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/layouts/calculadora/Ilimitado.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-d873568e", Component.options)
+  } else {
+    hotAPI.reload("data-v-d873568e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 66 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {};
+	},
+
+
+	methods: {}
+});
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12 col-12 col-sm-12 productBox" }, [
+      _c("h1", [_vm._v("aqui van los ilimitados")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-d873568e", module.exports)
+  }
+}
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(69)
+/* template */
+var __vue_template__ = __webpack_require__(70)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/layouts/calculadora/Combo.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6d3d1d66", Component.options)
+  } else {
+    hotAPI.reload("data-v-6d3d1d66", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 69 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {};
+	},
+
+
+	methods: {}
+});
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [
+      _c("h1", [_vm._v("aqui van los combos")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-6d3d1d66", module.exports)
+  }
+}
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(72)
+/* template */
+var __vue_template__ = __webpack_require__(73)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/layouts/calculadora/PriceComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-712743f6", Component.options)
+  } else {
+    hotAPI.reload("data-v-712743f6", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 72 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__productMixin__ = __webpack_require__(4);
+function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+	mixins: [__WEBPACK_IMPORTED_MODULE_1__productMixin__["a" /* productMixin */]], // lista de precios centralizada
+
+	props: {
+		//totalPrice: Number,
+
+	},
+
+	data: function data() {
+		return {
+			internetPrice: 0,
+			phonePrice: 0,
+			mobColection: [],
+			totalPrice: 0,
+			totalDiscount: 0
+
+		};
+	},
+
+
+	methods: {
+
+		// devuelve el precio total
+		getTotalPrice: function getTotalPrice() {
+			return this.internetPrice + this.phonePrice + this.getTotalMobilePrice();
+		},
+
+
+		/**
+  * @param int x, los gigas
+  * si el usuario a elegido una fibra se doblan los gigas 
+  */
+		checkGb: function checkGb(x) {
+
+			if (this.internetPrice) {
+				return 2 * x;
+			}
+			return x;
+		},
+
+
+		/**
+  * @ param int price
+  * @ return int
+  * devuelve el precio con o sin descuento segun 
+  * si tenemos fibra o no en el paquete
+  */
+		getMobilePrice: function getMobilePrice(price) {
+			if (this.internetPrice) {
+				// tenemos la fibra seleccionada
+
+				if (price == 3) {
+					// tengo la tarifa mini, el descuento no es exactamente
+					// del 40%, estoy obligado ha hacer un apaño
+					return 2;
+				}
+
+				return price - price * this.discount;
+			}
+
+			return price;
+		},
+
+
+		/**
+  * @return int
+  * devuelve el precio total de los moviles incluidos en el paquete
+  */
+		getTotalMobilePrice: function getTotalMobilePrice() {
+
+			var mobilesPrice = 0;
+			var l = this.mobColection.length;
+
+			for (var i = 0; i < l; i++) {
+				mobilesPrice += this.getMobilePrice(this.mobColection[i].price);
+			}
+
+			return mobilesPrice;
+		},
+		getTotalDiscount: function getTotalDiscount() {
+			var x = 0;
+			var t = 0;
+			for (var i = 0; i < this.mobColection.length; i++) {
+				x += this.mobColection[i].price;
+			}
+			t += x - this.getTotalMobilePrice();
+			return t;
+		}
+	},
+
+	created: function created() {
+		var _this = this;
+
+		__WEBPACK_IMPORTED_MODULE_0__app__["eventBus"].$on('internetPriceWasChanged', function (data) {
+
+			_this.internetPrice = data[0];
+			_this.phonePrice = data[1];
+			_this.totalPrice = _this.getTotalPrice();
+			_this.totalDiscount = _this.getTotalDiscount();
+		});
+
+		// evento que escucha los cambios en el precio de los moviles
+		__WEBPACK_IMPORTED_MODULE_0__app__["eventBus"].$on('mobilePriceWasChanged', function (data) {
+
+			// el parametro data es un array con estructura:
+			// 0 - action (add o destroy)
+			// 1 - index
+			// 2 - objeto {name,price,minutes,gb}
+
+			var action = data[0]; // acction
+			var index = data[1]; // index
+			var mobObj = data[2]; // mobil {name,price,minutes,gb}      
+
+			// si la accion es 'add'
+			if (action == 'add') {
+				// si el index existe, actualizamos el precio
+				if (_this.mobColection[index]) {
+					_this.mobColection[index] = mobObj;
+				} else {
+					// el index no existe, añadimos al final del array
+					_this.mobColection.push(mobObj);
+				}
+			} else if (action == 'destroy') {
+				var _mobColection, _mobColection2;
+
+				// se ha eliminado un movil en Movil.vue
+				// creo una copia exacta de mobColection
+				var copy = (_mobColection = _this.mobColection, _mobColection2 = _toArray(_mobColection), _mobColection);
+
+				// limpio los elementos del array original
+				_this.mobColection = []; // array limpio
+
+				// reconstruio el array eliminando el index que se ha pasado
+				// desde otro componente
+				for (var i = 0; i < copy.length; i++) {
+					if (i != index) {
+						_this.mobColection.push(copy[i]);
+					}
+				}
+			} else {
+
+				// si no tenemos accion, tenemos un error
+				console.log('No he encontrato la accion');
+			}
+
+			_this.totalPrice = _this.getTotalPrice();
+			_this.totalDiscount = _this.getTotalDiscount();
+		});
+
+		// evento para poner a zero el precio de todos los moviles
+		__WEBPACK_IMPORTED_MODULE_0__app__["eventBus"].$on('resetMobilePrice', function () {
+
+			_this.mobColection = [];
+
+			_this.totalPrice = _this.getTotalPrice();
+
+			_this.totalDiscount = _this.getTotalDiscount();
+		});
+	}
+});
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col-12" }, [
+    _c("div", { staticClass: "h-30" }),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("table", { staticClass: "table" }, [
+      _c(
+        "tbody",
+        [
+          _c(
+            "tr",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.internetPrice == 30,
+                  expression: "internetPrice == 30"
+                }
+              ]
+            },
+            [
+              _c("td", [
+                _c("p", [_vm._v("Fibra optica " + _vm._s(_vm.fibra500.gb))])
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _c("p", { staticClass: "blue w-600" }, [
+                  _vm._v(_vm._s(_vm.fibra500.price) + "€ \n\t\t\t\t\t\t"),
+                  _c("span", { staticClass: "extra-small" }, [_vm._v("/mes")])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "tr",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.internetPrice == 25,
+                  expression: "internetPrice == 25"
+                }
+              ]
+            },
+            [
+              _c("td", [
+                _c("p", [
+                  _vm._v("Fibra optica " + _vm._s(_vm.fibra50.gb) + " ")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _c("p", { staticClass: "blue w-600" }, [
+                  _vm._v(_vm._s(_vm.fibra50.price) + "€\n\t\t\t\t\t\t"),
+                  _c("span", { staticClass: "extra-small" }, [_vm._v("/mes")])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "tr",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.phonePrice == 1,
+                  expression: "phonePrice == 1"
+                }
+              ]
+            },
+            [
+              _c("td", [
+                _c("p", [
+                  _vm._v("Telefono fijo "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    {
+                      staticClass: "text-danger extra-small",
+                      staticStyle: { "padding-top": "0px", "margin-top": "0px" }
+                    },
+                    [_vm._v(_vm._s(_vm.fijoSinLlamadas.minutes) + " ")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _c("p", { staticClass: "blue w-600" }, [
+                  _vm._v(_vm._s(_vm.fijoSinLlamadas.price) + "€\n\t\t\t\t\t\t"),
+                  _c("span", { staticClass: "extra-small" }, [_vm._v("/mes")])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "tr",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.phonePrice == 3 || _vm.phonePrice == 5,
+                  expression: "phonePrice == 3 || phonePrice == 5"
+                }
+              ]
+            },
+            [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("td", [
+                _c("p", { staticClass: "blue w-600" }, [
+                  _vm._v(_vm._s(_vm.phonePrice) + "€ \n\t\t\t\t\t\t"),
+                  _c("span", { staticClass: "extra-small" }, [_vm._v("/mes")])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _vm._l(_vm.mobColection, function(mobile) {
+            return _c("tr", [
+              _c(
+                "td",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.mobColection.length > 0,
+                      expression: "mobColection.length > 0"
+                    }
+                  ]
+                },
+                [
+                  _c("p", [
+                    _vm._v(" Movil " + _vm._s(mobile.name) + " "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        staticClass: "blue extra-small",
+                        staticStyle: {
+                          "padding-top": "0px",
+                          "margin-top": "0px"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t" +
+                            _vm._s(mobile.minutes) +
+                            " min y\n\t\t\t\t\t\t" +
+                            _vm._s(_vm.checkGb(mobile.gb)) +
+                            "GB "
+                        )
+                      ]
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.mobColection.length > 0,
+                      expression: "mobColection.length > 0"
+                    }
+                  ]
+                },
+                [
+                  _c("p", { staticClass: "blue w-600" }, [
+                    _vm._v(
+                      _vm._s(_vm.getMobilePrice(mobile.price)) +
+                        "€\n\t\t\t\t\t\t"
+                    ),
+                    _c("span", { staticClass: "extra-small" }, [_vm._v("/mes")])
+                  ])
+                ]
+              )
+            ])
+          })
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    _c("p"),
+    _vm._v(" "),
+    _c("h1", { staticClass: "big" }, [
+      _c("span", { staticClass: "w-600" }, [
+        _vm._v(_vm._s(_vm.totalPrice) + " €")
+      ]),
+      _c("span", { staticClass: "small" }, [_vm._v(" IVA incl.")])
+    ]),
+    _vm._v(" "),
+    _c(
+      "p",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.internetPrice > 0,
+            expression: "internetPrice > 0"
+          }
+        ],
+        staticClass: "blue"
+      },
+      [
+        _vm._v(
+          " Por tener la fibra en el pack te ahorras " +
+            _vm._s(_vm.totalDiscount) +
+            " euros."
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "blue pointer" }, [
+      _vm._v("Mira lo que has elegido "),
+      _c("i", { staticClass: "fas fa-angle-down blue" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [_c("p", [_vm._v("Telefono fijo ")])])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-712743f6", module.exports)
+  }
+}
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(75)
+/* template */
+var __vue_template__ = __webpack_require__(76)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -50679,11 +53081,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 56 */
+/* 75 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -50930,7 +53333,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 57 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -50938,6 +53341,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row", attrs: { id: "showPacks" } }, [
+    _c("div", { staticClass: "h-30" }),
+    _vm._v(" "),
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "col-6 text-center" }, [
@@ -51421,15 +53826,15 @@ if (false) {
 }
 
 /***/ }),
-/* 58 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(59)
+var __vue_template__ = __webpack_require__(78)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -51468,7 +53873,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 59 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51497,7 +53902,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
               _c("i", { staticClass: "fas fa-rocket" }),
-              _vm._v(" \n\t\t\t\t\t1GB acumulables.")
+              _vm._v(" \n\t\t\t\t\t1.5GB acumulables.")
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
@@ -51534,7 +53939,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
               _c("i", { staticClass: "fas fa-rocket" }),
-              _vm._v(" \n\t\t\t\t\t3GB acumulables.")
+              _vm._v(" \n\t\t\t\t\t6GB acumulables.")
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
@@ -51560,7 +53965,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-md-6 col-xs-12 w-90" }, [
         _c("div", { staticClass: "card text-white combo15 w-80 text-center" }, [
           _c("div", { staticClass: "card-header" }, [
-            _c("h2", { staticClass: "w-600" }, [_vm._v("COMBO 10")])
+            _c("h2", { staticClass: "w-600" }, [_vm._v("COMBO 15")])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
@@ -51571,7 +53976,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
               _c("i", { staticClass: "fas fa-rocket" }),
-              _vm._v(" \n\t\t\t\t\t6GB acumulables.")
+              _vm._v(" \n\t\t\t\t\t12GB acumulables.")
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
@@ -51608,7 +54013,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
               _c("i", { staticClass: "fas fa-rocket" }),
-              _vm._v(" \n\t\t\t\t\t20GB acumulables.")
+              _vm._v(" \n\t\t\t\t\t30GB acumulables.")
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
@@ -51641,15 +54046,15 @@ if (false) {
 }
 
 /***/ }),
-/* 60 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(61)
+var __vue_template__ = __webpack_require__(80)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -51688,7 +54093,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 61 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51744,7 +54149,7 @@ var staticRenderFns = [
             { staticClass: "card text-white ilimitado w-80 text-center" },
             [
               _c("div", { staticClass: "card-header" }, [
-                _c("h2", { staticClass: "w-600" }, [_vm._v("ILIMITADO 3GB")])
+                _c("h2", { staticClass: "w-600" }, [_vm._v("ILIMITADO 5GB")])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
@@ -51755,7 +54160,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }, [
                   _c("i", { staticClass: "fas fa-rocket" }),
-                  _vm._v(" \n\t\t\t\t\t\t3GB acumulables.")
+                  _vm._v(" \n\t\t\t\t\t\t5GB acumulables.")
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }, [
@@ -51782,7 +54187,7 @@ var staticRenderFns = [
             { staticClass: "card text-white ilimitado w-80 text-center" },
             [
               _c("div", { staticClass: "card-header" }, [
-                _c("h2", { staticClass: "w-600" }, [_vm._v("ILIMITADO 6GB")])
+                _c("h2", { staticClass: "w-600" }, [_vm._v("ILIMITADO 12GB")])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
@@ -51793,7 +54198,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }, [
                   _c("i", { staticClass: "fas fa-rocket" }),
-                  _vm._v(" \n\t\t\t\t\t\t6GB acumulables.")
+                  _vm._v(" \n\t\t\t\t\t\t12GB acumulables.")
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }, [
@@ -51820,7 +54225,7 @@ var staticRenderFns = [
             { staticClass: "card text-white ilimitado w-80 text-center" },
             [
               _c("div", { staticClass: "card-header" }, [
-                _c("h2", { staticClass: "w-600" }, [_vm._v("ILIMITADO 20GB")])
+                _c("h2", { staticClass: "w-600" }, [_vm._v("ILIMITADO 30GB")])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
@@ -51831,7 +54236,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }, [
                   _c("i", { staticClass: "fas fa-rocket" }),
-                  _vm._v(" \n\t\t\t\t\t\t20GB acumulables.")
+                  _vm._v(" \n\t\t\t\t\t\t30GB acumulables.")
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }, [
@@ -51863,15 +54268,15 @@ if (false) {
 }
 
 /***/ }),
-/* 62 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(63)
+var __vue_template__ = __webpack_require__(82)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -51910,7 +54315,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 63 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51932,7 +54337,7 @@ var staticRenderFns = [
             { staticClass: "card  text-white navega w-80 text-center" },
             [
               _c("div", { staticClass: "card-header" }, [
-                _c("h2", { staticClass: "w-600" }, [_vm._v("NAVEG@ 2GB")])
+                _c("h2", { staticClass: "w-600" }, [_vm._v("NAVEG@ 3GB")])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
@@ -51968,7 +54373,7 @@ var staticRenderFns = [
             { staticClass: "card text-white navega w-80 text-center" },
             [
               _c("div", { staticClass: "card-header" }, [
-                _c("h2", { staticClass: "w-600" }, [_vm._v("NAVEG@ 5GB")])
+                _c("h2", { staticClass: "w-600" }, [_vm._v("NAVEG@ 6GB")])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
@@ -52009,15 +54414,15 @@ if (false) {
 }
 
 /***/ }),
-/* 64 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(65)
+var __vue_template__ = __webpack_require__(84)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52056,7 +54461,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 65 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52253,15 +54658,15 @@ if (false) {
 }
 
 /***/ }),
-/* 66 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(67)
+var __vue_template__ = __webpack_require__(86)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52300,7 +54705,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 67 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52849,7 +55254,822 @@ if (false) {
 }
 
 /***/ }),
-/* 68 */
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(88)
+/* template */
+var __vue_template__ = __webpack_require__(89)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/modals/ModalTarifas.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-e5e06c16", Component.options)
+  } else {
+    hotAPI.reload("data-v-e5e06c16", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 88 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__productMixin__ = __webpack_require__(4);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+	props: ['selectedMobileIndex'],
+	mixins: [__WEBPACK_IMPORTED_MODULE_1__productMixin__["a" /* productMixin */]], // lista de precios centralizada
+	data: function data() {
+		return {
+			btnArray: [false, false, false, false], // array con los 4 moviles
+			selectedBtnName: '' // nombre de la tarifa seleccionada					
+		};
+	},
+
+
+	methods: {
+
+		/**
+  * @param object selectedProductObj, es un objeto sacado de productMixin
+  * 
+  */
+
+		sendSelectedPrice: function sendSelectedPrice(selectedProductObj, divColorClass) {
+			// acutualizo el precio en PriceComponent mediante eventBus
+			// se pasa un array con el index del movil actualizado y 
+			// los detalles de la tarifa seleccionada como objeto
+			var i = ['add', this.selectedMobileIndex, selectedProductObj];
+
+			__WEBPACK_IMPORTED_MODULE_0__app__["eventBus"].$emit('mobilePriceWasChanged', i);
+
+			// array con la tarifa selecionada
+			var i = [this.selectedMobileIndex, selectedProductObj.name, selectedProductObj.price, selectedProductObj.minutes, selectedProductObj.gb, divColorClass];
+
+			__WEBPACK_IMPORTED_MODULE_0__app__["eventBus"].$emit('priceWasSetted', i);
+
+			// marcamos el div seleccionado con un icono verde
+			this.btnArray[this.selectedMobileIndex] = selectedProductObj.name;
+			this.selectedBtnName = selectedProductObj.name;
+		}
+	},
+
+	/**
+ * @return string selectedBtnName, el nombre de la tarifa seleccionada
+ * escucha los cambios en el btnArray
+ */
+	computed: {
+		checkedBtn: function checkedBtn() {
+			this.selectedBtnName = this.btnArray[this.selectedMobileIndex];
+			return this.selectedBtnName;
+		}
+	}
+});
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "exampleModal",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md col-6 col-sm-6" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-block combo5 modal-button",
+                      on: {
+                        click: function($event) {
+                          _vm.sendSelectedPrice(_vm.combo5, "combo5")
+                        }
+                      }
+                    },
+                    [
+                      _c("span", {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.checkedBtn == _vm.combo5.name,
+                            expression: "checkedBtn == combo5.name"
+                          }
+                        ],
+                        staticClass: "fas fa-check-circle green"
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "white" }, [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t\t" +
+                            _vm._s(_vm.combo5.minutes) +
+                            " min +  " +
+                            _vm._s(_vm.combo5.gb) +
+                            "GB\n\t\t\t\t\t\t\t\t\t"
+                        ),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("strong", [_vm._v(_vm._s(_vm.combo5.price) + "€")])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md col-6 col-sm-6" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-block combo10 modal-button",
+                      on: {
+                        click: function($event) {
+                          _vm.sendSelectedPrice(_vm.combo10, "combo10")
+                        }
+                      }
+                    },
+                    [
+                      _c("span", {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.checkedBtn == _vm.combo10.name,
+                            expression: "checkedBtn == combo10.name"
+                          }
+                        ],
+                        staticClass: "fas fa-check-circle green"
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "white" }, [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t\t\t" +
+                            _vm._s(_vm.combo10.minutes) +
+                            " min + " +
+                            _vm._s(_vm.combo10.gb) +
+                            "GB\n\t\t\t\t\t\t\t\t\t\t"
+                        ),
+                        _c("br"),
+                        _c("strong", [
+                          _vm._v(" " + _vm._s(_vm.combo10.price) + "€")
+                        ])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md col-6 col-sm-6" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-block combo15 modal-button",
+                      on: {
+                        click: function($event) {
+                          _vm.sendSelectedPrice(_vm.combo15, "combo15")
+                        }
+                      }
+                    },
+                    [
+                      _c("span", {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.checkedBtn == _vm.combo15.name,
+                            expression: "checkedBtn == combo15.name"
+                          }
+                        ],
+                        staticClass: "fas fa-check-circle green"
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-center white" }, [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t\t" +
+                            _vm._s(_vm.combo15.minutes) +
+                            "min + " +
+                            _vm._s(_vm.combo15.gb) +
+                            "GB\n\t\t\t\t\t\t\t\t\t"
+                        ),
+                        _c("br"),
+                        _c("strong", [_vm._v(_vm._s(_vm.combo15.price) + "€")])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md col-6 col-sm-6" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-block combo20 modal-button",
+                      on: {
+                        click: function($event) {
+                          _vm.sendSelectedPrice(_vm.combo20, "combo20")
+                        }
+                      }
+                    },
+                    [
+                      _c("span", {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.checkedBtn == _vm.combo20.name,
+                            expression: "checkedBtn == combo20.name"
+                          }
+                        ],
+                        staticClass: "fas fa-check-circle green"
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-center white" }, [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t\t\t" +
+                            _vm._s(_vm.combo20.minutes) +
+                            "min + " +
+                            _vm._s(_vm.combo20.gb) +
+                            "GB\n\t\t\t\t\t\t\t\t\t"
+                        ),
+                        _c("br"),
+                        _c("strong", [_vm._v(_vm._s(_vm.combo20.price) + "€")])
+                      ])
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "h-60" }),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md col-6 col-sm-6" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-block ilimitado modal-button",
+                      on: {
+                        click: function($event) {
+                          _vm.sendSelectedPrice(_vm.mini, "ilimitado")
+                        }
+                      }
+                    },
+                    [
+                      _c("span", {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.checkedBtn == _vm.mini.name,
+                            expression: "checkedBtn == mini.name"
+                          }
+                        ],
+                        staticClass: "fas fa-check-circle green"
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-center white" }, [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t\t" +
+                            _vm._s(_vm.mini.minutes) +
+                            " min + " +
+                            _vm._s(_vm.mini.gb) +
+                            "GB\n\t\t\t\t\t\t\t\t"
+                        ),
+                        _c("br"),
+                        _c("strong", [_vm._v(_vm._s(_vm.mini.price) + "€")])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md col-6 col-sm-6" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-block ilimitado modal-button",
+                      on: {
+                        click: function($event) {
+                          _vm.sendSelectedPrice(_vm.ilimitado10, "ilimitado")
+                        }
+                      }
+                    },
+                    [
+                      _c("span", {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.checkedBtn == _vm.ilimitado10.name,
+                            expression: "checkedBtn == ilimitado10.name"
+                          }
+                        ],
+                        staticClass: "fas fa-check-circle green"
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-center white" }, [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t\t" +
+                            _vm._s(_vm.ilimitado10.minutes) +
+                            " + " +
+                            _vm._s(_vm.ilimitado10.gb) +
+                            "GB\n\t\t\t\t\t\t\t\t\t"
+                        ),
+                        _c("br"),
+                        _c("strong", [
+                          _vm._v(_vm._s(_vm.ilimitado10.price) + "€")
+                        ])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md col-6 col-sm-6" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-block ilimitado modal-button",
+                      on: {
+                        click: function($event) {
+                          _vm.sendSelectedPrice(_vm.ilimitado15, "ilimitado")
+                        }
+                      }
+                    },
+                    [
+                      _c("span", {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.checkedBtn == _vm.ilimitado15.name,
+                            expression: "checkedBtn == ilimitado15.name"
+                          }
+                        ],
+                        staticClass: "fas fa-check-circle green"
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-center white" }, [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t\t\t" +
+                            _vm._s(_vm.ilimitado15.minutes) +
+                            " + " +
+                            _vm._s(_vm.ilimitado15.gb) +
+                            "GB\n\t\t\t\t\t\t\t\t\t"
+                        ),
+                        _c("br"),
+                        _c("strong", [
+                          _vm._v(_vm._s(_vm.ilimitado15.price) + "€")
+                        ])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md col-6 col-sm-6" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-block ilimitado modal-button",
+                      on: {
+                        click: function($event) {
+                          _vm.sendSelectedPrice(_vm.ilimitado20, "ilimitado")
+                        }
+                      }
+                    },
+                    [
+                      _c("span", {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.checkedBtn == _vm.ilimitado20.name,
+                            expression: "checkedBtn == ilimitado20.name"
+                          }
+                        ],
+                        staticClass: "fas fa-check-circle green"
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-center white" }, [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t\t" +
+                            _vm._s(_vm.ilimitado20.minutes) +
+                            " + " +
+                            _vm._s(_vm.ilimitado20.gb) +
+                            "GB\n\t\t\t\t\t\t\t\t"
+                        ),
+                        _c("br"),
+                        _c("strong", [
+                          _vm._v(_vm._s(_vm.ilimitado20.price) + "€")
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "h-60" }),
+              _vm._v(" "),
+              _vm._m(3),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md col-6 col-sm-6" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-block navega modal-button",
+                      on: {
+                        click: function($event) {
+                          _vm.sendSelectedPrice(_vm.navega5, "navega")
+                        }
+                      }
+                    },
+                    [
+                      _c("span", {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.checkedBtn == _vm.navega5.name,
+                            expression: "checkedBtn == navega5.name"
+                          }
+                        ],
+                        staticClass: "fas fa-check-circle yellow"
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-center white" }, [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t\t  " +
+                            _vm._s(_vm.navega5.gb) +
+                            "GB\n\t\t\t\t\t\t\t\t\t  "
+                        ),
+                        _c("br"),
+                        _c("strong", [_vm._v(_vm._s(_vm.navega5.price) + "€")])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md col-6 col-sm-6" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-block navega modal-button",
+                      on: {
+                        click: function($event) {
+                          _vm.sendSelectedPrice(_vm.navega10, "navega")
+                        }
+                      }
+                    },
+                    [
+                      _c("span", {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.checkedBtn == _vm.navega10.name,
+                            expression: "checkedBtn == navega10.name"
+                          }
+                        ],
+                        staticClass: "fas fa-check-circle yellow"
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-center white" }, [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t\t" +
+                            _vm._s(_vm.navega10.gb) +
+                            "GB\n\t\t\t\t\t\t\t\t"
+                        ),
+                        _c("br"),
+                        _c("strong", [_vm._v(_vm._s(_vm.navega10.price) + "€")])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(4)
+          ])
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Siente la magia de Digi")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("h3", { staticClass: "blue text-center" }, [
+        _vm._v("Con llamadas internacionales y megas")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("h3", { staticClass: "blue text-center" }, [
+        _vm._v("Con llamadas nacionales y megas")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("h3", { staticClass: "blue w-300 text-center" }, [
+        _vm._v("Para los que solo quieren navegar")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("CERRAR")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-e5e06c16", module.exports)
+  }
+}
+
+/***/ }),
+/* 90 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

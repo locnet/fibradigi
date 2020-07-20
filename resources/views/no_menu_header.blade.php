@@ -24,27 +24,12 @@
     </head>
     <body>
         <div id="app">
-            <!-- Vue component MainMenu -->
-            
+            <!-- Vue component MainMenu -->            
 
             @yield('content')
 
         </div>
-        <footer style="background-color: #009df9;">
-            <div class="h-30"></div>
-            <nav class="navbar navbar-expand-md navbar-light navbar-laravel  nav-pils nav-fill">
-                <div class="container">
-                    
-                    <a class="navbar-brand white" href="https://www.admadesign.com">
-                        <small>Diseño web by <b>ADMA DESIGN</b></small>
-                    </a>
-                    
-                    
-                    
-                </div>
-            </nav>
-            <div class="h-30"></div>
-        </footer>
+        
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109879058-3"></script>

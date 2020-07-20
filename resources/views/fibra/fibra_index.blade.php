@@ -15,7 +15,6 @@ incluido, permanecia 12 meses.')
 				<h2 class="text-center w-300 white">
 					¡Ya esta aqui la mejor fibra del mercado! Internet de verdad, sin trucos.
 				</h2>
-				<p class="text-center yellow">Disponible solo en la Comunidad de Madrid</p>
 			</div>
 			<div class="col-12">
 				<div class="h-30"></div><!-- separador -->
@@ -24,7 +23,7 @@ incluido, permanecia 12 meses.')
 					<span class="small">IVA incluido / permanencia 12 meses</span>
 				</h2>
 				<h2 class="text-center big ral w-600 white">
-					30Mb - <span class="yellow">25€/mes</span> 
+					50Mb - <span class="yellow">25€/mes</span> 
 					<span class="small">IVA incluido / permanencia 12 meses</span>
 				</h2>
 			</div>

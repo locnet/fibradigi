@@ -34,7 +34,7 @@
 				<p class="white lead">En Digi lo tenemos claro: solo pagas por lo que contratas. Nunca te 
 				obligaremos a contratar nada que no necesites. Por esto nuestros clientes nos aman.</p>
 				<p class="white lead">Nuestros paquetes de fibra Digi + movil empiezan desde solo 27€ al mes.
-					Por este dinero te llevas la fibra Digi de 30Mb mas mas una linea de 
+					Por este dinero te llevas la fibra Digi de 50Mb mas mas una linea de 
 					movil que incluye 1Gb de datos sobre 4G al mes con 100 minutos 
 					de llamadas a fijos y moviles de España.
 				</p>
@@ -43,11 +43,15 @@
 					los gigas ademas de una reduccion substancial del precio de la linea movil.
 				</p> 
 			</div>
+
 			<div class="h-30"></div><!-- separador -->
 		</div>
+
 		<!-- componente calculadora -->
 		<app-calculadora
-				contact_url = {{ url('contacto') }}></app-calculadora>
+				contact_url = {{ url('contacto') }}>
+		</app-calculadora>
+		
 	</div>
 </section>
 @endsection

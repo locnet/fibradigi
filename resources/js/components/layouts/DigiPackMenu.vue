@@ -1,5 +1,6 @@
 <template>
 	<div class="row" id="showPacks">
+		<div class="h-30"></div>
 		<div class="col-12">
 			<h2 class="big w-600 blue text-center">Elige un producto de fibra Digi...</h2>
 		</div>

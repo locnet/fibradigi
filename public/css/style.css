@@ -3,7 +3,7 @@ body {
     line-height: 1.4;
     x-overflow: hidden;
     color: #424242;
-    background-color: #ffffff;
+    background-color: #fafafa;
     font-size: 16px;
 }
 
@@ -28,6 +28,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 .small {
     font-size: 1rem;
+}
+.extra-small {
+    font-size: .8rem;
 }
 .ral {
     font-family: "Raleway", sans-serif;
@@ -61,6 +64,12 @@ p.big {
 }
 .yellow {
     color: #fde614;;
+}
+.green {
+    color: #99f308;
+}
+.red {
+    color: #e3342f;
 }
 .lightBlue {
     color: #0395fd;
@@ -193,10 +202,51 @@ label {
 .pointer {
     cursor: pointer;
 }
+
+.modal-button {
+    transition: all 0.5s;
+    position: relative;
+    margin-top: 10px;
+}
+
+.modal-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(255,255,255,0.1);
+    transition: all 0.3s;
+}
+.modal-button:hover::before {
+    opacity: 0 ;
+    transform: scale(0.5,0.5);
+}
+.modal-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.5);
+    transform: scale(1.2,1.2);
+}
+.modal-button:hover::after {
+    opacity: 1;
+    transform: scale(1,1);
+}
 /*------------SEPARATORS------------*/
+
 .h-20,.h-30,.h-40, .h-50, .h-60 {
     width: 100%;
 }
+
 .h-20 {
     min-height: 20px!important;
 }
@@ -212,8 +262,41 @@ label {
 .h-60 {
     min-height: 60px!important;
 }
+.h-100 {
+    min-height: 100px!important;
+}
 
-/************* LAYOUTS ************/
+/************* LAYOUTS & BOXES************/
+.card {
+    border-radius: 0rem;
+}
+.card-body {
+    padding: 0.5rem;
+}
+.card-title {
+    margin-bottom: 0.5rem;
+}
+.selected-card {
+    background-color: #3490dc !important;
+}
+.selected-card .card-body h4.card-title,
+    .selected-card .card-body .card-text {
+    color: #fff;
+}
+.whiteBg {
+    background-color: #fff !important;
+}
+
+.productBox {
+    padding: 15px 30px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
+}
+.fibra500 {
+    margin: 10px;
+    padding: 10px;
+    background-color: red;
+}
 .digipack {
     min-height: 600px;
     background: url('../img/tarifas-fibra-digi-mobil.jpg') no-repeat center left;
@@ -228,6 +311,80 @@ label {
 .settings {
     background: url('../img/configurar-apn-digi-mobil.jpg') no-repeat center top;
 }
+ 
+.modal-dialog  { max-width: 760px; }
+
+/* ---------------------------------------*/
+
+    /* The switch - the box around the slider */
+
+    /* ---------------------------------------*/
+
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+      margin: 0px;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    /* The slider */
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked + .slider {
+      background-color: #03c100;
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
+
 /*--------------------------------------------------|
 |             BREAKPOINTS                           |
 |---------------------------------------------------|*/
@@ -282,9 +439,15 @@ label {
     .settings {
         background: url('../img/configurar-apn-digi-mobil-small.jpg') no-repeat center top;
     }
+
+
 }
 
-@media (max-width: 768px) {}
+@media (min-width: 577px and max-width: 768px){
+    .modal-product-box {
+        margin-top: 10px;
+    }
+}
 
 @media (min-width: 769px) and (max-width: 1024px) {
     .extra-big {
@@ -299,8 +462,26 @@ label {
     .navbar-laravel i.fas {
         font-size: .9em;
     }
+
+    .modal-product-box {
+        margin-top: 10px;
+    }
+    .modal-product-box {
+        margin-top: 10px;
+    }
 }
-    /* Large devices (desktops, 992px and up)*/
-    @media (min-width: 992px) {}
-    /* Extra large devices (large desktops, 1200px and up) */
-    @media (min-width: 1200px) {}
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+
+    .modal-product-box {
+        margin-top: 10px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px !important;
+    }
+}

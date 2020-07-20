@@ -4,7 +4,7 @@
 			<div class="col-md-6 col-xs-12 w-90">
 				<div class="card  text-white navega w-80 text-center">
 					<div class="card-header">
-						<h2 class="w-600">NAVEG@ 2GB</h2>
+						<h2 class="w-600">NAVEG@ 3GB</h2>
 					</div>
 					<div class="card-body">
 						<p class="card-text"><i class="fas fa-check"></i>
@@ -23,7 +23,7 @@
 			<div class="col-md-6 col-xs-12 w-90">
 				<div class="card text-white navega w-80 text-center">
 					<div class="card-header">
-						<h2 class="w-600">NAVEG@ 5GB</h2>
+						<h2 class="w-600">NAVEG@ 6GB</h2>
 					</div>
 					<div class="card-body">
 						<p class="card-text"><i class="fas fa-check"></i>

@@ -5,8 +5,10 @@
 		</div>
 
 		<div class="col-md-6 col-xs-12 pointer">
-			<div class="card text-white bg-primary w-80 text-center" 
+			<div data-toggle="modal" data-target="#exampleModal" 
+				class="card text-white bg-primary w-80 text-center" 
 				@click="setType(30)">
+
 				<div class="card-header">
 					<h2 class="w-600">FIBRA 500Mb 
 							<i class="fas fa-check-circle yellow"
@@ -16,13 +18,16 @@
 					<p class="card-text"><i class="fas fa-euro-sign"></i>
 						30 euros al mes, IVA incluido.</p>
 				</div>
+
 			</div>
 		</div>
-		<div class="h-30 d-block d-sm-none"></div> <!-- separador, solo para moviles -->
+		<div class="h-30 d-block d-md-none d-lg-none d-xl-none"></div> <!-- separador, solo para moviles -->
 
 		<div class="col-md-6 col-xs-12 pointer" >
-			<div class="card text-white bg-primary w-80 text-center" 
-						@click="setType(25)">
+			<div data-toggle="modal" data-target="#exampleModal" 
+				class="card text-white bg-primary w-80 text-center" 
+				@click="setType(25)">
+
 				<div class="card-header">
 					<h2 class="w-600">FIBRA 50Mb
 						<i class="fas fa-check-circle yellow"
@@ -47,11 +52,13 @@
 				<tbody>					
 					<tr class="combo5 white">
 						<td>Combo5</td>
-						<td class="d-none d-sm-table-cell">
+						<td class="d-none d-md-table-cell">
 							100 minutos nacional y internacional, ilimitadas de Digi a Digi
 						</td>
-					    <td class="d-none d-sm-table-cell">3Gb internet velocidad 4G</td>
+					    <td class="d-none d-md-table-cell">3Gb internet velocidad 4G</td>
 						<td>3€ al mes</td>
+
+
 						<td :style="setClassStyle(combo5counter)">
 							<span class="lightBlue">{{ combo5counter }}</span>
 						</td>
@@ -66,10 +73,11 @@
 					</tr>
 					<tr class="combo10 white">
 						<td>Combo10</td>
-						<td class="d-none d-sm-table-cell">
+						<td class="d-none d-md-table-cell">
 							400 minutos nacional y internacional, ilimitadas de Digi a Digi</td>
-					    <td class="d-none d-sm-table-cell">10Gb internet velocidad 4G</td>
+					    <td class="d-none d-md-table-cell">10Gb internet velocidad 4G</td>
 						<td>6€ al mes</td>
+
 						<td :style="setClassStyle(combo10counter)">
 							<span class="lightBlue">{{ combo10counter }}</span>
 						</td>
@@ -84,10 +92,11 @@
 					</tr>
 					<tr class="combo15 white">
 						<td>Combo15</td>
-						<td class="d-none d-sm-table-cell">
+						<td class="d-none d-md-table-cell">
 							800 minutos nacional y internacional, Ilimitadas de Digi a Digi</td>
-					    <td class="d-none d-sm-table-cell">24Gb internet velocidad 4G</td>
+					    <td class="d-none d-md-table-cell">24Gb internet velocidad 4G</td>
 						<td>9€ al mes</td>
+
 						<td :style="setClassStyle(combo15counter)" >
 							<span class="lightBlue">{{ combo15counter }}</span>
 						</td>
@@ -102,10 +111,11 @@
 					</tr>
 					<tr class="combo20 white">
 						<td>Combo30</td>
-						<td class="d-none d-sm-table-cell"> 
+						<td class="d-none d-md-table-cell"> 
 							2000 minutos nacional y internacional, ilimitadas de Digi a Digi</td>
-					    <td class="d-none d-sm-table-cell">60Gb internet velocidad 4G</td>
+					    <td class="d-none d-md-table-cell">60Gb internet velocidad 4G</td>
 						<td>12€ al mes</td>
+
 						<td :style="setClassStyle(combo20counter)">
 							<span class="lightBlue">{{ combo20counter }}</span>
 						</td>
@@ -130,10 +140,11 @@
 				<tbody>					
 					<tr class="mini">
 						<td>Mini</td>
-						<td class="d-none d-sm-table-cell">
+						<td class="d-none d-md-table-cell">
 							100 minutos nacionales, ilimitado de Digi a Digi</td>
-					    <td class="d-none d-sm-table-cell">1Gb internet velocidad 4G</td>
+					    <td class="d-none d-md-table-cell">1Gb internet velocidad 4G</td>
 						<td>2€ al mes</td>
+
 						<td :style="setClassStyle(miniCounter)">
 							<span class="lightBlue">{{ miniCounter }}</span>
 						</td>
@@ -148,9 +159,10 @@
 					</tr>
 					<tr class="ilimitado white">
 						<td>Ilimitado 10GB</td>
-						<td class="d-none d-sm-table-cell">Llamadas ilimitadas nacionales</td>
-					    <td class="d-none d-sm-table-cell">10Gb internet velocidad 4G</td>
+						<td class="d-none d-md-table-cell">Llamadas ilimitadas nacionales</td>
+					    <td class="d-none d-md-table-cell">10Gb internet velocidad 4G</td>
 						<td>6€ al mes</td>
+
 						<td :style="setClassStyle(i10counter)">
 							<span class="lightBlue">{{ i10counter }}</span>
 						</td>
@@ -165,9 +177,10 @@
 					</tr>
 					<tr class="ilimitado white">
 						<td>Ilimitado 12GB</td>
-						<td class="d-none d-sm-table-cell">Llamadas ilimitadas nacionales</td>
-					    <td class="d-none d-sm-table-cell">24Gb internet velocidad 4G</td>
+						<td class="d-none d-md-table-cell">Llamadas ilimitadas nacionales</td>
+					    <td class="d-none d-md-table-cell">24Gb internet velocidad 4G</td>
 						<td>9€ al mes</td>
+
 						<td :style="setClassStyle(i15counter)" >
 							<span class="lightBlue">{{ i15counter }}</span>
 						</td>
@@ -182,9 +195,10 @@
 					</tr>
 					<tr class="ilimitado white">
 						<td>Ilimitado 30GB</td>
-						<td class="d-none d-sm-table-cell">Llamadas ilimitadas nacionales</td>
-					    <td class="d-none d-sm-table-cell">60Gb internet velocidad 4G</td>
+						<td class="d-none d-md-table-cell">Llamadas ilimitadas nacionales</td>
+					    <td class="d-none d-md-table-cell">60Gb internet velocidad 4G</td>
 						<td>12€ al mes</td>
+
 						<td :style="setClassStyle(i20counter)">
 							<span class="lightBlue">{{ i20counter }}</span>
 						</td>
@@ -210,8 +224,8 @@
 				<tbody>					
 					<tr class="navega white">
 						<td>NAVEG@ 6GB</td>
-						<td class="d-none d-sm-table-cell">Llamadas ilimitadas de Digi a Digi</td>
-					    <td class="d-none d-sm-table-cell">6GB internet velocidad 4G</td>
+						<td class="d-none d-md-table-cell">Llamadas ilimitadas de Digi a Digi</td>
+					    <td class="d-none d-md-table-cell">6GB internet velocidad 4G</td>
 						<td>3€ al mes</td>
 						<td :style="setClassStyle(nav5counter)"><span class="lightBlue">{{ nav5counter }}</span></td>
 						<td class="pointer" :style="setClassStyle(nav5counter)" 
@@ -225,8 +239,8 @@
 					</tr>
 					<tr class="navega white">
 						<td>NAVEG@ 12GB</td>
-						<td class="d-none d-sm-table-cell">Llamadas ilimitadas de Digi a Digi</td>
-					    <td class="d-none d-sm-table-cell">12Gb internet velocidad 4G</td>
+						<td class="d-none d-md-table-cell">Llamadas ilimitadas de Digi a Digi</td>
+					    <td class="d-none d-md-table-cell">12Gb internet velocidad 4G</td>
 						<td>6€ al mes</td>
 						<td :style="setClassStyle(nav10counter)">
 								<span class="lightBlue">{{ nav10counter }}</span></td>
@@ -253,21 +267,32 @@
 				<tbody>					
 					<tr class="phone white">
 						<td>FIJO SIN LLAMADAS</td>
-						<td class="d-none d-sm-table-cell">Llamadas a coste por minuto</td>
+						<td class="d-none d-md-table-cell">Llamadas a coste por minuto</td>
 						<td>1€ al mes</td>
 						<td class="bgGrey">
 							Selecciona
 							<input class="" type="radio"  v-model="phone" value=1>  							
 						</td>
 					</tr>
-					<tr class="phone white">
+					<tr class="phone white" v-show="activeType==30">
 						<td>FIJO CON LLAMADAS</td>
-						<td class="d-none d-sm-table-cell">
+						<td class="d-none d-md-table-cell">
 							Llamadas ilimitadas nacionales + 500 minutos internacionales</td>
 						<td>3€ al mes</td>
 						<td class="bgGrey">
 							Selecciona
 							<input class="" type="radio" v-model="phone" value=3>  							
+						</td>
+					</tr>
+
+					<tr class="phone white" v-show="activeType==25">
+						<td>FIJO CON LLAMADAS</td>
+						<td class="d-none d-md-table-cell">
+							Llamadas ilimitadas nacionales + 500 minutos internacionales</td>
+						<td>5€ al mes</td>
+						<td class="bgGrey">
+							Selecciona
+							<input class="" type="radio" v-model="phone" value=5>  							
 						</td>
 					</tr>
 					
@@ -346,10 +371,17 @@
 					<span class="w-600 blue">1 linea fija</span> con llamadas a 
 					coste por minuto - <span class="w-600 blue"> 1€</span>					
 				</li>
+
 				<li class="list-group-item" v-show="phone == 3"> 
 					<span class="w-600 blue">1 linea</span> fija con llamadas ilimitadas a
 					fijos y moviles de España + 500 minutos internacionales
 					- <span class="w-600 blue"> 3€</span>					
+				</li>
+
+				<li class="list-group-item" v-show="phone == 5"> 
+					<span class="w-600 blue">1 linea</span> fija con llamadas ilimitadas a
+					fijos y moviles de España + 500 minutos internacionales
+					- <span class="w-600 blue"> 5€</span>					
 				</li>
 				<li class="list-group-item" v-show="activeType">
 					<span class="big w-600 blue">TOTAL {{ getTotal() }}€</span> IVA incluido /
@@ -373,7 +405,7 @@
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel"></h5>
+							<h5 class="modal-title" id="exampleModalLabel">Velocidad fibra</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -426,7 +458,9 @@ export default {
 		setClassStyle(n) {
 
 			if (this.checkIfVisible(n)) {
+
 				this.color = '#99f308';
+
 			} else {
 				this.color = '#313131';
 			}
@@ -436,7 +470,7 @@ export default {
 		},
 		setType(type) {
 			this.activeType = type;
-			console.log("modalidad fibra seleccionado");
+			console.log("modalidad fibra seleccionado: " + type);
 		},
 
 		checkIfVisible(comboCounter) {

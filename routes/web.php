@@ -43,6 +43,14 @@ Route::get('/configurar-apn-Digi','SettingsController@index')->name('ajustes');
 Route::get('/contacto','Contact\ContactController@create');
 Route::post('/contacto/enviar', 'Contact\ContactController@save');
 
+/**------------------------------------------------------
+
+| CALCULADORA TARIFAS FIBRA 
+
+|
+*/
+
+Route::get('/calculadora', 'CalculadoraController@index');
 
 // for https
 

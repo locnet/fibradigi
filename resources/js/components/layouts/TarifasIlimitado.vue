@@ -23,13 +23,13 @@
 			<div class="col-md-6 col-xs-12 w-90">
 				<div class="card text-white ilimitado w-80 text-center">
 					<div class="card-header">
-						<h2 class="w-600">ILIMITADO 3GB</h2>
+						<h2 class="w-600">ILIMITADO 5GB</h2>
 					</div>
 					<div class="card-body">
 						<p class="card-text"><i class="fas fa-check"></i>
 							10 euros al mes, IVA incluido.</p>
 						<p class="card-text"><i class="fas fa-rocket"></i> 
-							3GB acumulables.</p>
+							5GB acumulables.</p>
 						<p class="card-text"><i class="fas fa-phone"></i>
 							Llamadas ilimitadas a fijos y moviles de España</p>
 						<p class="card-text"><i class="fas fa-comments"></i>
@@ -41,13 +41,13 @@
 			<div class="col-md-6 col-xs-12 w-90">
 				<div class="card text-white ilimitado w-80 text-center">
 					<div class="card-header">
-						<h2 class="w-600">ILIMITADO 6GB</h2>
+						<h2 class="w-600">ILIMITADO 12GB</h2>
 					</div>
 					<div class="card-body">
 						<p class="card-text"><i class="fas fa-check"></i>
 							15 euros al mes, IVA incluido.</p>
 						<p class="card-text"><i class="fas fa-rocket"></i> 
-							6GB acumulables.</p>
+							12GB acumulables.</p>
 						<p class="card-text"><i class="fas fa-phone"></i>
 							Llamadas ilimitadas a fijo y mobiles de España</p>
 						<p class="card-text"><i class="fas fa-comments"></i>
@@ -60,13 +60,13 @@
 			<div class="col-md-6 col-xs-12 w-90">
 				<div class="card text-white ilimitado w-80 text-center">
 					<div class="card-header">
-						<h2 class="w-600">ILIMITADO 20GB</h2>
+						<h2 class="w-600">ILIMITADO 30GB</h2>
 					</div>
 					<div class="card-body">
 						<p class="card-text"><i class="fas fa-check"></i>
 							20 euros al mes, IVA incluido.</p>
 						<p class="card-text"><i class="fas fa-rocket"></i> 
-							20GB acumulables.</p>
+							30GB acumulables.</p>
 						<p class="card-text"><i class="fas fa-phone"></i>
 							Llamadas ilimitadas a fijos y mobiles de España</p>
 						<p class="card-text"><i class="fas fa-comments"></i>

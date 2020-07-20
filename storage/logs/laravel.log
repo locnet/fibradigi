@@ -3440,3 +3440,28 @@ Did you mean one of these?
 #51 /var/www/fibra/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #52 {main}
 "} 
+[2020-06-26 16:26:48] local.ERROR: Command "cache" is not defined.
+
+Did you mean one of these?
+    cache:clear
+    cache:forget
+    cache:table
+    config:cache
+    route:cache
+    view:cache {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"cache\" is not defined.
+
+Did you mean one of these?
+    cache:clear
+    cache:forget
+    cache:table
+    config:cache
+    route:cache
+    view:cache at /var/www/fibra/vendor/symfony/console/Application.php:632)
+[stacktrace]
+#0 /var/www/fibra/vendor/symfony/console/Application.php(226): Symfony\\Component\\Console\\Application->find()
+#1 /var/www/fibra/vendor/symfony/console/Application.php(145): Symfony\\Component\\Console\\Application->doRun()
+#2 /var/www/fibra/vendor/laravel/framework/src/Illuminate/Console/Application.php(89): Symfony\\Component\\Console\\Application->run()
+#3 /var/www/fibra/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(122): Illuminate\\Console\\Application->run()
+#4 /var/www/fibra/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
