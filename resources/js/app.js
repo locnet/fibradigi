@@ -28,8 +28,6 @@ Vue.component('app-calculadora', require('./components/layouts/Calculadora.vue')
 Vue.component('app-calc-container', require('./components/layouts/calculadora/CalcContainer.vue'));
 Vue.component('app-fibra', require('./components/layouts/calculadora/Fibra.vue'));
 Vue.component('app-movil', require('./components/layouts/calculadora/Movil.vue'));
-Vue.component('app-ilimitado', require('./components/layouts/calculadora/Ilimitado.vue'));
-Vue.component('app-combo', require('./components/layouts/calculadora/Combo.vue'));
 Vue.component('app-price-component', require('./components/layouts/calculadora/PriceComponent.vue'));
 
 //digiPack component
@@ -51,8 +49,12 @@ Vue.component('app-modal-tarifas', require('./components/modals/ModalTarifas.vue
 // event bus
 export const eventBus = new Vue();
 
+// import store
+import {store} from './store/store';
+
 
 // start vue
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    store: store
 });

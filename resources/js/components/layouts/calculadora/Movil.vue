@@ -41,7 +41,8 @@
 
 								<div class="col-4">
 									<p class="blue bold align-middle">
-										{{ index.minutes }}<br/>
+										{{ index.minutes }} 
+										{{ index.minutes[0] == 'I' ? '' : 'min' }}<br/>
 										{{ index.gb }}GB
 									</p>
 								</div>
@@ -95,7 +96,9 @@
 
 <script>
 	import { eventBus } from "../../../app";
+
 	import { productMixin } from "../../../productMixin";
+	
 	export default {
 
 		data() {
@@ -202,7 +205,7 @@
 
 			priceCalculator (p) {
 				if (this.internetPrice > 0) {
-					return p - (p * this.discount);
+					return p - (p * 0.4);
 				}
 				return p;
 			}
@@ -229,7 +232,7 @@
 			});
 
 			eventBus.$on('priceWasSetted', (data) => {
-				// data e un array en formato [index, name, precio, minutos, gigas]
+				// data e un array en formato [index, name, precio, minutos, gigas, clase css]
 				var i = data[0];
 				if (i >= 0) {
 					this.mobileColection[i].name = data[1];

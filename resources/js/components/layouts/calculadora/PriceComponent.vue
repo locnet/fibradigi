@@ -56,7 +56,7 @@
 						
 						<p> Movil {{ mobile.name }} <br />
 							<span class="blue extra-small" style="padding-top:0px; margin-top: 0px">
-							{{ mobile.minutes }} min y
+							{{ mobile.minutes[0] == 'I' ? 'llamadas nacionales ilimitadas' : mobile.minutes +' minutos internacionales' }} y
 							{{ checkGb(mobile.gb) }}GB </span>
 						</p>
 						
@@ -179,7 +179,7 @@
 		},
 
 		created() {
-			
+			console.log('stored price:' ,this.$store.storedTotalPrice);
 			eventBus.$on('internetPriceWasChanged', (data) => {
 
 				this.internetPrice = data[0];
